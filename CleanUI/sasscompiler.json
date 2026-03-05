@@ -1,0 +1,11 @@
+{
+  "Source": "",
+  "Target": "wwwroot",
+  "Arguments": "--style=compressed",
+  "Compilations": [
+    { "Source": "scss/base.scss", "Target": "wwwroot/base.css" },
+	{ "Source": "scss/reset.scss", "Target": "wwwroot/reset.css" },
+	{ "Source": "scss/theme.scss", "Target": "wwwroot/theme.css" },
+	{ "Source": "scss/utilities.scss", "Target": "wwwroot/utilities.css" }
+  ]
+}

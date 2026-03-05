@@ -1,0 +1,21 @@
+@page "/icon"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Icon</CleanPageTitle>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Icons";
+
+	public static RenderFragment Icon =>
+		Icons.IconsIcon;
+
+	public static string Href =>
+		"/icon";
+
+}

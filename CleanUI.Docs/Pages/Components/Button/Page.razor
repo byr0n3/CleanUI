@@ -1,0 +1,23 @@
+@page "/button"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Button</CleanPageTitle>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(Loading)" />
+
+@code {
+
+	public static string Label =>
+		"Button";
+
+	public static RenderFragment Icon =>
+		Icons.Pointer;
+
+	public static string Href =>
+		"/button";
+
+}

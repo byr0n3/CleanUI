@@ -1,0 +1,27 @@
+@using Microsoft.AspNetCore.Components.Routing
+
+<nav class="navigation">
+	<ul>
+		@(Navigation.NavItem("/", "Home", Icons.Home))
+	</ul>
+	
+	<hr/>
+
+	<ul>
+		@foreach (var page in Navigation.examplePages)
+		{
+			@(Navigation.NavItem(page.Href, page.Label, page.Icon))
+		}
+	</ul>
+</nav>
+
+@code {
+
+	private static RenderFragment NavItem(string href, string label, RenderFragment icon) =>
+		@<li>
+			<NavLink Match="@(href == "/" ? NavLinkMatch.All : NavLinkMatch.Prefix)" href="@(href)">
+				@(icon) @(label)
+			</NavLink>
+		</li>;
+
+}

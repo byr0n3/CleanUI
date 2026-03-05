@@ -1,0 +1,21 @@
+@page "/alert"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Alert</CleanPageTitle>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Alert";
+
+	public static RenderFragment Icon =>
+		Icons.AlertSquareRounded;
+
+	public static string Href =>
+		"/alert";
+
+}

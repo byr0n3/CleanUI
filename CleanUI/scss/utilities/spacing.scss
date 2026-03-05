@@ -1,0 +1,259 @@
+@use '../constants';
+
+@mixin margin-spacing($prefix: "") {
+	.m-#{$prefix}0 {
+		margin: 0;
+	}
+
+	.mb-#{$prefix}auto {
+		margin-block: auto;
+	}
+
+	.mbs-#{$prefix}auto {
+		margin-block-start: auto;
+	}
+
+	.mbe-#{$prefix}auto {
+		margin-block-end: auto;
+	}
+
+	.mi-#{$prefix}auto {
+		margin-inline: auto;
+	}
+
+	.mis-#{$prefix}auto {
+		margin-inline-start: auto;
+	}
+
+	.mie-#{$prefix}auto {
+		margin-inline-end: auto;
+	}
+
+	.mb-#{$prefix}0 {
+		margin-block: 0;
+	}
+
+	.mbs-#{$prefix}0 {
+		margin-block-start: 0;
+	}
+
+	.mbe-#{$prefix}0 {
+		margin-block-end: 0;
+	}
+
+	.mi-#{$prefix}0 {
+		margin-inline: 0;
+	}
+
+	.mis-#{$prefix}0 {
+		margin-inline-start: 0;
+	}
+
+	.mie-#{$prefix}0 {
+		margin-inline-end: 0;
+	}
+
+	@each $size in constants.$sizes {
+		.m-#{$prefix}#{$size} {
+			margin: var(--spacing-#{$size});
+		}
+
+		.mb-#{$prefix}#{$size} {
+			margin-block: var(--spacing-#{$size});
+		}
+
+		.mbs-#{$prefix}#{$size} {
+			margin-block-start: var(--spacing-#{$size});
+		}
+
+		.mbe-#{$prefix}#{$size} {
+			margin-block-end: var(--spacing-#{$size});
+		}
+
+		.mi-#{$prefix}#{$size} {
+			margin-inline: var(--spacing-#{$size});
+		}
+
+		.mis-#{$prefix}#{$size} {
+			margin-inline-start: var(--spacing-#{$size});
+		}
+
+		.mie-#{$prefix}#{$size} {
+			margin-inline-end: var(--spacing-#{$size});
+		}
+	}
+
+	.mb-#{$prefix}cmp {
+		margin-block: var(--spacing-component-block);
+	}
+
+	.mbs-#{$prefix}cmp {
+		margin-block-start: var(--spacing-component-block);
+	}
+
+	.mbe-#{$prefix}cmp {
+		margin-block-end: var(--spacing-component-block);
+	}
+
+	.mi-#{$prefix}cmp {
+		margin-inline: var(--spacing-component-inline);
+	}
+
+	.mis-#{$prefix}cmp {
+		margin-inline-start: var(--spacing-component-inline);
+	}
+
+	.mie-#{$prefix}cmp {
+		margin-inline-end: var(--spacing-component-inline);
+	}
+
+	.m-#{$prefix}cmp-inner {
+		margin: var(--spacing-component-inner);
+	}
+
+	.mb-#{$prefix}cmp-inner {
+		margin-block: var(--spacing-component-inner);
+	}
+
+	.mbs-#{$prefix}cmp-inner {
+		margin-block-start: var(--spacing-component-inner);
+	}
+
+	.mbe-#{$prefix}cmp-inner {
+		margin-block-end: var(--spacing-component-inner);
+	}
+
+	.mi-#{$prefix}cmp-inner {
+		margin-inline: var(--spacing-component-inner);
+	}
+
+	.mis-#{$prefix}cmp-inner {
+		margin-inline-start: var(--spacing-component-inner);
+	}
+
+	.mie-#{$prefix}cmp-inner {
+		margin-inline-end: var(--spacing-component-inner);
+	}
+}
+
+@mixin padding-spacing($prefix: "") {
+	.p-#{$prefix}0 {
+		padding: 0;
+	}
+
+	.pb-#{$prefix}0 {
+		padding-block: 0;
+	}
+
+	.pbs-#{$prefix}0 {
+		padding-block-start: 0;
+	}
+
+	.pbe-#{$prefix}0 {
+		padding-block-end: 0;
+	}
+
+	.pi-#{$prefix}0 {
+		padding-inline: 0;
+	}
+
+	.pis-#{$prefix}0 {
+		padding-inline-start: 0;
+	}
+
+	.pie-#{$prefix}0 {
+		padding-inline-end: 0;
+	}
+
+	@each $size in constants.$sizes {
+		.p-#{$prefix}#{$size} {
+			padding: var(--spacing-#{$size});
+		}
+
+		.pb-#{$prefix}#{$size} {
+			padding-block: var(--spacing-#{$size});
+		}
+
+		.pbs-#{$prefix}#{$size} {
+			padding-block-start: var(--spacing-#{$size});
+		}
+
+		.pbe-#{$prefix}#{$size} {
+			padding-block-end: var(--spacing-#{$size});
+		}
+
+		.pi-#{$prefix}#{$size} {
+			padding-inline: var(--spacing-#{$size});
+		}
+
+		.pis-#{$prefix}#{$size} {
+			padding-inline-start: var(--spacing-#{$size});
+		}
+
+		.pie-#{$prefix}#{$size} {
+			padding-inline-end: var(--spacing-#{$size});
+		}
+	}
+
+	.pb-#{$prefix}cmp {
+		padding-block: var(--spacing-component-block);
+	}
+
+	.pbs-#{$prefix}cmp {
+		padding-block-start: var(--spacing-component-block);
+	}
+
+	.pbe-#{$prefix}cmp {
+		padding-block-end: var(--spacing-component-block);
+	}
+
+	.pi-#{$prefix}cmp {
+		padding-inline: var(--spacing-component-inline);
+	}
+
+	.pis-#{$prefix}cmp {
+		padding-inline-start: var(--spacing-component-inline);
+	}
+
+	.pie-#{$prefix}cmp {
+		padding-inline-end: var(--spacing-component-inline);
+	}
+
+	.p-#{$prefix}cmp-inner {
+		padding: var(--spacing-component-inner);
+	}
+
+	.pb-#{$prefix}cmp-inner {
+		padding-block: var(--spacing-component-inner);
+	}
+
+	.pbs-#{$prefix}cmp-inner {
+		padding-block-start: var(--spacing-component-inner);
+	}
+
+	.pbe-#{$prefix}cmp-inner {
+		padding-block-end: var(--spacing-component-inner);
+	}
+
+	.pi-#{$prefix}cmp-inner {
+		padding-inline: var(--spacing-component-inner);
+	}
+
+	.pis-#{$prefix}cmp-inner {
+		padding-inline-start: var(--spacing-component-inner);
+	}
+
+	.pie-#{$prefix}cmp-inner {
+		padding-inline-end: var(--spacing-component-inner);
+	}
+}
+
+@include margin-spacing();
+@include padding-spacing();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include margin-spacing("#{$size}-");
+		@include padding-spacing("#{$size}-");
+	}
+}

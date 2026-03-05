@@ -1,0 +1,27 @@
+@use '../constants';
+
+@mixin size($unit, $prefix: "") {
+	.#{$unit}-size-#{$prefix}100 {
+		#{$unit}-size: 100%;
+	}
+
+	.#{$unit}-size-#{$prefix}50 {
+		#{$unit}-size: 50%;
+	}
+
+	@each $size, $value in constants.$screen-sizes {
+		.#{$unit}-size-#{$prefix}#{$size} {
+			#{$unit}-size: $value;
+		}
+	}
+}
+
+@include size('block');
+@include size('inline');
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include size('block', "#{$size}-");
+		@include size('block', "#{$size}-");
+	}
+}

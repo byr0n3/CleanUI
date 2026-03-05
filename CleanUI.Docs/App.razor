@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<base href="/" />
+		<ResourcePreloader />
+		<link rel="stylesheet" href="@(Assets["css/app.css"])" />
+		<link rel="stylesheet" href="@(Assets["CleanUI.Docs.styles.css"])" />
+		<link rel="stylesheet" href="@(Assets["_content/CleanUI/theme.css"])"/>
+		<link rel="stylesheet" href="@(Assets["_content/CleanUI/base.css"])"/>
+		<link rel="stylesheet" href="@(Assets["_content/CleanUI/reset.css"])"/>
+		<link rel="stylesheet" href="@(Assets["_content/CleanUI/utilities.css"])"/>
+		<link rel="stylesheet" href="@(Assets["css/github-dark.min.css"])" />
+		<ImportMap />
+		<HeadOutlet />
+	</head>
+
+	<body>
+		<Routes />
+		<script src="@(Assets["_framework/blazor.web.js"])"></script>
+		<script src="@(Assets["js/highlight.min.js"])"></script>
+		<script src="@(Assets["js/csharp.min.js"])"></script>
+		<script src="@(Assets["js/xml.min.js"])"></script>
+		<script src="@(Assets["js/css.min.js"])"></script>
+		<script src="@(Assets["js/json.min.js"])"></script>
+		<script src="@(Assets["js/javascript.min.js"])"></script>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+.btn {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: var(--spacing-sm) var(--spacing-md);
+	font-size: 1em;
+	font-weight: 500;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: var(--animation);
+	transition-property: border-color;
+}
+
+.btn:hover {
+	border-color: var(--primary-fg);
+}
+
+.btn:focus,
+.btn:focus-visible {
+	outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+	.btn {
+		background-color: #f9f9f9;
+	}
+}

@@ -1,0 +1,13 @@
+@rendermode RenderModes.Interactive
+
+<Button @onclick="@(Loading.OnClickAsync)">
+	Click me!
+</Button>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>When the <code>@@onclick</code> parameter of a button returns a task, the button will automatically show its
+			loading state while awaiting the returned task.</p>;
+
+}

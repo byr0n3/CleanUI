@@ -1,0 +1,13 @@
+<Solution>
+	<Folder Name="/Solution Items/">
+		<File Path=".gitignore"/>
+		<File Path="Directory.Build.props"/>
+		<File Path="NuGet.Config"/>
+		<File Path="README.md"/>
+	</Folder>
+	<Folder Name="/Source Generators/">
+		<Project Path="CleanUI.SourceGenerator.Icons/CleanUI.SourceGenerator.Icons.csproj"/>
+	</Folder>
+	<Project Path="CleanUI/CleanUI.csproj"/>
+	<Project Path="CleanUI.Docs/CleanUI.Docs.csproj"/>
+</Solution>

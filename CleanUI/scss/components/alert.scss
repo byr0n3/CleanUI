@@ -1,0 +1,31 @@
+.alert {
+	--fg: var(--body-fg);
+	--bg: var(--body-bg);
+
+	color: var(--fg);
+	background-color: var(--bg);
+
+	padding: var(--spacing-sm) var(--spacing-md);
+
+	border-radius: var(--border-radius);
+}
+
+.alert-info {
+	--fg: var(--info-fg);
+	--bg: var(--info-bg);
+}
+
+.alert-success {
+	--fg: var(--success-fg);
+	--bg: var(--success-bg);
+}
+
+.alert-warning {
+	--fg: var(--warning-fg);
+	--bg: var(--warning-bg);
+}
+
+.alert-danger {
+	--fg: var(--danger-fg);
+	--bg: var(--danger-bg);
+}

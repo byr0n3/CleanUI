@@ -1,0 +1,7 @@
+@use '../constants';
+
+@each $size, $value in constants.$screen-sizes {
+	.container-#{$size} {
+		max-width: $value;
+	}
+}

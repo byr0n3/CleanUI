@@ -1,0 +1,31 @@
+@use '../constants';
+
+@mixin display($prefix: "") {
+	.d-#{$prefix}none {
+		display: none;
+	}
+
+	.d-#{$prefix}block {
+		display: block;
+	}
+
+	.d-#{$prefix}inline-block {
+		display: inline-block;
+	}
+
+	.d-#{$prefix}flex {
+		display: flex;
+	}
+
+	.d-#{$prefix}grid {
+		display: grid;
+	}
+}
+
+@include display();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include display("#{$size}-");
+	}
+}

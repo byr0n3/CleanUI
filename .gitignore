@@ -1,0 +1,13 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+.DS_Store
+
+# User-specific settings
+*.DotSettings.user
+
+# Compiled CleanUI styling files
+CleanUI/wwwroot/*.css
+CleanUI/wwwroot/*.css.map

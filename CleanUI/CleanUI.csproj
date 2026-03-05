@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../CleanUI.SourceGenerator.Icons/CleanUI.SourceGenerator.Icons.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.SassCompiler" Version="1.97.1"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.3"/>
+
+		<PackageReference Include="Elegance.Extensions" Version="$(EleganceVersion)"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="wwwroot/icons.svg"/>
+	</ItemGroup>
+
+</Project>
