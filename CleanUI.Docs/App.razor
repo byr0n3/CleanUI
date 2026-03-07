@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using CleanUI.Docs.Extensions
+@using CleanUI.Docs.Models
+@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en" data-theme="@(HttpContext.RequestTheme.GetValue())">
 
 	<head>
 		<meta charset="utf-8" />
@@ -17,15 +21,36 @@
 		<HeadOutlet />
 	</head>
 
-	<body>
+	<body class="d-flex">
 		<Routes />
 		<script src="@(Assets["_framework/blazor.web.js"])"></script>
+		
+		<script src="@(Assets["js/theme.js"])"></script>
+		
 		<script src="@(Assets["js/highlight.min.js"])"></script>
 		<script src="@(Assets["js/csharp.min.js"])"></script>
 		<script src="@(Assets["js/xml.min.js"])"></script>
 		<script src="@(Assets["js/css.min.js"])"></script>
 		<script src="@(Assets["js/json.min.js"])"></script>
 		<script src="@(Assets["js/javascript.min.js"])"></script>
+		<script src="@(Assets["js/cshtml-razor.min.js"])"></script>
+		<script>
+			// Highlight all code examples after the page has loaded.
+			document.addEventListener('DOMContentLoaded', function () {
+				hljs.highlightAll();
+
+				// Highlight all code examples when Blazor triggers enhanced navigation.
+				Blazor.addEventListener('enhancedload', function () {
+					hljs.highlightAll();
+				});
+			});
+		</script>
 	</body>
 
 </html>
+
+@code {
+
+	[CascadingParameter] public required HttpContext HttpContext { get; init; }
+
+}

@@ -1,16 +1,16 @@
 @use '../constants';
 
 @mixin size($unit, $prefix: "") {
-	.#{$unit}-size-#{$prefix}100 {
+	.#{$unit}-#{$prefix}100 {
 		#{$unit}-size: 100%;
 	}
 
-	.#{$unit}-size-#{$prefix}50 {
+	.#{$unit}-#{$prefix}50 {
 		#{$unit}-size: 50%;
 	}
 
 	@each $size, $value in constants.$screen-sizes {
-		.#{$unit}-size-#{$prefix}#{$size} {
+		.#{$unit}-#{$prefix}#{$size} {
 			#{$unit}-size: $value;
 		}
 	}

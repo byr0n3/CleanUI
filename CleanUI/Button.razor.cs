@@ -7,6 +7,10 @@ namespace CleanUI
 {
 	public sealed partial class Button : CleanComponentBase
 	{
+		[Parameter] public ButtonType Type { get; set; }
+
+		[Parameter] public bool Icon { get; set; }
+
 		[Parameter] public bool Loading { get; set; }
 
 		[Parameter] public RenderFragment? ChildContent { get; set; }
@@ -19,6 +23,17 @@ namespace CleanUI
 
 		private EventCallback<MouseEventArgs> onClickCallback;
 
+		private string TypeClass =>
+			(this.Type) switch
+			{
+				ButtonType.Primary   => "btn-primary",
+				ButtonType.Secondary => "btn-secondary",
+				ButtonType.Danger    => "btn-danger",
+				ButtonType.Link      => "btn-link",
+				_                    => string.Empty,
+			};
+
+		/// <inheritdoc/>
 		protected override void OnParametersSet() =>
 			this.OverrideOnClickCallback();
 
@@ -51,5 +66,14 @@ namespace CleanUI
 
 			this.Loading = false;
 		}
+	}
+
+	public enum ButtonType
+	{
+		Default,
+		Primary,
+		Secondary,
+		Danger,
+		Link,
 	}
 }

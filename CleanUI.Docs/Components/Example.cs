@@ -60,23 +60,9 @@ namespace CleanUI.Docs.Components
 				builder.OpenElement(1, "code");
 				{
 					builder.AddAttribute(2, nameof(id), id);
-					builder.AddAttribute(3, "class", "hljs language-xml");
-					builder.AddAttribute(4, "data-highlighted", "yes");
-					builder.AddContent(5, TComponent.Code);
+					builder.AddContent(3, TComponent.Code);
 				}
 				builder.CloseElement();
-			}
-			builder.CloseElement();
-
-			builder.OpenElement(6, "script");
-			{
-				// language=javascript
-				builder.AddMarkupContent(7, $$"""
-											  document.addEventListener("DOMContentLoaded", () => {
-											    const element = document.getElementById('{{id}}');
-											  	element.innerHTML = hljs.highlight(`{{TComponent.Code}}`, {language: 'xml'}).value;
-											  });
-											  """);
 			}
 			builder.CloseElement();
 		}

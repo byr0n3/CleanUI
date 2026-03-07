@@ -1,0 +1,69 @@
+@use '../constants';
+
+@mixin inset($prefix: "") {
+	.inset-#{$prefix}0 {
+		inset: 0;
+	}
+
+	.inset-#{$prefix}b-0 {
+		inset-block: 0;
+	}
+
+	.inset-#{$prefix}bs-0 {
+		inset-block-start: 0;
+	}
+
+	.inset-#{$prefix}be-0 {
+		inset-block-end: 0;
+	}
+
+	.inset-#{$prefix}i-0 {
+		inset-inline: 0;
+	}
+
+	.inset-#{$prefix}is-0 {
+		inset-inline-start: 0;
+	}
+
+	.inset-#{$prefix}ie-0 {
+		inset-inline-end: 0;
+	}
+
+	@each $size in constants.$sizes {
+		.inset-#{$prefix}#{$size} {
+			inset: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}b-#{$size} {
+			inset-block: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}bs-#{$size} {
+			inset-block-start: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}be-#{$size} {
+			inset-block-end: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}i-#{$size} {
+			inset-inline: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}is-#{$size} {
+			inset-inline-start: var(--spacing-#{$size});
+		}
+
+		.inset-#{$prefix}ie-#{$size} {
+			inset-inline-end: var(--spacing-#{$size});
+		}
+	}
+}
+
+@include inset();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include inset("#{$size}-");
+	}
+}

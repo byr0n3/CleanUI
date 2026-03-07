@@ -1,0 +1,55 @@
+@use '../constants';
+
+@mixin font-size($prefix: "") {
+	.fs-#{$prefix}sm {
+		font-size: var(--font-size-sm);
+	}
+
+	.fs-#{$prefix}md {
+		font-size: var(--font-size-md);
+	}
+
+	.fs-#{$prefix}lg {
+		font-size: var(--font-size-lg);
+	}
+
+	.fs-#{$prefix}xl {
+		font-size: var(--font-size-xl);
+	}
+
+	.fs-#{$prefix}h1 {
+		font-size: var(--font-size-h1);
+	}
+
+	.fs-#{$prefix}h2 {
+		font-size: var(--font-size-h2);
+	}
+
+	.fs-#{$prefix}h3 {
+		font-size: var(--font-size-h3);
+	}
+
+	.fs-#{$prefix}h4 {
+		font-size: var(--font-size-h4);
+	}
+
+	.fs-#{$prefix}h5 {
+		font-size: var(--font-size-h5);
+	}
+
+	.fs-#{$prefix}h6 {
+		font-size: var(--font-size-h6);
+	}
+
+	.lh-#{$prefix}1 {
+		line-height: 1;
+	}
+}
+
+@include font-size();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include font-size("#{$size}-");
+	}
+}

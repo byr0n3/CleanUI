@@ -201,7 +201,7 @@ hr {
 	border-block-start: var(--border-width) solid var(--border-fg-split);
 	border-block-end: 0;
 	border-inline: 0;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	overflow: hidden;
 }
 
@@ -268,7 +268,7 @@ fieldset {
 	padding: var(--spacing-component-block);
 	margin-inline: 0;
 	border: var(--border-width-sm) solid var(--border-fg);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 }
 
 fieldset legend {

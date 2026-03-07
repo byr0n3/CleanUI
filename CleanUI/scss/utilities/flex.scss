@@ -1,39 +1,39 @@
 @use '../constants';
 
 @mixin flex($prefix: "") {
-	.flex-#{$prefix}justify-start {
+	.justify-content-#{$prefix}start {
 		justify-content: flex-start;
 	}
 
-	.flex-#{$prefix}justify-end {
+	.justify-content-#{$prefix}end {
 		justify-content: flex-end;
 	}
 
-	.flex-#{$prefix}justify-center {
+	.justify-content-#{$prefix}center {
 		justify-content: center;
 	}
 
-	.flex-#{$prefix}justify-between {
+	.justify-content-#{$prefix}between {
 		justify-content: space-between;
 	}
 
-	.flex-#{$prefix}justify-around {
+	.justify-content-#{$prefix}around {
 		justify-content: space-around;
 	}
 
-	.flex-#{$prefix}justify-evenly {
+	.justify-content-#{$prefix}evenly {
 		justify-content: space-evenly;
 	}
 
-	.flex-#{$prefix}align-start {
+	.align-items-#{$prefix}start {
 		align-items: flex-start;
 	}
 
-	.flex-#{$prefix}align-end {
+	.align-items-#{$prefix}end {
 		align-items: flex-end;
 	}
 
-	.flex-#{$prefix}align-center {
+	.align-items-#{$prefix}center {
 		align-items: center;
 	}
 

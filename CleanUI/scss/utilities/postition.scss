@@ -1,0 +1,27 @@
+@use '../constants';
+
+@mixin position($prefix: "") {
+	.p-#{$prefix}relative {
+		position: relative;
+	}
+
+	.p-#{$prefix}absolute {
+		position: absolute;
+	}
+
+	.p-#{$prefix}fixed {
+		position: fixed;
+	}
+
+	.p-#{$prefix}sticky {
+		position: sticky;
+	}
+}
+
+@include position();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include position("#{$size}-");
+	}
+}

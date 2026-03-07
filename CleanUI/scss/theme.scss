@@ -1,8 +1,14 @@
 :root,
 html[data-theme=dark] {
-	--primary-fg: hsl(240, 100%, 70%);
+	--primary-fg: hsl(240, 100%, 60%);
 	--primary-fg-hover: hsl(240, 100%, 65%);
-	--primary-fg-active: hsl(240, 100%, 60%);
+	--primary-fg-active: hsl(240, 100%, 70%);
+	--primary-contrast: hsl(0, 0%, 95%);
+
+	--secondary-fg: hsl(230, 80%, 60%);
+	--secondary-fg-hover: hsl(230, 80%, 65%);
+	--secondary-fg-active: hsl(230, 80%, 70%);
+	--secondary-contrast: hsl(0, 0%, 95%);
 
 	--info-fg: var(--body-fg);
 	--info-bg: hsl(200, 80%, 30%);
@@ -12,14 +18,22 @@ html[data-theme=dark] {
 	--warning-bg: hsl(50, 95%, 25%);
 	--danger-fg: var(--body-fg);
 	--danger-bg: hsl(0, 95%, 40%);
+	--danger-bg-hover: hsl(0, 95%, 45%);
 
-	--disabled-bg: hsl(210, 10%, 70%);
+	--disabled-fg: var(--body-fg);
+	--disabled-bg: hsl(0, 0%, 50%);
 
-	--body-fg: #f8f9fa;
-	--body-fg-secondary: #dee2e6;
-	--body-bg: #212529;
-	--body-bg-secondary: #343a40;
-	--body-bg-tertiary: #495057;
+	--body-fg: hsl(0, 0%, 95%);
+	--body-fg-secondary: hsl(0, 0%, 90%);
+	--body-bg: hsl(0, 0%, 10%);
+	--body-bg-secondary: hsl(0, 0%, 15%);
+	--body-bg-tertiary: hsl(0, 0%, 20%);
+
+	--btn-fg: var(--body-fg);
+	--btn-fg-disabled: var(--disabled-bg);
+	--btn-bg: hsl(0, 0%, 30%);
+	--btn-bg-hover: hsl(0, 0%, 25%);
+	--btn-bg-disabled: var(--disabled-bg);
 
 	--font-feature: "tnum", "ss03";
 
@@ -55,18 +69,22 @@ html[data-theme=dark] {
 	--spacing-component-inline: var(--spacing-md);
 	--spacing-component-inner: 0.375em;
 
-	--border-fg: #aaa;
-	--border-fg-hover: #999;
-	--border-fg-split: #ddd;
-	--border-fg-disabled: #aaa;
+	--border-fg: hsl(0, 0%, 40%);
+	--border-fg-hover: hsl(0, 0%, 50%);
+	--border-fg-split: hsl(0, 0%, 25%);
+	--border-fg-disabled: hsl(0, 0%, 30%);
 	--border-width-sm: max(1px, 0.0625em);
 	--border-width: max(2px, 0.125em);
 
-	--border-radius-small: 0.25em;
-	--border-radius: 0.5em;
-	--border-radius-large: 0.75em;
+	--border-radius-sm: 0.25em;
+	--border-radius-md: 0.5em;
+	--border-radius-lg: 0.75em;
 	--border-radius-pill: 2.5em;
 	--border-radius-circle: 100%;
+
+	--shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	--shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	--shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 
 	--animation-curve: cubic-bezier(0.33, 1, 0.66, 1);
 	--animation-duration-fast: 150ms;
@@ -82,6 +100,23 @@ html[data-theme=light] {
 	--warning-bg: hsl(50, 100%, 60%);
 	--danger-bg: hsl(0, 100%, 70%);
 
-	--body-fg: #212529;
-	--body-bg: #f1f3f5;
+	--disabled-fg: var(--body-bg);
+
+	--body-fg: hsl(0, 0%, 10%);
+	--body-fg-secondary: hsl(0, 0%, 20%);
+	--body-bg: hsl(0, 0%, 95%);
+	--body-bg-secondary: hsl(0, 0%, 85%);
+	--body-bg-tertiary: hsl(0, 0%, 75%);
+
+	--btn-fg: var(--body-bg);
+	--btn-fg-disabled: var(--disabled-bg);
+	--btn-bg: hsl(0, 0%, 10%);
+	--btn-bg-hover: hsl(0, 0%, 20%);
+	--btn-bg-active: hsl(0, 0%, 25%);
+	--btn-bg-disabled: var(--disabled-bg);
+
+	--border-fg: hsl(0, 0%, 65%);
+	--border-fg-hover: hsl(0, 0%, 60%);
+	--border-fg-split: hsl(0, 0%, 85%);
+	--border-fg-disabled: hsl(0, 0%, 65%);
 }

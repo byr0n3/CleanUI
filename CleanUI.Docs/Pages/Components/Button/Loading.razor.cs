@@ -13,6 +13,15 @@ namespace CleanUI.Docs.Pages.Components.Button
 			<Button @onclick="@(OnClickAsync)">
 				Click me!
 			</Button>
+			
+			<Button Loading>
+				Loading…
+			</Button>
+
+			@code {
+				private static Task OnClickAsync() =>
+					Task.Delay(TimeSpan.FromSeconds(1));
+			}
 			""";
 
 		private static Task OnClickAsync() =>

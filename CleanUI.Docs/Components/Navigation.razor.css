@@ -1,0 +1,20 @@
+::deep .nav-item {
+	padding-block: var(--spacing-component-inner);
+	padding-inline: var(--spacing-component-block);
+
+	color: inherit;
+	text-decoration: none;
+
+	& .icon {
+		color: var(--primary-fg);
+	}
+}
+
+::deep .nav-item.active {
+	background-color: var(--body-bg-tertiary);
+	text-decoration: underline;
+	
+	&:hover {
+		color: inherit;
+	}
+}

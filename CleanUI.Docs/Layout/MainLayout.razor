@@ -1,12 +1,16 @@
 ﻿@using CleanUI.Docs.Components
 @inherits LayoutComponentBase
 
-<div class="d-flex flex-row flex-nowrap flex-align-start">
+<div class="p-relative flex-1 d-flex flex-row flex-nowrap flex-align-start">
 	<aside class="sidebar">
 		<Navigation />
 	</aside>
 
-	<main class="flex-1">
+	<main class="flex-1 p-md">
 		@(Body)
 	</main>
+
+	<div class="p-fixed inset-be-md inset-ie-md">
+		<SwitchThemeButton />
+	</div>
 </div>

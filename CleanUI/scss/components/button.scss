@@ -1,26 +1,72 @@
+@mixin btn-type($fg, $bg, $hover) {
+	color: $fg;
+	background-color: $bg;
+
+	&:hover {
+		background-color: $hover;
+	}
+}
+
 .btn {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: var(--spacing-sm) var(--spacing-md);
-	font-size: 1em;
-	font-weight: 500;
-	background-color: #1a1a1a;
 	cursor: pointer;
+
+	color: var(--btn-fg);
+	background-color: var(--btn-bg);
+
+	padding: var(--spacing-component-block) var(--spacing-component-inline);
+
+	border: var(--border-width-sm) solid transparent;
+	border-radius: var(--border-radius-md);
+
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-normal);
+
+	transform-origin: center;
+
 	transition: var(--animation);
-	transition-property: border-color;
-}
+	transition-property: color, background-color, border-color, transform;
 
-.btn:hover {
-	border-color: var(--primary-fg);
-}
+	@include btn-type(var(--btn-fg), var(--btn-bg), var(--btn-bg-hover));
 
-.btn:focus,
-.btn:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-}
+	&:not(:disabled):active {
+		transform: scale(0.95);
+	}
 
-@media (prefers-color-scheme: light) {
-	.btn {
-		background-color: #f9f9f9;
+	&:disabled {
+		color: var(--disabled-fg);
+		background-color: var(--disabled-bg);
+	}
+
+	&.btn-primary {
+		@include btn-type(var(--primary-contrast), var(--primary-fg), var(--primary-fg-hover));
+	}
+
+	&.btn-secondary {
+		@include btn-type(var(--secondary-contrast), var(--secondary-fg), var(--secondary-fg-hover));
+	}
+
+	&.btn-danger {
+		@include btn-type(var(--danger-fg), var(--danger-bg), var(--danger-bg-hover));
+	}
+
+	&.btn-link {
+		color: var(--primary-fg);
+		background-color: transparent;
+
+		text-decoration: underline;
+
+		&:hover {
+			color: var(--primary-fg-hover)
+		}
+	}
+
+	&.btn-icon {
+		padding: var(--spacing-component-block);
+		line-height: 0;
+
+		& .icon {
+			// This needs to be exactly `1.5em` to make the button the same height as the other buttons.
+			font-size: 1.5em;
+		}
 	}
 }
