@@ -12,19 +12,19 @@ namespace CleanUI.Docs.Pages.Components.Button
 				Default
 			</Button>
 
-			<Button Type="@(ButtonType.Primary)">
+			<Button ButtonType="@(ButtonType.Primary)">
 				Primary
 			</Button>
 
-			<Button Type="@(ButtonType.Secondary)">
+			<Button ButtonType="@(ButtonType.Secondary)">
 				Secondary
 			</Button>
 
-			<Button Type="@(ButtonType.Danger)">
+			<Button ButtonType="@(ButtonType.Danger)">
 				Danger
 			</Button>
 
-			<Button Type="@(ButtonType.Link)">
+			<Button ButtonType="@(ButtonType.Link)">
 				Link
 			</Button>
 			""";

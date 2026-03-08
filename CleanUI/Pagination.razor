@@ -1,0 +1,78 @@
+@using Elegance.Extensions
+
+<nav @attributes="@(AdditionalParameters)" aria-label="@(Label)">
+	<ul class="pagination">
+		<li class="page-item">
+			@(Link(Page - 1, PreviousPageContent))
+		</li>
+		@foreach (var page in GetPages())
+		{
+			<li class="page-item">
+				@(Link(page))
+			</li>
+		}
+		<li class="page-item">
+			@(Link(Page + 1, NextPageContent))
+		</li>
+	</ul>
+</nav>
+
+@code {
+
+	/// <summary>
+	/// Creates an element that represents the option to navigate to a given <paramref name="page"/>.
+	/// </summary>
+	/// <param name="page">The page the element should represent.</param>
+	/// <param name="content">Optionally, overrides the content of the element.</param>
+	/// <returns>The created element.</returns>
+	/// <remarks>
+	/// <p>If this components <see cref="RenderMode"/> is <c>Interactive</c>, a button element gets rendered.</p>
+	/// <p>If this components <see cref="RenderMode"/> is NOT <c>Interactive</c>, an anchor element gets rendered.</p>
+	/// </remarks>
+	private RenderFragment Link(int page, RenderFragment? content = null) =>
+		(builder) =>
+		{
+			if (page == -1)
+			{
+				builder.OpenElement(0, "span");
+				{
+					builder.AddAttribute(1, "class", "page-link btn btn-disabled");
+					builder.AddContent(2, "…");
+				}
+				builder.CloseElement();
+
+				return;
+			}
+
+			content ??= RenderFragment.FromString(page.Str());
+
+			var active = Page == page;
+			var isInteractive = RendererInfo.IsInteractive;
+
+			builder.OpenElement(0, isInteractive ? "button" : "a");
+			{
+				if (!isInteractive)
+				{
+					builder.AddAttribute(1, "href", GetPageHref(page));
+
+					if (active)
+					{
+						builder.AddAttribute(2, "active", "page");
+					}
+				}
+
+				builder.AddAttribute(3, "class", $"page-link btn {(active ? "btn-primary" : "")}");
+
+				if (isInteractive)
+				{
+					var onClick = EventCallback.Factory.Create<MouseEventArgs>(this, () => PageChanged.InvokeAsync(page));
+
+					builder.AddAttribute(4, "onclick", onClick);
+				}
+
+				builder.AddContent(5, content);
+			}
+			builder.CloseElement();
+		};
+
+}

@@ -1,0 +1,30 @@
+<Alert Type="@(AlertType.Info)">
+	Hello world!
+</Alert>
+
+<Alert Type="@(AlertType.Success)">
+	Hello world!
+</Alert>
+
+<Alert Type="@(AlertType.Warning)">
+	Hello world!
+</Alert>
+
+<Alert Type="@(AlertType.Danger)">
+	Hello world!
+</Alert>
+
+<Alert Type="@(AlertType.Primary)">
+	Hello world!
+</Alert>
+
+<Alert Type="@(AlertType.Secondary)">
+	Hello world!
+</Alert>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>The default type is <code>AlertType.Info</code>.</p>;
+
+}

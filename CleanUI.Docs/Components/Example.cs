@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using CleanUI.Docs.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
@@ -8,11 +9,16 @@ namespace CleanUI.Docs.Components
 	public sealed class Example<TComponent> : ComponentBase
 		where TComponent : ComponentBase, IComponentExample
 	{
+		private readonly NavigationManager navigation;
+
+		public Example(NavigationManager navigation) =>
+			this.navigation = navigation;
+
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenElement(0, "div");
 			{
-				Example<TComponent>.AddHeading(builder);
+				this.AddHeading(builder);
 
 				if (TComponent.Description is not null)
 				{
@@ -26,13 +32,25 @@ namespace CleanUI.Docs.Components
 			builder.CloseElement();
 		}
 
-		private static void AddHeading(RenderTreeBuilder builder)
+		private void AddHeading(RenderTreeBuilder builder)
 		{
-			var name = typeof(TComponent).Name;
+			var name = Example<TComponent>.NameToTitleCase();
+			var id = Example<TComponent>.NameToSnakeCase();
 
 			builder.OpenElement(0, "h2");
 			{
-				builder.AddContent(1, name);
+				builder.AddAttribute(1, "id", id);
+				builder.AddContent(2, (RenderFragment)((anchorBuilder) =>
+				{
+					anchorBuilder.OpenElement(0, "a");
+					{
+						builder.AddAttribute(1, "href", $"{this.navigation.Uri}#{id}");
+						builder.AddAttribute(2, "class", "fs-sm");
+						builder.AddContent(3, Icons.Hash);
+					}
+					anchorBuilder.CloseElement();
+				}));
+				builder.AddContent(3, name);
 			}
 			builder.CloseElement();
 		}
@@ -53,18 +71,56 @@ namespace CleanUI.Docs.Components
 
 		private static void AddCode(RenderTreeBuilder builder)
 		{
-			var id = Guid.NewGuid().ToString();
+			if (TComponent.Code is null)
+			{
+				return;
+			}
 
 			builder.OpenElement(0, "pre");
 			{
 				builder.OpenElement(1, "code");
 				{
-					builder.AddAttribute(2, nameof(id), id);
-					builder.AddContent(3, TComponent.Code);
+					builder.AddContent(2, TComponent.Code);
 				}
 				builder.CloseElement();
 			}
 			builder.CloseElement();
+		}
+
+		private static string NameToTitleCase()
+		{
+			var span = typeof(TComponent).Name.AsSpan();
+			var builder = new StringBuilder();
+
+			foreach (var @char in span)
+			{
+				if (builder.Length != 0 && char.IsUpper(@char))
+				{
+					builder.Append(' ');
+				}
+
+				builder.Append(@char);
+			}
+
+			return builder.ToString();
+		}
+
+		private static string NameToSnakeCase()
+		{
+			var span = typeof(TComponent).Name.AsSpan();
+			var builder = new StringBuilder();
+
+			foreach (var @char in span)
+			{
+				if (builder.Length != 0 && char.IsUpper(@char))
+				{
+					builder.Append('-');
+				}
+
+				builder.Append(char.ToLowerInvariant(@char));
+			}
+
+			return builder.ToString();
 		}
 	}
 }

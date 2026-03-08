@@ -2,7 +2,7 @@
 
 <button @attributes="@(AdditionalParameters)"
         type="@(AdditionalParameters?.GetString("type") ?? "button")"
-        class="btn @(TypeClass) @(Icon ? "btn-icon" : "") @(AdditionalParameters.GetString("class") ?? "")"
+        class="btn @(TypeClass) @(SizeClass) @(IconOnly ? "btn-icon" : "") @(AdditionalParameters.GetString("class") ?? "")"
         disabled="@(AdditionalParameters.GetBoolean("disabled") || Loading)"
         aria-busy="@(AdditionalParameters.GetString("aria-busy") ?? Loading.Str())">
 	@if (Loading)

@@ -1,0 +1,19 @@
+@rendermode RenderModes.Interactive
+
+<Pagination @bind-Page="@(page)"
+            Label="Pagination with interactive server rendering"
+            PerPage="@(10)"
+            TotalCount="@(50)" />
+
+@code {
+
+	public static RenderFragment Description =>
+		@<div>
+			<p>When the <code>@("<Pagination />")</code> component gets rendered in an <code>Interactive</code>
+				rendermode, it WON'T automatically update the `Page` query parameter.</p>
+			<p>You will have to handle this yourself, as shown in the example.</p>
+		</div>;
+
+	private int page;
+
+}

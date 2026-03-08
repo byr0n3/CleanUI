@@ -1,20 +1,10 @@
 @use '../constants';
 
 @mixin font-size($prefix: "") {
-	.fs-#{$prefix}sm {
-		font-size: var(--font-size-sm);
-	}
-
-	.fs-#{$prefix}md {
-		font-size: var(--font-size-md);
-	}
-
-	.fs-#{$prefix}lg {
-		font-size: var(--font-size-lg);
-	}
-
-	.fs-#{$prefix}xl {
-		font-size: var(--font-size-xl);
+	@each $size in constants.$sizes {
+		.fs-#{$prefix}#{$size} {
+			font-size: var(--font-size-#{$size});
+		}
 	}
 
 	.fs-#{$prefix}h1 {

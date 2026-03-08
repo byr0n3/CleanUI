@@ -14,16 +14,27 @@ namespace CleanUI.Docs.Components
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenComponent<SectionContent>(0);
-			builder.AddComponentParameter(1, nameof(SectionContent.SectionId), CleanPageTitle.GetTitleSectionId(null));
-			builder.AddComponentParameter(2, nameof(SectionContent.ChildContent), (RenderFragment)this.BuildTitleRenderTree);
+			{
+				builder.AddComponentParameter(1, nameof(SectionContent.SectionId), CleanPageTitle.GetTitleSectionId(null));
+				builder.AddComponentParameter(2, nameof(SectionContent.ChildContent), (RenderFragment)this.BuildTitleRenderTree);
+			}
 			builder.CloseComponent();
 		}
 
 		private void BuildTitleRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenElement(0, "title");
-			builder.AddContent(1, this.ChildContent);
-			builder.AddContent(2, " • CleanUI");
+			{
+				if (this.ChildContent is null)
+				{
+					builder.AddContent(1, "CleanUI");
+				}
+				else
+				{
+					builder.AddContent(2, this.ChildContent);
+					builder.AddContent(3, " • CleanUI");
+				}
+			}
 			builder.CloseElement();
 		}
 

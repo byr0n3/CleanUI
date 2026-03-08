@@ -1,25 +1,25 @@
-@page "/icon"
+@page "/pagination"
 @using CleanUI.Docs.Components
 @using CleanUI.Docs.Interfaces
 @implements IExamplePage
 
-<CleanPageTitle>Icon</CleanPageTitle>
+<CleanPageTitle>Pagination</CleanPageTitle>
 
-<h1>Icon</h1>
+<h1>Pagination</h1>
 
 <Example TComponent="@(Basic)" />
 
-<Example TComponent="@(All)" />
+<Example TComponent="@(Interactive)" />
 
 @code {
 
 	public static string Label =>
-		"Icons";
+		"Pagination";
 
 	public static RenderFragment Icon =>
-		Icons.IconsIcon;
+		Icons.Navigation;
 
 	public static string Href =>
-		"/icon";
+		"/pagination";
 
 }

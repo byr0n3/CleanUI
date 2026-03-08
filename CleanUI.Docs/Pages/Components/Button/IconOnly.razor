@@ -1,0 +1,27 @@
+<Button IconOnly>
+	@(Icons.User)
+</Button>
+
+<Button ButtonType="@(ButtonType.Primary)" IconOnly>
+	@(Icons.User)
+</Button>
+
+<Button ButtonType="@(ButtonType.Secondary)" IconOnly>
+	@(Icons.User)
+</Button>
+
+<Button ButtonType="@(ButtonType.Danger)" IconOnly>
+	@(Icons.User)
+</Button>
+
+<Button ButtonType="@(ButtonType.Link)" IconOnly>
+	@(Icons.User)
+</Button>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>Sometimes, you only want to display an icon as your button's content. In this case, you should add the
+			<code>IconOnly</code> parameter to make the button scale in size accordingly.</p>;
+
+}

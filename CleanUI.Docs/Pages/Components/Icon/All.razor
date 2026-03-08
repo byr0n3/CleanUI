@@ -1,0 +1,29 @@
+<form method="get"
+      action=""
+      class="d-flex flex-row flex-nowrap align-items-center gap-md mbe-md">
+	<input type="search" name="@(nameof(All.Search))" value="@(Search ?? "")" placeholder="Search…" class="flex-1" />
+	<Button ButtonType="@(ButtonType.Primary)" IconOnly type="submit">
+		@(Icons.Search)
+	</Button>
+</form>
+
+<div class="grid grid-gap-sm" style="--cols: 1;--cols-xs: 2;--cols-md: 4;--cols-lg: 5;--cols-xl:8">
+	@foreach (var icon in filteredIcons.OrderBy(static (icon) => icon.Key, StringComparer.Ordinal).Skip((Page - 1) * All.perPage).Take(All.perPage))
+	{
+		<div @key="@($"icon-{icon}")" class="border-sm border-radius-md text-align-center p-xs">
+			<span class="fs-h1">@(icon.Value)</span>
+			<span class="d-flex flex-row flex-nowrap justify-content-center align-items-center gap-xs fs-xs">
+				<code>@(icon.Key)</code>
+				<Button Size="@(ButtonSize.ExtraSmall)" IconOnly onclick="@($"copy('@(Icons.{icon.Key})')")">
+					@(Icons.Copy)
+				</Button>
+			</span>
+		</div>
+	}
+</div>
+
+<Pagination Label="Icon pagination"
+            Page="@(Page)"
+            PerPage="@(All.perPage)"
+            TotalCount="@(filteredIcons.Count)"
+            class="mbs-md" />

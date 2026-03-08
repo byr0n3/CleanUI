@@ -1,95 +1,95 @@
 @use '../constants';
 
 @mixin border($prefix: "") {
-	.border-#{$prefix} {
+	.border#{$prefix} {
 		border: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}sm {
+	.border#{$prefix}-sm {
 		border: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}split {
+	.border#{$prefix}-split {
 		border: var(--border-width) solid var(--border-fg-split);
 	}
 
-	.border-#{$prefix}split-sm {
+	.border#{$prefix}-split-sm {
 		border: var(--border-width-sm) solid var(--border-fg-split);
 	}
 
-	.border-#{$prefix}disabled {
+	.border#{$prefix}-disabled {
 		border: var(--border-width) solid var(--border-fg-disabled);
 	}
 
-	.border-#{$prefix}disabled-sm {
+	.border#{$prefix}-disabled-sm {
 		border: var(--border-width-sm) solid var(--border-fg-disabled);
 	}
 
-	.border-#{$prefix}b {
+	.border#{$prefix}-b {
 		border-block: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}b-sm {
+	.border#{$prefix}-b-sm {
 		border-block: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}bs {
+	.border#{$prefix}-bs {
 		border-block-start: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}bs-sm {
+	.border#{$prefix}-bs-sm {
 		border-block-start: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}be {
+	.border#{$prefix}-be {
 		border-block-end: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}be-sm {
+	.border#{$prefix}-be-sm {
 		border-block-end: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}i {
+	.border#{$prefix}-i {
 		border-inline: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}i-sm {
+	.border#{$prefix}-i-sm {
 		border-inline: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}is {
+	.border#{$prefix}-is {
 		border-inline-start: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}is-sm {
+	.border#{$prefix}-is-sm {
 		border-inline-start: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}ie {
+	.border#{$prefix}-ie {
 		border-inline-end: var(--border-width) solid var(--border-fg);
 	}
 
-	.border-#{$prefix}ie-sm {
+	.border#{$prefix}-ie-sm {
 		border-inline-end: var(--border-width-sm) solid var(--border-fg);
 	}
 
-	.border-radius-#{$prefix}sm {
+	.border-radius#{$prefix}-sm {
 		border-radius: var(--border-radius-sm);
 	}
 
-	.border-radius-#{$prefix}md {
+	.border-radius#{$prefix}-md {
 		border-radius: var(--border-radius-md);
 	}
 
-	.border-radius-#{$prefix}lg {
+	.border-radius#{$prefix}-lg {
 		border-radius: var(--border-radius-lg);
 	}
 
-	.border-radius-#{$prefix}pill {
+	.border-radius#{$prefix}-pill {
 		border-radius: var(--border-radius-pill);
 	}
 
-	.border-radius-#{$prefix}circle {
+	.border-radius#{$prefix}-circle {
 		border-radius: var(--border-radius-circle);
 	}
 }
@@ -98,6 +98,6 @@
 
 @each $size, $value in constants.$screen-sizes {
 	@media (min-width: $value) {
-		@include border("#{$size}-");
+		@include border("-#{$size}");
 	}
 }

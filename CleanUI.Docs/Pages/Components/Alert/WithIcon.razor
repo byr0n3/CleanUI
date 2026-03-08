@@ -1,0 +1,39 @@
+<Alert ShowIcon>
+	This alert has an icon.
+</Alert>
+
+<Alert Type="@(AlertType.Success)" ShowIcon>
+	This alert has an icon.
+</Alert>
+
+<Alert Type="@(AlertType.Warning)" ShowIcon>
+	This alert has an icon.
+</Alert>
+
+<Alert Type="@(AlertType.Danger)" ShowIcon>
+	This alert has an icon.
+</Alert>
+
+<Alert IconContent="@(Icons.User)">
+	This alert has the <code>User</code> icon.
+</Alert>
+
+<Alert>
+	<IconContent>
+		^_^
+	</IconContent>
+	<ChildContent>
+		The alert's <code>IconContent</code> doesn't have to be an icon!
+	</ChildContent>
+</Alert>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<div>
+			<p>When adding the <code>ShowIcon</code> parameter, the component will show an icon that corresponds to the
+				alert's <code>Type</code> parameter.</p>
+			<p>You can overwrite the alert's icon using the <code>IconContent</code> parameter.</p>
+		</div>;
+
+}

@@ -3,28 +3,28 @@ using Microsoft.AspNetCore.Components;
 
 namespace CleanUI.Docs.Pages.Components.Button
 {
-	public sealed partial class Icon : ComponentBase, IComponentExample
+	public sealed partial class IconOnly : ComponentBase, IComponentExample
 	{
 		public static string Code =>
 			// language=razor
 			"""
-			<Button Icon>
+			<Button IconOnly>
 				@(Icons.User)
 			</Button>
 			
-			<Button Type="@(ButtonType.Primary)" Icon>
+			<Button ButtonType="@(ButtonType.Primary)" IconOnly>
 				@(Icons.User)
 			</Button>
 			
-			<Button Type="@(ButtonType.Secondary)" Icon>
+			<Button ButtonType="@(ButtonType.Secondary)" IconOnly>
 				@(Icons.User)
 			</Button>
 			
-			<Button Type="@(ButtonType.Danger)" Icon>
+			<Button ButtonType="@(ButtonType.Danger)" IconOnly>
 				@(Icons.User)
 			</Button>
 			
-			<Button Type="@(ButtonType.Link)" Icon>
+			<Button ButtonType="@(ButtonType.Link)" IconOnly>
 				@(Icons.User)
 			</Button>
 			""";

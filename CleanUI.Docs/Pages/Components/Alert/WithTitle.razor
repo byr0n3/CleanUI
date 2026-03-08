@@ -1,0 +1,34 @@
+<Alert>
+	<TitleContent>
+		Hello!
+	</TitleContent>
+	<ChildContent>
+		This alert has a title.
+	</ChildContent>
+</Alert>
+
+<Alert ShowIcon>
+	<TitleContent>
+		Hello!
+	</TitleContent>
+	<ChildContent>
+		This alert has a title AND an icon.
+	</ChildContent>
+</Alert>
+
+
+<Alert TitleLevel="@(1)" ShowIcon>
+	<TitleContent>
+		Hello!
+	</TitleContent>
+	<ChildContent>
+		This alert has a title AND an icon.
+	</ChildContent>
+</Alert>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>You can adjust the title's heading level using the <code>TitleLevel</code> parameter.</p>;
+
+}

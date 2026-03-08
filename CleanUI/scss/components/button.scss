@@ -1,17 +1,22 @@
 @mixin btn-type($fg, $bg, $hover) {
-	color: $fg;
-	background-color: $bg;
+	--fg: #{$fg};
+	--bg: #{$bg};
 
 	&:hover {
-		background-color: $hover;
+		--bg: #{$hover};
 	}
 }
 
 .btn {
+	--fg: var(--btn-fg);
+	--bg: var(--btn-bg);
+
 	cursor: pointer;
 
-	color: var(--btn-fg);
-	background-color: var(--btn-bg);
+	display: inline-block;
+
+	color: var(--fg);
+	background-color: var(--bg);
 
 	padding: var(--spacing-component-block) var(--spacing-component-inline);
 
@@ -32,9 +37,12 @@
 		transform: scale(0.95);
 	}
 
-	&:disabled {
-		color: var(--disabled-fg);
-		background-color: var(--disabled-bg);
+	&:disabled,
+	&.btn-disabled {
+		--fg: var(--disabled-fg);
+		--bg: var(--disabled-bg);
+		
+		cursor: not-allowed;
 	}
 
 	&.btn-primary {
@@ -50,13 +58,13 @@
 	}
 
 	&.btn-link {
-		color: var(--primary-fg);
-		background-color: transparent;
+		--fg: var(--primary-fg);
+		--bg: transparent;
 
 		text-decoration: underline;
 
 		&:hover {
-			color: var(--primary-fg-hover)
+			--fg: var(--primary-fg-hover)
 		}
 	}
 
@@ -68,5 +76,36 @@
 			// This needs to be exactly `1.5em` to make the button the same height as the other buttons.
 			font-size: 1.5em;
 		}
+	}
+
+	&.btn-xs {
+		font-size: var(--font-size-xs);
+	}
+
+	&.btn-sm {
+		font-size: var(--font-size-sm);
+	}
+
+	&.btn-lg {
+		font-size: var(--font-size-lg);
+	}
+
+	&.btn-xl {
+		font-size: var(--font-size-xl);
+	}
+}
+
+a.btn[href] {
+	color: var(--fg);
+	background-color: var(--bg);
+	text-decoration: none;
+
+	&:not(:disabled):active {
+		transform: scale(0.95);
+	}
+
+	&:hover {
+		color: var(--fg);
+		background-color: var(--bg);
 	}
 }

@@ -1,0 +1,37 @@
+@use '../constants';
+
+@mixin grid($prefix: "") {
+	.grid#{$prefix} {
+		--rows: 0;
+		--cols: 0;
+		@each $size, $value in constants.$screen-sizes {
+			--rows-#{$size}: var(--rows);
+			--cols-#{$size}: var(--cols);
+		}
+
+		display: grid;
+		grid-template-rows: repeat(var(--rows), 1fr);
+		grid-template-columns: repeat(var(--cols), 1fr);
+
+		@each $size, $value in constants.$screen-sizes {
+			@media (min-width: $value) {
+				grid-template-rows: repeat(var(--rows-#{$size}), 1fr);
+				grid-template-columns: repeat(var(--cols-#{$size}), 1fr);
+			}
+		}
+	}
+
+	@each $size in constants.$sizes {
+		.grid-gap#{$prefix}-#{$size} {
+			grid-gap: var(--spacing-#{$size});
+		}
+	}
+}
+
+@include grid();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include grid("-#{$size}");
+	}
+}

@@ -16,10 +16,6 @@
 	.d-#{$prefix}flex {
 		display: flex;
 	}
-
-	.d-#{$prefix}grid {
-		display: grid;
-	}
 }
 
 @include display();

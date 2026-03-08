@@ -1,0 +1,23 @@
+@use '../constants';
+
+@mixin text-align($prefix: "") {
+	.text-align-#{$prefix}start {
+		text-align: start;
+	}
+
+	.text-align-#{$prefix}center {
+		text-align: center;
+	}
+
+	.text-align-#{$prefix}end {
+		text-align: end;
+	}
+}
+
+@include text-align();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include text-align("#{$size}-");
+	}
+}

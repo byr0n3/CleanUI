@@ -1,5 +1,16 @@
 <div @attributes="@(AdditionalParameters)"
      class="alert @(TypeClass) @(AdditionalParameters.GetString("class") ?? "")"
      role="alert">
+     @if (TitleContent is not null)
+     {
+          @(Title)
+     }
+     else if (ShowIcon || (IconContent is not null))
+     {
+          <span class="alert-icon">
+               @(Icon)
+          </span>
+     }
+
      @(ChildContent)
 </div>
