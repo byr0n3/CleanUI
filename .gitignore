@@ -8,6 +8,8 @@ riderModule.iml
 # User-specific settings
 *.DotSettings.user
 
-# Compiled CleanUI styling files
+# Compiled CleanUI files
 CleanUI/wwwroot/*.css
 CleanUI/wwwroot/*.css.map
+CleanUI/wwwroot/*.js
+CleanUI/wwwroot/*.js.map

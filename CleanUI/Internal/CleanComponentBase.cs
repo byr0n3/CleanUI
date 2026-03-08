@@ -6,6 +6,6 @@ namespace CleanUI.Internal
 	public abstract class CleanComponentBase : ComponentBase
 	{
 		[Parameter(CaptureUnmatchedValues = true)]
-		public IDictionary<string, object?>? AdditionalParameters { get; set; }
+		public IDictionary<string, object>? AdditionalParameters { get; set; }
 	}
 }

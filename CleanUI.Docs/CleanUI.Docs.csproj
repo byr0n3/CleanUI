@@ -7,7 +7,7 @@
 	<ItemGroup>
 		<ProjectReference Include="../CleanUI/CleanUI.csproj"/>
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<PackageReference Include="Elegance.Enums" Version="$(EleganceVersion)"/>
 	</ItemGroup>

@@ -1,0 +1,11 @@
+<div class="d-flex flex-row flex-nowrap align-items-center gap-sm">
+	<InputText @bind-Value="@(text)" placeholder="Hello world!" />
+	<InputText @bind-Value="@(username)" PrefixContent="@(Icons.User)" />
+</div>
+
+@code {
+
+	private string? text;
+	private string? username = "admin";
+
+}

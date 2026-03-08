@@ -4,7 +4,7 @@ namespace CleanUI.Internal.Extensions
 {
 	internal static class DictionaryExtensions
 	{
-		extension(IDictionary<string, object?>? dictionary)
+		extension(IDictionary<string, object>? dictionary)
 		{
 			public object? Get(string key) =>
 				dictionary?.TryGetValue(key, out var value) == true ? value : null;

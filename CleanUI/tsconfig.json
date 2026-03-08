@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+	"noImplicitAny": true,
+	"noEmitOnError": true,
+	"removeComments": true,
+	"sourceMap": false,
+	"target": "ES6",
+	"outDir": "wwwroot"
+  },
+  "include": [
+	"ts/**/*"
+  ],
+  "exclude": [
+	"wwwroot"
+  ]
+}

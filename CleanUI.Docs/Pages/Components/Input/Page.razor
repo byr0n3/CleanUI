@@ -1,0 +1,25 @@
+@page "/input"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Input</CleanPageTitle>
+
+<h1>Input</h1>
+
+<Example TComponent="@(Text)" />
+
+<Example TComponent="@(Number)" />
+
+@code {
+
+	public static string Label =>
+		"Input";
+
+	public static RenderFragment Icon =>
+		Icons.CursorText;
+
+	public static string Href =>
+		"/input";
+
+}

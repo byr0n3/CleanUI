@@ -1,0 +1,41 @@
+<dialog @attributes="@(AdditionalParameters)"
+		id="@(Id)"
+        class="modal @(AdditionalParameters?.GetString("class") ?? "")">
+	@if (HeaderContent is not null)
+	{
+		<div class="modal-header">
+			@(HeaderContent)
+			@(CloseButton)
+		</div>
+	}
+	else
+	{
+		<div class="modal-header">
+			<h1>@(Title ?? "")</h1>
+			@(CloseButton)
+		</div>
+	}
+
+	@if (ChildContent is not null)
+	{
+		<div class="modal-content">
+			@(ChildContent)
+		</div>
+	}
+
+	@if (FooterContent is not null)
+	{
+		<div class="modal-footer">
+			@(FooterContent)
+		</div>
+	}
+</dialog>
+
+@code {
+
+	private RenderFragment CloseButton =>
+		@<Button ButtonType="@(ButtonType.Link)" IconOnly onclick="@($"window.Modal.close('{Id}')")">
+			@(Icons.X)
+		</Button>;
+
+}

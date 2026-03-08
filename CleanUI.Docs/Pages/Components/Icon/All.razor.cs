@@ -21,7 +21,7 @@ namespace CleanUI.Docs.Pages.Components.Icon
 			null;
 
 		[Parameter]
-		[SupplyParameterFromQuery(Name = nameof(Pagination.Page))]
+		[SupplyParameterFromQuery(Name = nameof(All.Page))]
 		public int Page { get; set; } = 1;
 
 		[Parameter]
