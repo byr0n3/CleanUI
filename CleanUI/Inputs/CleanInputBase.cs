@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using CleanUI.Internal;
 using CleanUI.Internal.Extensions;
@@ -8,6 +9,11 @@ using Microsoft.AspNetCore.Components.Rendering;
 
 namespace CleanUI
 {
+	/// <summary>
+	/// A base class for form input components.
+	/// </summary>
+	/// <typeparam name="TValue">The value of the input component.</typeparam>
+	/// <typeparam name="TInput">The actual input component that gets displayed to the user.</typeparam>
 	public abstract class CleanInputBase<TValue, TInput> : CleanComponentBase
 		where TInput : InputBase<TValue>
 	{
@@ -26,6 +32,8 @@ namespace CleanUI
 		[Parameter] public string? ContainerClass { get; set; }
 
 		[Parameter] public RenderFragment? PrefixContent { get; set; }
+
+		protected virtual Dictionary<string, object>? ComponentParameters { get; set; }
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
@@ -50,6 +58,7 @@ namespace CleanUI
 					builder.AddAttribute(8, nameof(InputBase<>.ValueChanged), this.ValueChanged);
 					builder.AddAttribute(9, nameof(InputBase<>.ValueExpression), this.ValueExpression);
 					builder.AddAttribute(10, "class", $"input {this.AdditionalParameters.GetString("class")}");
+					builder.AddMultipleAttributes(11, this.ComponentParameters);
 				}
 				builder.CloseComponent();
 			}

@@ -1,0 +1,16 @@
+<RowWithDisableButton>
+	<InputTextArea @bind-Value="@(text)" placeholder="Hello world!" ContainerClass="flex-1" />
+	<InputTextArea @bind-Value="@(description)" rows="4" ContainerClass="flex-1" />
+</RowWithDisableButton>
+
+@code {
+
+	private string? text;
+
+	private string description = """
+								 A modern, clean and elegant UI library for Blazor/Razor.
+
+								 Its goal is to make the developers life easier and way less troublesome, while providing users with a clean and usable UI.
+								 """;
+
+}

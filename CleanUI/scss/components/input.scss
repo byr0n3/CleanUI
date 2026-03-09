@@ -1,3 +1,5 @@
+@use './button';
+
 .input-container {
 	position: relative;
 
@@ -23,9 +25,9 @@
 	}
 }
 
-.input:not([type='checkbox']) {
-	--bg: var(--body-bg-secondary);
+.input:not([type='checkbox']):not([type='file']) {
 	--fg: var(--body-fg);
+	--bg: var(--body-bg-secondary);
 
 	display: block;
 
@@ -53,27 +55,76 @@
 	}
 
 	&:disabled {
-		--bg: var(--disabled-bg);
 		--fg: var(--disabled-fg);
+		--bg: var(--disabled-bg);
 		--border-fg: var(--disabled-fg);
 
 		cursor: not-allowed;
 	}
 }
 
+.input:is(textarea) {
+	width: 100%;
+}
+
+.input[type='file'] {
+	color: var(--body-fg);
+
+	transition: var(--animation);
+	transition-property: color;
+
+	&::file-selector-button {
+		--fg: var(--btn-fg);
+		--bg: var(--btn-bg);
+
+		@include button.btn(var(--fg), var(--bg));
+	}
+
+	&:not([disabled]) {
+		&:hover {
+			cursor: pointer;
+
+			&::file-selector-button {
+				--btn-bg: var(--btn-bg-hover);
+			}
+		}
+
+		&:active {
+			&::file-selector-button {
+				transform: scale(0.95);
+			}
+		}
+	}
+
+	&:disabled {
+		color: var(--disabled-fg);
+
+		&::file-selector-button {
+			--fg: var(--disabled-fg);
+			--bg: var(--disabled-bg);
+
+			cursor: not-allowed;
+		}
+	}
+}
+
 .input-checkbox {
+	--fg: var(--body-fg);
+
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	gap: var(--spacing-xs);
 
+	color: var(--fg);
+
 	transition: var(--animation);
 	transition-property: color;
 
 	&:has(input[type='checkbox'][disabled]) {
-		cursor: not-allowed;
+		--fg: var(--disabled-fg);
 
-		color: var(--disabled-bg);
+		cursor: not-allowed;
 	}
 }
 
@@ -132,7 +183,7 @@
 	}
 
 	&:disabled {
-		--border-fg: var(--disabled-bg);
+		--border-fg: var(--disabled-fg);
 
 		cursor: not-allowed;
 	}

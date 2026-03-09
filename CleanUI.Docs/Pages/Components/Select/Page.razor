@@ -1,0 +1,23 @@
+@page "/select"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Select</CleanPageTitle>
+
+<h1>Select</h1>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Select";
+
+	public static RenderFragment Icon =>
+		Icons.Select;
+
+	public static string Href =>
+		"/select";
+
+}

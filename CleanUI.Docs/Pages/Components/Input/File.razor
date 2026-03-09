@@ -1,0 +1,34 @@
+@using Elegance.Extensions
+@using Microsoft.AspNetCore.Components.Forms
+@rendermode RenderModes.Interactive
+
+<RowWithDisableButton>
+	<CleanUI.InputFile OnChange="@(UpdateFiles)" multiple />
+
+	@if (files is { Count : > 0 })
+	{
+		<ul>
+			@foreach (var file in files)
+			{
+				<li @key="@($"file-{file.Name}")">
+					@(file.Name) (@(file.Size.Str())b)
+				</li>
+			}
+		</ul>
+	}
+</RowWithDisableButton>
+
+@code {
+
+	private const string docsHref = "https://learn.microsoft.com/en-us/aspnet/core/blazor/file-uploads";
+
+	public static RenderFragment Description =>
+		@<p>File uploads in Blazor can work a little wacky (in my opinion). For instructions, look at
+			<a href="@(File.docsHref)" target="_blank">this page from the Blazor docs</a>.</p>;
+
+	private IReadOnlyList<IBrowserFile>? files;
+
+	private void UpdateFiles(InputFileChangeEventArgs args) =>
+		files = args.GetMultipleFiles(5);
+
+}

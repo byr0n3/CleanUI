@@ -7,16 +7,13 @@
 	}
 }
 
-.btn {
-	--fg: var(--btn-fg);
-	--bg: var(--btn-bg);
-
+@mixin btn($fg, $bg) {
 	cursor: pointer;
 
 	display: inline-block;
 
-	color: var(--fg);
-	background-color: var(--bg);
+	color: $fg;
+	background-color: $bg;
 
 	padding: var(--spacing-component-block) var(--spacing-component-inline);
 
@@ -30,7 +27,10 @@
 
 	transition: var(--animation);
 	transition-property: color, background-color, border-color, transform;
+}
 
+.btn {
+	@include btn(var(--fg), var(--bg));
 	@include btn-type(var(--btn-fg), var(--btn-bg), var(--btn-bg-hover));
 
 	&:not(:disabled):active {

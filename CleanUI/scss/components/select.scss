@@ -1,0 +1,123 @@
+@use './button';
+
+.select {
+	@include button.btn(var(--fg), var(--bg));
+	@include button.btn-type(var(--btn-fg), var(--btn-bg), var(--btn-bg-hover));
+
+	appearance: base-select;
+
+	&::picker(select) {
+		appearance: base-select;
+
+		margin-block-start: var(--spacing-xs);
+
+		border: none;
+		border-radius: var(--border-radius-md);
+
+		opacity: 0;
+
+		transform: translateY(-1em);
+
+		transition: var(--animation-duration-overlay) var(--animation-curve) allow-discrete;
+		transition-property: transform, opacity;
+	}
+
+	&::picker-icon {
+		margin-inline-start: var(--spacing-xs);
+
+		transition: var(--animation);
+		transition-property: rotate;
+	}
+
+	&:open {
+		&::picker(select) {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		&::picker-icon {
+			rotate: 180deg;
+		}
+	}
+
+	&:not(:disabled):active {
+		transform: scale(0.95);
+	}
+
+	& option {
+		display: flex;
+		justify-content: flex-start;
+		gap: var(--spacing-md);
+
+		border: var(--border-width) solid var(--border-fg);
+		background: var(--body-bg);
+		padding: var(--spacing-md);
+
+		transition: var(--animation);
+
+		&:first-of-type {
+			border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+		}
+
+		&:last-of-type {
+			border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+		}
+
+		&:not(:last-of-type) {
+			border-block-end: none;
+		}
+
+		&:checked {
+			font-weight: var(--font-weight-bold);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: var(--body-bg-secondary);
+		}
+
+		& .select-option-icon {
+			font-size: var(--font-size-xl);
+			text-box: trim-both cap alphabetic;
+
+			// This style is needed in case there's at least 1 option with an icon, but some might not have an icon.
+			min-width: 1em;
+		}
+
+		&::checkmark {
+			content: '✓';
+
+			order: 1;
+			margin-inline-start: auto;
+		}
+
+		&:not([value]),
+		&[value=''] {
+			color: var(--body-fg-secondary);
+			font-weight: var(--font-weight-normal);
+			
+			&::checkmark {
+				content: '';
+			}
+		}
+	}
+	
+	& selectedcontent:has(svg) .select-option-icon {
+		margin-inline-end: var(--spacing-xs);
+	}
+}
+
+@starting-style {
+	.select:open::picker(select) {
+		opacity: 0;
+		transform: translateY(-1em);
+	}
+}
+
+@supports not selector(::picker-icon) {
+	.select {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+}

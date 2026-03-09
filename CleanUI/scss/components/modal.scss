@@ -15,10 +15,9 @@
 	border: none;
 	border-radius: var(--border-radius-md);
 
-	transform: translateY(0em);
+	transform: translateY(0);
 
-	transition: 300ms var(--animation-curve);
-	transition-behavior: allow-discrete;
+	transition: var(--animation-duration-overlay) var(--animation-curve) allow-discrete;
 	transition-property: transform;
 
 	&::backdrop {

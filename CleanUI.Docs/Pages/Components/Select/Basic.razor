@@ -1,0 +1,43 @@
+@* @todo Add select suffix icon on non-support browsers *@
+<Select @bind-Value="@(value)"
+        Options="@(Basic.options)"
+        GetOptionValue="@(static (option) => option.Value)"
+        GetOptionLabel="@(static (option) => option.Label)"
+        GetOptionIcon="@(Basic.GetOptionIcon)"
+        AddNullOption
+        NullOptionLabel="Pick a fruit!">
+</Select>
+
+@code {
+
+	private const string docsHref = "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select";
+
+	public static RenderFragment Description =>
+		@<p>
+			The <code>@("<Select />")</code> component uses the new
+			<a href="@(Basic.docsHref)" target="_blank">customizable select selectors</a> that might not be introduced
+			in every browser yet. Said browsers will render a normal select dropdown, however the trigger element will
+			look identical to browsers that do support these new selectors.
+		</p>;
+
+	private string? value;
+
+	private static readonly SelectOption[] options =
+	[
+		new("apple", "Apple"),
+		new("banana", "Banana"),
+		new("cherry", "Cherry"),
+		new("mango", "Mango"),
+	];
+
+	private static RenderFragment? GetOptionIcon(SelectOption option) =>
+		(option.Value) switch
+		{
+			"apple"  => Icons.Apple,
+			"cherry" => Icons.Cherry,
+			_        => null,
+		};
+
+	private readonly record struct SelectOption(string Value, string Label);
+
+}
