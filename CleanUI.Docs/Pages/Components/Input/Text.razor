@@ -1,7 +1,7 @@
-<div class="d-flex flex-row flex-nowrap align-items-center gap-sm">
+<RowWithDisableButton>
 	<InputText @bind-Value="@(text)" placeholder="Hello world!" />
 	<InputText @bind-Value="@(username)" PrefixContent="@(Icons.User)" />
-</div>
+</RowWithDisableButton>
 
 @code {
 

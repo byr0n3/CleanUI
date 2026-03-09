@@ -7,9 +7,9 @@
 		-ms-user-select: none;
 		user-select: none;
 		pointer-events: none;
-		
+
 		color: var(--body-fg-secondary);
-		
+
 		font-size: var(--font-size-lg);
 		line-height: 1;
 
@@ -18,37 +18,122 @@
 		inset-inline-start: var(--spacing-component-inline);
 	}
 
-	& .input {
-		--bg: var(--body-bg-secondary);
-		--fg: var(--body-fg);
-
-		display: block;
-
-		margin: 0;
-		padding-block: var(--spacing-component-block);
-		padding-inline: var(--spacing-component-inline);
-
-		color: var(--fg);
-		background-color: var(--bg);
-
-		border: var(--border-width) solid var(--border-fg);
-		border-radius: var(--border-radius-md);
-
-		transition: var(--animation);
-		transition-property: background-color, color, border;
-
-		outline: none;
-
-		&:hover {
-			--border-fg: var(--border-fg-hover);
-		}
-
-		&:focus {
-			--border-fg: var(--primary-fg);
-		}
-	}
-
 	& .input-prefix + .input {
 		padding-inline-start: calc(1em + var(--spacing-component-inline) * 2);
+	}
+}
+
+.input:not([type='checkbox']) {
+	--bg: var(--body-bg-secondary);
+	--fg: var(--body-fg);
+
+	display: block;
+
+	margin: 0;
+	padding-block: var(--spacing-component-block);
+	padding-inline: var(--spacing-component-inline);
+
+	color: var(--fg);
+	background-color: var(--bg);
+
+	border: var(--border-width) solid var(--border-fg);
+	border-radius: var(--border-radius-md);
+
+	transition: var(--animation);
+	transition-property: background-color, color, border;
+
+	outline: none;
+
+	&:hover {
+		--border-fg: var(--border-fg-hover);
+	}
+
+	&:focus {
+		--border-fg: var(--primary-fg);
+	}
+
+	&:disabled {
+		--bg: var(--disabled-bg);
+		--fg: var(--disabled-fg);
+		--border-fg: var(--disabled-fg);
+
+		cursor: not-allowed;
+	}
+}
+
+.input-checkbox {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: var(--spacing-xs);
+
+	transition: var(--animation);
+	transition-property: color;
+
+	&:has(input[type='checkbox'][disabled]) {
+		cursor: not-allowed;
+
+		color: var(--disabled-bg);
+	}
+}
+
+.input[type='checkbox'] {
+	--fg: var(--primary-fg);
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	// Aligns the `:before` in the center of the element.
+	display: grid;
+	place-content: center;
+
+	padding: 0;
+	margin: 0;
+
+	width: 1em;
+	height: 1em;
+
+	color: inherit;
+	background-color: transparent;
+
+	border: var(--border-width) solid var(--border-fg);
+	border-radius: var(--border-radius-sm);
+
+	transition: var(--animation);
+	transition-property: border;
+
+	// @todo Fix hover outline shape (due to `transform`)
+	&::before {
+		content: '';
+
+		width: 0.75em;
+		height: 0.75em;
+
+		transform-origin: center;
+		// Not `0` to make the transition look more smooth.
+		// I have no idea how/why this works.
+		transform: scale(0.01);
+
+		// Windows High Contrast Mode support.
+		background-color: CanvasText;
+
+		// A checkmark.
+		clip-path: polygon(76.831% 24.747%, 77.811% 23.946%, 80.056% 23.031%, 82.444% 23.031%, 84.689% 23.946%, 85.669% 24.747%, 86.417% 25.648%, 87.327% 27.701%, 87.457% 29.904%, 86.807% 32.031%, 86.189% 32.997%, 85.669% 33.586%, 44.003% 75.253%, 43.102% 76%, 41.049% 76.91%, 38.846% 77.04%, 36.719% 76.39%, 35.753% 75.773%, 35.164% 75.253%, 14.331% 54.419%, 13.53% 53.439%, 12.614% 51.194%, 12.614% 48.806%, 13.53% 46.561%, 14.331% 45.581%, 15.231% 44.833%, 17.285% 43.923%, 19.487% 43.793%, 21.615% 44.443%, 22.581% 45.061%, 23.169% 45.581%, 39.579% 61.994%, 76.831% 24.747%, 76.831% 24.747%);
+
+		box-shadow: inset 1em 1em var(--fg);
+
+		transition: var(--animation);
+		transition-property: transform;
+	}
+
+	&:checked::before {
+		transform: scale(1);
+	}
+
+	&:disabled {
+		--border-fg: var(--disabled-bg);
+
+		cursor: not-allowed;
 	}
 }

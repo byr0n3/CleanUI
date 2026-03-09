@@ -11,6 +11,28 @@
 
 <Example TComponent="@(Number)" />
 
+<Example TComponent="@(Check)" />
+
+<script>
+	function toggleDisabled(id) {
+		const element = document.getElementById(id);
+
+		if (!element) {
+			return;
+		}
+		
+		const btn = event.target;
+		const btnLabel = btn.querySelector('.btn-label');
+		
+		for (const input of element.querySelectorAll('input')) {
+			
+			btnLabel.textContent = input.disabled ? 'Disable inputs' : 'Enable inputs';
+			
+			input.disabled = !input.disabled
+		}
+	}
+</script>
+
 @code {
 
 	public static string Label =>

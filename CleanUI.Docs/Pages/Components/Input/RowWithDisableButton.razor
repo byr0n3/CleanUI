@@ -1,0 +1,15 @@
+<div class="d-flex flex-row flex-nowrap align-items-center gap-sm" id="@(id)">
+	@(ChildContent)
+</div>
+
+<Button class="mbs-sm" onclick="@($"toggleDisabled('{id}')")">
+	Disable inputs
+</Button>
+
+@code {
+
+	[Parameter] public RenderFragment? ChildContent { get; set; }
+
+	private readonly string id = Guid.NewGuid().ToString();
+
+}

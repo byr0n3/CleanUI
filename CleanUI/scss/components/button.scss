@@ -41,7 +41,7 @@
 	&.btn-disabled {
 		--fg: var(--disabled-fg);
 		--bg: var(--disabled-bg);
-		
+
 		cursor: not-allowed;
 	}
 
@@ -92,6 +92,12 @@
 
 	&.btn-xl {
 		font-size: var(--font-size-xl);
+	}
+
+	// The button's label element should receive no pointer events,
+	// otherwise the `target` property of `PointerEvent`s could have the `<span />` instead of the `<button />`.
+	& .btn-label {
+		pointer-events: none;
 	}
 }
 
