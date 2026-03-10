@@ -1,0 +1,41 @@
+@* @todo Add select suffix icon on non-support browsers *@
+<Select @bind-Value="@(value)"
+        Options="@(Multiple.options)"
+        GetOptionValue="@(static (option) => option.Value)"
+        GetOptionLabel="@(static (option) => option.Label)"
+        GetOptionIcon="@(Multiple.GetOptionIcon)"
+        AddNullOption
+        NullOptionLabel="Pick a fruit!">
+</Select>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<text>
+			 <p>Passing an array type for the <code>Value</code> parameter will add the <code>multiple</code> attribute
+				 to the rendered select.</p>
+
+			 <p>For a more advanced multi-select see the <a href="/combobox">Combobox example</a>.</p>
+	</text>;
+
+	private string[] value = [];
+
+	private static readonly SelectOption[] options =
+	[
+		new("apple", "Apple"),
+		new("banana", "Banana"),
+		new("cherry", "Cherry"),
+		new("mango", "Mango"),
+	];
+
+	private static RenderFragment? GetOptionIcon(SelectOption option) =>
+		(option.Value) switch
+		{
+			"apple"  => Icons.Apple,
+			"cherry" => Icons.Cherry,
+			_        => null,
+		};
+
+	private readonly record struct SelectOption(string Value, string Label);
+
+}

@@ -1,6 +1,6 @@
 @use './button';
 
-.select {
+.select:not([multiple]) {
 	@include button.btn(var(--fg), var(--bg));
 	@include button.btn-type(var(--btn-fg), var(--btn-bg), var(--btn-bg-hover));
 
@@ -95,29 +95,66 @@
 		&[value=''] {
 			color: var(--body-fg-secondary);
 			font-weight: var(--font-weight-normal);
-			
+
 			&::checkmark {
 				content: '';
 			}
 		}
 	}
-	
+
 	& selectedcontent:has(svg) .select-option-icon {
 		margin-inline-end: var(--spacing-xs);
 	}
 }
 
 @starting-style {
-	.select:open::picker(select) {
+	.select:not([multiple]):open::picker(select) {
 		opacity: 0;
 		transform: translateY(-1em);
 	}
 }
 
 @supports not selector(::picker-icon) {
-	.select {
+	.select:not([multiple]) {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		appearance: none;
+	}
+}
+
+.select[multiple] {
+	color: var(--btn-fg);
+	background-color: var(--btn-bg);
+
+	padding-block: var(--spacing-component-block);
+	padding-inline: var(--spacing-component-inline);
+
+	border: none;
+	border-radius: var(--border-radius-md);
+
+	& option {
+		background: var(--btn-bg);
+		padding: var(--spacing-md);
+
+		font-weight: var(--font-weight-normal);
+
+		transition: var(--animation);
+		transition-property: font-weight, color, background-color;
+
+		&:not(:last-of-type) {
+			border-block-end: var(--border-width) solid var(--border-fg);
+		}
+
+		&:checked {
+			font-weight: var(--font-weight-bold);
+
+			color: var(--primary-contrast);
+			background-color: var(--primary-fg);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: var(--btn-bg-hover);
+		}
 	}
 }

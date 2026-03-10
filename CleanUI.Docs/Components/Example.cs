@@ -20,10 +20,7 @@ namespace CleanUI.Docs.Components
 			{
 				this.AddHeading(builder);
 
-				if (TComponent.Description is not null)
-				{
-					builder.AddContent(1, TComponent.Description);
-				}
+				Example<TComponent>.AddDescription(builder);
 
 				Example<TComponent>.AddComponent(builder);
 
@@ -51,6 +48,21 @@ namespace CleanUI.Docs.Components
 					anchorBuilder.CloseElement();
 				}));
 				builder.AddContent(3, name);
+			}
+			builder.CloseElement();
+		}
+
+		private static void AddDescription(RenderTreeBuilder builder)
+		{
+			if (TComponent.Description is null)
+			{
+				return;
+			}
+
+			builder.OpenElement(0, "div");
+			{
+				builder.AddAttribute(1, "class", "example-description");
+				builder.AddContent(2, TComponent.Description);
 			}
 			builder.CloseElement();
 		}

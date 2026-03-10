@@ -11,4 +11,7 @@ h1:focus {
 .blazor-error-boundary::after {
 	content: "An error has occurred."
 }
-    
+
+.example-description > p:not(:last-of-type) {
+	margin-block-end: var(--spacing-md);
+}

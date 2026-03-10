@@ -1,0 +1,43 @@
+@use '../constants';
+
+@mixin white-space($prefix: "") {
+	.white-space-#{$prefix}pre {
+		white-space: pre;
+	}
+
+	.white-space-#{$prefix}pre-line {
+		white-space: pre-line;
+	}
+
+	.white-space-#{$prefix}wrap {
+		white-space: wrap;
+	}
+
+	.white-space-#{$prefix}nowrap {
+		white-space: nowrap;
+	}
+
+	.white-space-#{$prefix}pre-wrap {
+		white-space: pre-wrap;
+	}
+
+	.white-space-#{$prefix}break-spaces {
+		white-space: break-spaces;
+	}
+
+	.white-space-#{$prefix}preserve-spaces {
+		white-space: preserve-spaces;
+	}
+
+	.white-space-#{$prefix}preserve-breaks {
+		white-space: preserve-breaks;
+	}
+}
+
+@include white-space();
+
+@each $size, $value in constants.$screen-sizes {
+	@media (min-width: $value) {
+		@include white-space("#{$size}-");
+	}
+}

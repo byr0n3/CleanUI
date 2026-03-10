@@ -12,13 +12,17 @@ namespace CleanUI
 	/// <inheritdoc cref="InputSelect{TValue}"/>
 	/// <typeparam name="TValue">The value the component returns/manages.</typeparam>
 	/// <typeparam name="TOption">The type of the options to display.</typeparam>
-	public sealed class Select<TValue, TOption> : InputSelect<TValue>
+	/// <typeparam name="TOptionValue">
+	/// The type of the value of an option.
+	/// <p>This type parameter should be the same as <typeparamref name="TValue"/> if it's NOT an array type, or equal to the type of an entry in the array if it is.</p>
+	/// </typeparam>
+	public sealed class Select<TValue, TOption, TOptionValue> : InputSelect<TValue>
 	{
 		/// <summary>
 		/// The options that are selectable.
 		/// </summary>
 		/// <remarks>
-		/// <p>This parameter will override the <see cref="Select{TValue, TOption}.ChildContent"/> parameter.</p>
+		/// <p>This parameter will override the <see cref="InputSelect{TValue}.ChildContent"/> parameter.</p>
 		/// <p>For this to work, the <see cref="GetOptionValue"/> and <see cref="GetOptionLabel"/> parameters need to be set.</p>
 		/// </remarks>
 		[Parameter]
@@ -29,7 +33,7 @@ namespace CleanUI
 		/// </summary>
 		/// <remarks>This property is required when the <see cref="Options"/> parameter is set and can be null when it isn't.</remarks>
 		[Parameter]
-		public Func<TOption, TValue>? GetOptionValue { get; set; }
+		public Func<TOption, TOptionValue>? GetOptionValue { get; set; }
 
 		/// <summary>
 		/// Delegate that returns the according label content of the option.
@@ -77,7 +81,7 @@ namespace CleanUI
 		/// </summary>
 		private bool HasOptions
 		{
-			[MemberNotNullWhen(true, nameof(Select<,>.Options), nameof(Select<,>.GetOptionValue), nameof(Select<,>.GetOptionLabel))]
+			[MemberNotNullWhen(true, nameof(Select<,,>.Options), nameof(Select<,,>.GetOptionValue), nameof(Select<,,>.GetOptionLabel))]
 			get => (this.Options is not null) && (this.GetOptionValue is not null) && (this.GetOptionLabel is not null);
 		}
 
@@ -86,7 +90,7 @@ namespace CleanUI
 		/// </summary>
 		private bool OptionsHaveIcons
 		{
-			[MemberNotNullWhen(true, nameof(Select<,>.GetOptionIcon))]
+			[MemberNotNullWhen(true, nameof(Select<,,>.GetOptionIcon))]
 			get => this.GetOptionIcon is not null;
 		}
 
@@ -130,7 +134,8 @@ namespace CleanUI
 				AddOption(builder,
 						  default,
 						  this.NullOptionLabel,
-						  this.OptionsHaveIcons ? this.NullOptionIcon ?? RenderFragment.Empty : null);
+						  this.OptionsHaveIcons ? this.NullOptionIcon ?? RenderFragment.Empty : null,
+						  true);
 			}
 
 			foreach (var option in this.Options)
@@ -144,11 +149,16 @@ namespace CleanUI
 
 			return;
 
-			static void AddOption(RenderTreeBuilder builder, TValue? value, string label, RenderFragment? icon)
+			static void AddOption(RenderTreeBuilder builder, TOptionValue? value, string label, RenderFragment? icon, bool disabled = false)
 			{
 				builder.OpenElement(0, "option");
 				{
 					builder.AddAttribute(1, "value", value);
+
+					if (disabled)
+					{
+						builder.AddAttribute(1, "disabled");
+					}
 
 					if (icon is not null)
 					{
