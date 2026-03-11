@@ -11,6 +11,10 @@ namespace CleanUI.Docs.Pages.Components.Button
 			<Button onclick="alert('Hello world!')">
 				Click me!
 			</Button>
+
+			<Button PrefixContent="@(Icons.Click)" onclick="alert('Hello world!')">
+				This button has an icon.
+			</Button>
 			""";
 	}
 }

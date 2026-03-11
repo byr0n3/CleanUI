@@ -14,6 +14,14 @@ namespace CleanUI
 			public static RenderFragment Empty => static (_) =>
 			{
 			};
+
+			/// <summary>
+			/// Returns a <see cref="RenderFragment"/>, containing only the given string <paramref name="content"/>.
+			/// </summary>
+			/// <param name="content">The string content that should be displayed.</param>
+			/// <returns>A <see cref="RenderFragment"/>, containing only the given string <paramref name="content"/>.</returns>
+			public static RenderFragment FromString(string content) =>
+				(builder) => builder.AddContent(0, content);
 		}
 	}
 }

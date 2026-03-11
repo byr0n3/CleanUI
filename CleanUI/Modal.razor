@@ -1,19 +1,32 @@
+@using Elegance.Extensions
+
 <dialog @attributes="@(AdditionalParameters)"
-		id="@(Id)"
-        class="modal @(AdditionalParameters?.GetString("class") ?? "")">
+        id="@(Id)"
+        class="modal @(AdditionalParameters?.GetString("class") ?? "")"
+        data-closable="@(Closable.Str())">
 	@if (HeaderContent is not null)
 	{
 		<div class="modal-header">
 			@(HeaderContent)
-			@(CloseButton)
+			@if (Closable)
+			{
+				@(CloseButton)
+			}
 		</div>
 	}
-	else
+	else if (Title is not null)
 	{
 		<div class="modal-header">
-			<h1>@(Title ?? "")</h1>
-			@(CloseButton)
+			<h1>@(Title)</h1>
+			@if (Closable)
+			{
+				@(CloseButton)
+			}
 		</div>
+	}
+	else if (Closable)
+	{
+		<span class="modal-close">@(CloseButton)</span>
 	}
 
 	@if (ChildContent is not null)

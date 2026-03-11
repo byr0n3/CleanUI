@@ -1,0 +1,82 @@
+.combobox {
+	--width: 10em;
+
+	display: inline-block;
+	position: relative;
+
+	width: var(--width);
+
+	& .btn {
+		justify-content: start;
+
+		width: 100%;
+
+		& .btn-label {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+
+	& .combobox-popover {
+		position: absolute;
+		inset: unset;
+		inset-block-start: calc(anchor(bottom) + var(--spacing-xs));
+
+		justify-self: anchor-center;
+
+		width: calc(var(--width) * 1.5);
+
+		margin: 0;
+		padding: 0;
+
+		color: var(--body-fg);
+		background-color: var(--body-bg);
+
+		border: var(--border-width) solid var(--border-fg);
+		border-radius: var(--border-radius-md);
+
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		list-style: none;
+
+		li {
+			position: relative;
+
+			cursor: pointer;
+
+			padding-block: var(--spacing-component-block);
+			padding-inline: var(--spacing-component-inner);
+
+			transition: var(--animation);
+			transition-property: background-color;
+
+			&:hover,
+			&:focus {
+				background-color: var(--body-bg-secondary);
+			}
+
+			&[aria-selected='true'] {
+				background-color: var(--body-bg-tertiary);
+
+				&:after {
+					content: '✓';
+
+					position: absolute;
+					inset-block-start: var(--spacing-component-block);
+					inset-inline-end: var(--spacing-component-inner);
+				}
+			}
+		}
+
+		& input.combobox-search {
+			width: 100%;
+
+			margin-block-end: var(--spacing-xs);
+
+			border-radius: 0;
+			border: none;
+		}
+	}
+}

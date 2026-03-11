@@ -1,0 +1,33 @@
+@page "/combobox"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Combobox</CleanPageTitle>
+
+<h1>Combobox</h1>
+
+<Alert Type="@(AlertType.Warning)" ShowIcon class="mbe-lg">
+	This component currently only works correctly in <code>Interactive</code> rendering mode.
+</Alert>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(Multiple)" />
+
+<Example TComponent="@(CustomLabelFormatting)" />
+
+<Example TComponent="@(Filtering)" />
+
+@code {
+
+	public static string Label =>
+		"Combobox";
+
+	public static RenderFragment Icon =>
+		Icons.Select;
+
+	public static string Href =>
+		"/combobox";
+
+}

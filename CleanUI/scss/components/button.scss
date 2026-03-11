@@ -10,7 +10,11 @@
 @mixin btn($fg, $bg) {
 	cursor: pointer;
 
-	display: inline-block;
+	display: inline-flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-xs);
 
 	color: $fg;
 	background-color: $bg;

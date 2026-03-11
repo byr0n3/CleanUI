@@ -1,0 +1,51 @@
+@using Microsoft.AspNetCore.Components.Forms
+@typeparam TValue
+@typeparam TOption
+@typeparam TOptionValue
+@inherits InputBase<TValue>
+
+<div class="combobox @(ContainerClass ?? "")">
+	<Button PrefixContent="@(PrefixContent)"
+	        @attributes="@(AdditionalAttributes)"
+			id="@(Id)"
+			role="combobox"
+			aria-autocomplete="list"
+			aria-expanded="false"
+			aria-controls="@(PopoverId)"
+	        popovertarget="@(PopoverId)"
+	        popovertargetaction="show">
+		@(GetButtonLabel())
+	</Button>
+
+	<ul id="@(PopoverId)" role="listbox" class="combobox-popover" popover>
+		@if (SearchChanged.HasDelegate)
+		{
+			<CleanUI.InputText Value="@(Search)"
+			                   ValueExpression="@(SearchExpression)"
+			                   PrefixContent="@(Icons.Search)"
+			                   class="combobox-search"
+			                   type="search"
+			                   disabled="@(searching)"
+			                   @oninput="@(debouncedSearch)" />
+		}
+		@foreach (var option in Options)
+		{
+			var value = GetOptionValue(option);
+			var label = GetOptionLabel(option);
+			var icon = GetOptionIcon is not null ? GetOptionIcon(option) ?? RenderFragment.Empty : null;
+			var selected = IsOptionSelected(option);
+
+			<li @key="@(value)"
+			    role="option"
+			    tabindex="0"
+			    aria-selected="@(selected ? "true" : null)"
+			    @onclick="@(() => UpdateValueAsync(value))">
+				@if (icon is not null)
+				{
+					<span>@(icon)</span>
+				}
+				<span>@(label)</span>
+			</li>
+		}
+	</ul>
+</div>

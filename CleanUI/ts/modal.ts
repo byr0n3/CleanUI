@@ -6,11 +6,18 @@ window.Modal = {
 			throw new Error(`[CleanUI] Element with id '${id}' was either not found or isn't a valid HTMLDialogElement.`);
 		}
 
+		const closable = !element.dataset || (element.dataset['closable'] !== 'false');
+
 		let initial = true;
 
 		element.showModal();
 
-		window.addEventListener('click', clickHandler);
+		if (closable) {
+			window.addEventListener('click', clickHandler);
+		} else {
+			window.addEventListener('keydown', keyDownHandler);
+		}
+
 		element.addEventListener('close', closeHandler);
 
 		function clickHandler(event: PointerEvent) {
@@ -26,14 +33,22 @@ window.Modal = {
 			if (!clickedInDialog) {
 				event.preventDefault();
 				event.stopPropagation();
-				
-				element.close();
+
+				element.requestClose();
 			}
 		}
 
-		function closeHandler() {
+		function keyDownHandler(event: KeyboardEvent) {
+			if (['Escape', 'Esc'].includes(event.key)) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		}
+
+		function closeHandler(event: Event) {
 			window.removeEventListener('click', clickHandler);
 			element.removeEventListener('close', closeHandler);
+			window.removeEventListener('keydown', keyDownHandler);
 		}
 	},
 

@@ -1,0 +1,22 @@
+<Button ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('unclosable-modal')">
+	Open unclosable modal
+</Button>
+
+<Modal Id="unclosable-modal" Closable="false">
+	<ChildContent>
+		This modal is not closable.
+	</ChildContent>
+
+	<FooterContent>
+		<Button ButtonType="@(ButtonType.Danger)" onclick="window.Modal.close('unclosable-modal')">
+			Close anyway :)
+		</Button>
+	</FooterContent>
+</Modal>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>Using the JavaScript <code>window.Modal.close</code> method will close the modal anyway.</p>;
+
+}

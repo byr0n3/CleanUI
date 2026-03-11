@@ -1,4 +1,6 @@
 .modal {
+	position: relative;
+	
 	min-width: min(32em, calc(100dvi - 1em));
 	width: fit-content;
 	max-width: max(48em, calc(100dvi - 1em));
@@ -64,6 +66,12 @@
 		padding: var(--spacing-component-block) var(--spacing-component-inline);
 
 		border-block-start: var(--border-width-sm) solid var(--border-fg-split);
+	}
+
+	& .modal-close {
+		position: absolute;
+		inset-block-start: var(--spacing-md);
+		inset-inline-end: var(--spacing-md);
 	}
 
 	@starting-style {

@@ -1,27 +1,44 @@
 @use './button';
 
+@mixin input-addon() {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+
+	color: var(--body-fg-secondary);
+
+	font-size: var(--font-size-lg);
+	line-height: 1;
+
+	position: absolute;
+}
+
 .input-container {
 	position: relative;
+	width: fit-content;
 
 	& .input-prefix {
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		pointer-events: none;
+		@include input-addon();
 
-		color: var(--body-fg-secondary);
-
-		font-size: var(--font-size-lg);
-		line-height: 1;
-
-		position: absolute;
-		inset-block-start: calc(var(--spacing-component-block) * 1.5);
+		inset-block-start: calc(var(--spacing-component-block) * 1.25);
 		inset-inline-start: var(--spacing-component-inline);
 	}
 
-	& .input-prefix + .input {
+	& .input-suffix {
+		@include input-addon();
+
+		inset-block-start: calc(var(--spacing-component-block) * 1.25);
+		inset-inline-end: var(--spacing-component-inline);
+	}
+
+	&:has(> .input-prefix) .input:not([type='checkbox']):not([type='file']) {
 		padding-inline-start: calc(1em + var(--spacing-component-inline) * 2);
+	}
+
+	&:has(> .input-suffix) .input:not([type='checkbox']):not([type='file']) {
+		padding-inline-end: calc(1em + var(--spacing-component-inline) * 2);
 	}
 }
 

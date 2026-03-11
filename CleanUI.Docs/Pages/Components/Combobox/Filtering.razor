@@ -1,0 +1,63 @@
+@rendermode RenderModes.Interactive
+
+<Combobox @bind-Value="@(value)"
+          @bind-Search="@(search)"
+          @bind-Search:after="@(UpdateOptionsAsync)"
+          Options="@(options)"
+          GetOptionValue="@(static (option) => option.Value)"
+          GetOptionLabel="@(static (option) => option.Label)" />
+
+<Combobox @bind-Value="@(values)"
+          @bind-Search="@(search)"
+          @bind-Search:after="@(UpdateOptionsAsync)"
+          Options="@(options)"
+          GetOptionValue="@(static (option) => option.Value)"
+          GetOptionLabel="@(static (option) => option.Label)" />
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>
+			By binding a string variable to the <code>Search</code> parameter, users can interact with a search
+			field in the popover. Adding a callback using <code>@@bind-Search:after="…"</code>, you can update the
+			current search results displayed to the user. This callback can return a task, which allows you to
+			freely query your database.
+		</p>;
+
+	private string? value;
+	private string[] values = [];
+	private string? search;
+	private SelectOption[] options = Filtering.defaultOptions;
+
+	private async Task UpdateOptionsAsync()
+	{
+		// Simulate loading data from a database.
+		await Task.Delay(TimeSpan.FromMilliseconds(250));
+
+		if (string.IsNullOrEmpty(search))
+		{
+			options = Filtering.defaultOptions;
+		}
+		else
+		{
+			options =
+			[
+				new SelectOption(search.ToLowerInvariant(), search),
+				new SelectOption($"{search.ToLowerInvariant()}-2", $"{search} 2"),
+				new SelectOption($"{search.ToLowerInvariant()}-3", $"{search} 3"),
+				new SelectOption($"{search.ToLowerInvariant()}-4", $"{search} 4"),
+			];
+		}
+	}
+
+	private static readonly SelectOption[] defaultOptions =
+	[
+		new("apple", "Apple"),
+		new("banana", "Banana"),
+		new("cherry", "Cherry"),
+		new("mango", "Mango"),
+	];
+
+	private readonly record struct SelectOption(string Value, string Label);
+
+}

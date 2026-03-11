@@ -33,6 +33,8 @@ namespace CleanUI
 
 		[Parameter] public RenderFragment? PrefixContent { get; set; }
 
+		[Parameter] public RenderFragment? SuffixContent { get; set; }
+
 		protected virtual Dictionary<string, object>? ComponentParameters { get; set; }
 
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
@@ -61,6 +63,16 @@ namespace CleanUI
 					builder.AddMultipleAttributes(11, this.ComponentParameters);
 				}
 				builder.CloseComponent();
+
+				if (this.SuffixContent is not null)
+				{
+					builder.OpenElement(2, "span");
+					{
+						builder.AddAttribute(3, "class", "input-suffix");
+						builder.AddContent(4, this.SuffixContent);
+					}
+					builder.CloseElement();
+				}
 			}
 			builder.CloseElement();
 		}
