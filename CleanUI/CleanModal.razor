@@ -1,8 +1,8 @@
 @using Elegance.Extensions
 
-<dialog @attributes="@(AdditionalParameters)"
+<dialog @attributes="@(AdditionalAttributes)"
         id="@(Id)"
-        class="modal @(AdditionalParameters?.GetString("class") ?? "")"
+        class="modal @(AdditionalAttributes?.GetString("class") ?? "")"
         data-closable="@(Closable.Str())">
 	@if (HeaderContent is not null)
 	{
@@ -47,8 +47,8 @@
 @code {
 
 	private RenderFragment CloseButton =>
-		@<Button ButtonType="@(ButtonType.Link)" IconOnly onclick="@($"window.Modal.close('{Id}')")">
+		@<CleanButton ButtonType="@(ButtonType.Link)" IconOnly onclick="@($"window.Modal.close('{Id}')")">
 			@(Icons.X)
-		</Button>;
+		</CleanButton>;
 
 }

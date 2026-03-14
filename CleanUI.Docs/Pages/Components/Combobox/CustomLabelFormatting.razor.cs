@@ -8,17 +8,17 @@ namespace CleanUI.Docs.Pages.Components.Combobox
 		public static string Code =>
 			// language=razor
 			"""
-			<Combobox @bind-Value="@(value)"
-			          Options="@(options)"
-			          GetOptionValue="@(static (option) => option.Value)"
-			          GetOptionLabel="@(static (option) => option.Label)"
-			          GetOptionIcon="@(static (option) => option.Icon)"
-			          FormatLabel="@(FormatLabel)" />
-			
+			<CleanCombobox @bind-Value="@(value)"
+			          		Options="@(options)"
+			          		GetOptionValue="@(static (option) => option.Value)"
+			          		GetOptionLabel="@(static (option) => option.Label)"
+			          		GetOptionIcon="@(static (option) => option.Icon)"
+			          		FormatLabel="@(FormatLabel)" />
+
 			@code {
-			
+
 				private string[] value = [];
-			
+
 				private static readonly SelectOption[] options =
 				[
 					new("apple", "Apple", Icons.Apple),
@@ -29,14 +29,14 @@ namespace CleanUI.Docs.Pages.Components.Combobox
 					new("lemon", "Lemon", Icons.Lemon2),
 					new("watermelon", "Watermelon", Icons.Lemon),
 				];
-			
+
 				private static RenderFragment FormatLabel(SelectOption[] selected) =>
 					RenderFragment.FromString($"{selected.Length} item(s)");
-			
+
 				private readonly record struct SelectOption(string Value, string Label, RenderFragment? Icon = null);
-			
+
 			}
-			
+
 			""";
 	}
 }

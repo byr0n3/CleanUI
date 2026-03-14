@@ -8,33 +8,33 @@ namespace CleanUI.Docs.Pages.Components.Alert
 		public static string Code =>
 			// language=razor
 			"""
-			<Alert>
+			<CleanAlert>
 				<TitleContent>
 					<h3>Hello!</h3>
 				</TitleContent>
 				<ChildContent>
 					This alert has a title.
 				</ChildContent>
-			</Alert>
+			</CleanAlert>
 			
-			<Alert ShowIcon>
+			<CleanAlert ShowIcon>
 				<TitleContent>
 					Hello!
 				</TitleContent>
 				<ChildContent>
 					This alert has a title AND an icon.
 				</ChildContent>
-			</Alert>
+			</CleanAlert>
 			
 			
-			<Alert TitleLevel="@(1)" ShowIcon>
+			<CleanAlert TitleLevel="@(1)" ShowIcon>
 				<TitleContent>
 					Hello!
 				</TitleContent>
 				<ChildContent>
 					This alert has a title AND an icon.
 				</ChildContent>
-			</Alert>
+			</CleanAlert>
 			""";
 	}
 }

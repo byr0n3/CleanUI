@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using CleanUI.Internal;
 using Microsoft.AspNetCore.Components;
 
 namespace CleanUI
@@ -7,7 +6,7 @@ namespace CleanUI
 	/// <summary>
 	/// Component that indicates a series of related content that exists across multiple pages and provides functionality to switch to said pages.
 	/// </summary>
-	public sealed partial class Pagination : CleanComponentBase
+	public sealed partial class CleanPagination : CleanComponentBase
 	{
 		/// <inheritdoc cref="NavigationManager" />
 		[Inject]
@@ -49,7 +48,7 @@ namespace CleanUI
 		/// The name of the query parameter for the <see cref="Page"/> parameter.
 		/// </summary>
 		[Parameter]
-		public string PageQueryName { get; set; } = nameof(Pagination.Page);
+		public string PageQueryName { get; set; } = nameof(CleanPagination.Page);
 
 		/// <summary>
 		/// The icon/content to display for the `previous page` button.

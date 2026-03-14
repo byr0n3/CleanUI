@@ -1,6 +1,6 @@
 @rendermode RenderModes.Interactive
 
-<Combobox @bind-Value="@(value)"
+<CleanCombobox @bind-Value="@(value)"
           Options="@(CustomLabelFormatting.options)"
           GetOptionValue="@(static (option) => option.Value)"
           GetOptionLabel="@(static (option) => option.Label)"

@@ -4,38 +4,37 @@ using System.Numerics;
 using CleanUI.Internal.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Inputs = Microsoft.AspNetCore.Components.Forms;
 
-// @todo Add component for every input type
 namespace CleanUI
 {
-	/// <inheritdoc cref="Inputs.InputText"/>
-	public sealed class InputText : CleanInputBase<string?, Inputs.InputText>;
+	/// <inheritdoc cref="InputText"/>
+	public sealed class CleanInputText : CleanInputBase<string?, InputText>;
 
-	/// <inheritdoc cref="Inputs.InputNumber{TValue}"/>
-	public sealed class InputNumber<TValue> : CleanInputBase<TValue, Inputs.InputNumber<TValue>>
+	/// <inheritdoc cref="InputNumber{TValue}"/>
+	public sealed class CleanInputNumber<TValue> : CleanInputBase<TValue, InputNumber<TValue>>
 		where TValue : INumber<TValue>;
 
-	/// <inheritdoc cref="Inputs.InputDate{TValue}"/>
-	public sealed class InputDate<TValue> : CleanInputBase<TValue, Inputs.InputDate<TValue>>
+	/// <inheritdoc cref="InputDate{TValue}"/>
+	public sealed class CleanInputDate<TValue> : CleanInputBase<TValue, InputDate<TValue>>
 	{
-		/// <inheritdoc cref="Inputs.InputDate{TValue}.Type"/>
+		/// <inheritdoc cref="InputDate{TValue}.Type"/>
 		[Parameter]
 		public InputDateType Type { get; set; } = InputDateType.Date;
 
 		protected override Dictionary<string, object> ComponentParameters =>
 			new(StringComparer.Ordinal)
 			{
-				[nameof(Inputs.InputDate<>.Type)] = this.Type,
+				[nameof(InputDate<>.Type)] = this.Type,
 			};
 	}
 
-	/// <inheritdoc cref="Inputs.InputTextArea"/>
-	public sealed class InputTextArea : CleanInputBase<string?, Inputs.InputTextArea>;
+	/// <inheritdoc cref="InputTextArea"/>
+	public sealed class CleanInputTextArea : CleanInputBase<string?, InputTextArea>;
 
-	/// <inheritdoc cref="Inputs.InputFile"/>
-	public sealed class InputFile : Inputs.InputFile
+	/// <inheritdoc cref="InputFile"/>
+	public sealed class CleanInputFile : InputFile
 	{
+		/// <inheritdoc/>
 		protected override void OnParametersSet()
 		{
 			var parameters = this.AdditionalAttributes ?? new Dictionary<string, object>(StringComparer.Ordinal);

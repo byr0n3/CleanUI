@@ -1,0 +1,18 @@
+@using Elegance.Extensions
+
+<button @attributes="@(AdditionalAttributes)"
+        type="@(AdditionalAttributes?.GetString("type") ?? "button")"
+        class="btn @(TypeClass) @(SizeClass) @(IconOnly ? "btn-icon" : "") @(AdditionalAttributes.GetString("class") ?? "")"
+        disabled="@(AdditionalAttributes.GetBoolean("disabled") || Loading)"
+        aria-busy="@(AdditionalAttributes.GetString("aria-busy") ?? Loading.Str())">
+	@if (Loading)
+	{
+		@(LoadingContent ?? Icons.Loader2)
+	}
+	else
+	{
+		@(PrefixContent)
+	}
+	<span class="btn-label">@(ChildContent)</span>
+	@(SuffixContent)
+</button>

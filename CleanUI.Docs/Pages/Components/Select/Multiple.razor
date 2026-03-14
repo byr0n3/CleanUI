@@ -1,12 +1,12 @@
 @* @todo Add select suffix icon on non-support browsers *@
-<Select @bind-Value="@(value)"
-        Options="@(Multiple.options)"
-        GetOptionValue="@(static (option) => option.Value)"
-        GetOptionLabel="@(static (option) => option.Label)"
-        GetOptionIcon="@(Multiple.GetOptionIcon)"
-        AddNullOption
-        NullOptionLabel="Pick a fruit!">
-</Select>
+<CleanSelect @bind-Value="@(value)"
+             Options="@(Multiple.options)"
+             GetOptionValue="@(static (option) => option.Value)"
+             GetOptionLabel="@(static (option) => option.Label)"
+             GetOptionIcon="@(Multiple.GetOptionIcon)"
+             AddNullOption
+             NullOptionLabel="Pick a fruit!">
+</CleanSelect>
 
 @code {
 

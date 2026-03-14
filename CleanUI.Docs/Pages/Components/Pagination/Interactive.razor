@@ -1,9 +1,9 @@
 @rendermode RenderModes.Interactive
 
-<Pagination @bind-Page="@(page)"
-            Label="Pagination with interactive server rendering"
-            PerPage="@(10)"
-            TotalCount="@(50)" />
+<CleanPagination @bind-Page="@(page)"
+                 Label="Pagination with interactive server rendering"
+                 PerPage="@(10)"
+                 TotalCount="@(50)" />
 
 @code {
 

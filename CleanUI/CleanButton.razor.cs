@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using CleanUI.Internal;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -9,7 +8,7 @@ namespace CleanUI
 	/// <summary>
 	/// A clickable element that executes a given functionality when clicked.
 	/// </summary>
-	public sealed partial class Button : CleanComponentBase
+	public sealed partial class CleanButton : CleanComponentBase
 	{
 		/// <inheritdoc cref="ButtonType"/>
 		[Parameter]
@@ -98,7 +97,7 @@ namespace CleanUI
 		/// <remarks>This allows the component to directly contain a JavaScript function, or a .NET callback.</remarks>
 		private void OverrideOnClickCallback()
 		{
-			if ((this.AdditionalParameters?.TryGetValue("onclick", out var onclick) != true) ||
+			if ((this.AdditionalAttributes?.TryGetValue("onclick", out var onclick) != true) ||
 				(onclick is not EventCallback<MouseEventArgs> callback))
 			{
 				return;
@@ -106,7 +105,7 @@ namespace CleanUI
 
 			this.onClickCallback = callback;
 
-			this.AdditionalParameters["onclick"] = EventCallback.Factory.Create<MouseEventArgs>(this, this.HandleClickAsync);
+			this.AdditionalAttributes["onclick"] = EventCallback.Factory.Create<MouseEventArgs>(this, this.HandleClickAsync);
 		}
 
 		/// <summary>

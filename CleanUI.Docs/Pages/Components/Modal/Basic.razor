@@ -1,15 +1,15 @@
-<Button ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('basic-modal')">
+<CleanButton ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('basic-modal')">
 	Open modal
-</Button>
+</CleanButton>
 
-<Modal Id="basic-modal" Title="A simple modal!">
+<CleanModal Id="basic-modal" Title="A simple modal!">
 	<ChildContent>
 		This is the modal's content.
 	</ChildContent>
 	
 	<FooterContent>
-		<Button ButtonType="@(ButtonType.Primary)" onclick="window.Modal.close('basic-modal')">
+		<CleanButton ButtonType="@(ButtonType.Primary)" onclick="window.Modal.close('basic-modal')">
 			OK
-		</Button>
+		</CleanButton>
 	</FooterContent>
-</Modal>
+</CleanModal>

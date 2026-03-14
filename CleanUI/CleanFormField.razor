@@ -1,0 +1,33 @@
+@using Microsoft.AspNetCore.Components.Forms
+
+<div @attributes="@(AdditionalAttributes)"
+     class="form-field @(AdditionalAttributes.GetString("class") ?? "")">
+	@if (HideLabel)
+	{
+		@(ChildContent)
+	}
+	else
+	{
+		<label class="@(Inline ? "form-field-content-inline" : "")">
+			<span class="form-field-label">@(Label)</span>
+			@(ChildContent)
+		</label>
+	}
+
+	@if (HelpContent is not null)
+	{
+		<div class="form-field-help">
+			@(HelpContent)
+		</div>
+	}
+
+	@if ((EditContext is not null) && (Property is not null))
+	{
+		<ValidationMessage For="@(Property)" class="form-field-error" />
+	}
+
+	@if (ErrorContent is not null)
+	{
+		<div class="form-field-error">@(ErrorContent)</div>
+	}
+</div>

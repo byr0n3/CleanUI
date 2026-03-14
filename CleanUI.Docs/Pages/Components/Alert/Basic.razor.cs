@@ -8,9 +8,9 @@ namespace CleanUI.Docs.Pages.Components.Alert
 		public static string Code =>
 			// language=razor
 			"""
-			<Alert>
+			<CleanAlert>
 				Hello world!
-			</Alert>
+			</CleanAlert>
 			""";
 	}
 }

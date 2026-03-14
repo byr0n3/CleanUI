@@ -1,0 +1,11 @@
+@using Microsoft.AspNetCore.Components.Forms
+@namespace CleanUI
+
+<label class="input-checkbox">
+	<InputCheckbox @attributes="@(AdditionalAttributes)"
+	               Value="@(Value)"
+	               ValueChanged="@(ValueChanged)"
+	               ValueExpression="@(ValueExpression)"
+	               class="@($"input {(AdditionalAttributes.GetString("class") ?? "")}")" />
+	@(ChildContent)
+</label>

@@ -8,25 +8,25 @@ namespace CleanUI.Docs.Pages.Components.Button
 		public static string Code =>
 			// language=razor
 			"""
-			<Button Size="@(ButtonSize.ExtraSmall)">
+			<CleanButton Size="@(ButtonSize.ExtraSmall)">
 				Extra small
-			</Button>
+			</CleanButton>
 			
-			<Button Size="@(ButtonSize.Small)">
+			<CleanButton Size="@(ButtonSize.Small)">
 				Small
-			</Button>
+			</CleanButton>
 			
-			<Button>
+			<CleanButton>
 				Default (medium)
-			</Button>
+			</CleanButton>
 			
-			<Button Size="@(ButtonSize.Large)">
+			<CleanButton Size="@(ButtonSize.Large)">
 				Large
-			</Button>
+			</CleanButton>
 			
-			<Button Size="@(ButtonSize.ExtraLarge)">
+			<CleanButton Size="@(ButtonSize.ExtraLarge)">
 				Extra large
-			</Button>
+			</CleanButton>
 			""";
 	}
 }

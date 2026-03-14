@@ -8,21 +8,21 @@ namespace CleanUI.Docs.Pages.Components.Alert
 		public static string Code =>
 			// language=razor
 			"""
-			<Alert Type="@(AlertType.Info)">
+			<CleanAlert Type="@(AlertType.Info)">
 				Hello world!
-			</Alert>
+			</CleanAlert>
 
-			<Alert Type="@(AlertType.Success)">
+			<CleanAlert Type="@(AlertType.Success)">
 				Hello world!
-			</Alert>
+			</CleanAlert>
 
-			<Alert Type="@(AlertType.Warning)">
+			<CleanAlert Type="@(AlertType.Warning)">
 				Hello world!
-			</Alert>
+			</CleanAlert>
 
-			<Alert Type="@(AlertType.Danger)">
+			<CleanAlert Type="@(AlertType.Danger)">
 				Hello world!
-			</Alert>
+			</CleanAlert>
 			""";
 	}
 }

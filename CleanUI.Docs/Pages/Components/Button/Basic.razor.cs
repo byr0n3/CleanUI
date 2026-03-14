@@ -8,13 +8,13 @@ namespace CleanUI.Docs.Pages.Components.Button
 		public static string Code =>
 			// language=razor
 			"""
-			<Button onclick="alert('Hello world!')">
+			<CleanButton onclick="alert('Hello world!')">
 				Click me!
-			</Button>
+			</CleanButton>
 
-			<Button PrefixContent="@(Icons.Click)" onclick="alert('Hello world!')">
+			<CleanButton PrefixContent="@(Icons.Click)" onclick="alert('Hello world!')">
 				This button has an icon.
-			</Button>
+			</CleanButton>
 			""";
 	}
 }

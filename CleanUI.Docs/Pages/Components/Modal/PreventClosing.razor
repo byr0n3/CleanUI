@@ -1,18 +1,18 @@
-<Button ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('unclosable-modal')">
+<CleanButton ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('unclosable-modal')">
 	Open unclosable modal
-</Button>
+</CleanButton>
 
-<Modal Id="unclosable-modal" Closable="false">
+<CleanModal Id="unclosable-modal" Closable="false">
 	<ChildContent>
 		This modal is not closable.
 	</ChildContent>
 
 	<FooterContent>
-		<Button ButtonType="@(ButtonType.Danger)" onclick="window.Modal.close('unclosable-modal')">
+		<CleanButton ButtonType="@(ButtonType.Danger)" onclick="window.Modal.close('unclosable-modal')">
 			Close anyway :)
-		</Button>
+		</CleanButton>
 	</FooterContent>
-</Modal>
+</CleanModal>
 
 @code {
 

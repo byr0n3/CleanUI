@@ -8,25 +8,25 @@ namespace CleanUI.Docs.Pages.Components.Button
 		public static string Code =>
 			// language=razor
 			"""
-			<Button IconOnly>
+			<CleanButton IconOnly>
 				@(Icons.User)
-			</Button>
+			</CleanButton>
 			
-			<Button ButtonType="@(ButtonType.Primary)" IconOnly>
+			<CleanButton ButtonType="@(ButtonType.Primary)" IconOnly>
 				@(Icons.User)
-			</Button>
+			</CleanButton>
 			
-			<Button ButtonType="@(ButtonType.Secondary)" IconOnly>
+			<CleanButton ButtonType="@(ButtonType.Secondary)" IconOnly>
 				@(Icons.User)
-			</Button>
+			</CleanButton>
 			
-			<Button ButtonType="@(ButtonType.Danger)" IconOnly>
+			<CleanButton ButtonType="@(ButtonType.Danger)" IconOnly>
 				@(Icons.User)
-			</Button>
+			</CleanButton>
 			
-			<Button ButtonType="@(ButtonType.Link)" IconOnly>
+			<CleanButton ButtonType="@(ButtonType.Link)" IconOnly>
 				@(Icons.User)
-			</Button>
+			</CleanButton>
 			""";
 	}
 }

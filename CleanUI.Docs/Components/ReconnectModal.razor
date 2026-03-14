@@ -1,6 +1,6 @@
 ﻿<script type="module" src="@(Assets["Components/ReconnectModal.razor.js"])"></script>
 
-<Modal Id="components-reconnect-modal" Closable="false" data-nosnippet>
+<CleanModal Id="components-reconnect-modal" Closable="false" data-nosnippet>
 	<div class="components-reconnect-container">
 		<div class="components-rejoining-animation" aria-hidden="true">
 			<div></div>
@@ -15,17 +15,17 @@
 		<p class="components-reconnect-failed-visible">
 			Failed to rejoin.<br />Please retry or reload the page.
 		</p>
-		<button id="components-reconnect-button" class="components-reconnect-failed-visible">
+		<CleanButton id="components-reconnect-button" class="components-reconnect-failed-visible">
 			Retry
-		</button>
+		</CleanButton>
 		<p class="components-pause-visible">
 			The session has been paused by the server.
 		</p>
-		<Button ButtonType="@(ButtonType.Primary)" id="components-resume-button" class="components-pause-visible">
+		<CleanButton ButtonType="@(ButtonType.Primary)" id="components-resume-button" class="components-pause-visible">
 			Resume
-		</Button>
+		</CleanButton>
 		<p class="components-resume-failed-visible">
 			Failed to resume the session.<br />Please reload the page.
 		</p>
 	</div>
-</Modal>
+</CleanModal>

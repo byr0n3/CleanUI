@@ -1,0 +1,31 @@
+@page "/form-field"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Form Field</CleanPageTitle>
+
+<h1>Form Field</h1>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(Inline)" />
+
+<Example TComponent="@(WithoutForm)" />
+
+<Example TComponent="@(CustomLabel)" />
+
+<Example TComponent="@(CustomErrorMessage)" />
+
+@code {
+
+	public static string Label =>
+		"Form Field";
+
+	public static RenderFragment Icon =>
+		Icons.IconsIcon;
+
+	public static string Href =>
+		"/form-field";
+
+}

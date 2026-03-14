@@ -1,0 +1,22 @@
+@using System.ComponentModel.DataAnnotations
+
+<CleanFormField Property="@(() => model.Username)">
+	<LabelContent>
+		<i>Your</i> <b>username</b>:
+	</LabelContent>
+
+	<ChildContent>
+		<CleanInputText @bind-Value="@(model.Username)" />
+	</ChildContent>
+</CleanFormField>
+
+@code {
+
+	private readonly BasicModel model = new();
+
+	private sealed class BasicModel
+	{
+		[Required] public string? Username { get; set; }
+	}
+
+}

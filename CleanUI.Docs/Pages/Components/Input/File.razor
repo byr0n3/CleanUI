@@ -3,7 +3,7 @@
 @rendermode RenderModes.Interactive
 
 <RowWithDisableButton>
-	<CleanUI.InputFile OnChange="@(UpdateFiles)" multiple />
+	<CleanInputFile OnChange="@(UpdateFiles)" multiple />
 
 	@if (files is { Count : > 0 })
 	{

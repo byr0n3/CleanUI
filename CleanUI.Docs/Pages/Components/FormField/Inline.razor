@@ -1,0 +1,40 @@
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="@(Model)" FormName="@(Inline.formName)" action="/form-field#inline">
+	<DataAnnotationsValidator />
+
+	<CleanFormField Property="@(() => Model.Username)" Inline>
+		<CleanInputText @bind-Value="@(Model.Username)" />
+	</CleanFormField>
+
+	<CleanFormField Property="@(() => Model.Password)" Inline>
+		<ChildContent>
+			<CleanInputText @bind-Value="@(Model.Password)" type="password" />
+		</ChildContent>
+
+		<HelpContent>
+			Please try to make your password have at least 8 characters!
+		</HelpContent>
+	</CleanFormField>
+
+	<CleanButton ButtonType="@(ButtonType.Primary)" type="submit">
+		Sign in
+	</CleanButton>
+</EditForm>
+
+@code {
+
+	private const string formName = $"{nameof(Inline)}Form";
+
+	[SupplyParameterFromForm(FormName = Inline.formName)]
+	private BasicModel Model { get; set; } = new();
+
+	private sealed class BasicModel
+	{
+		[Required] public string? Username { get; set; }
+
+		[Required] public string? Password { get; set; }
+	}
+
+}

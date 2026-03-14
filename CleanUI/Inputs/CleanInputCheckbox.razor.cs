@@ -1,12 +1,12 @@
 using System;
 using System.Linq.Expressions;
-using CleanUI.Internal;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace CleanUI
 {
-	public sealed partial class InputCheckbox : CleanComponentBase
+	/// <inheritdoc cref="InputCheckbox"/>
+	public sealed partial class CleanInputCheckbox : CleanComponentBase
 	{
 		/// <inheritdoc cref="InputBase{bool}.Value"/>
 		[Parameter]
@@ -20,8 +20,14 @@ namespace CleanUI
 		[Parameter]
 		public Expression<Func<bool>>? ValueExpression { get; set; }
 
-		[Parameter] public string? ContainerClass { get; set; }
+		/// <inheritdoc cref="CleanInputBase{TValue, TInput}.ContainerClass" />
+		[Parameter]
+		public string? ContainerClass { get; set; }
 
-		[Parameter] public RenderFragment? ChildContent { get; set; }
+		/// <summary>
+		/// The label to show for the checkbox.
+		/// </summary>
+		[Parameter]
+		public RenderFragment? ChildContent { get; set; }
 	}
 }

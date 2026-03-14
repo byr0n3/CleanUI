@@ -8,12 +8,12 @@ namespace CleanUI.Docs.Pages.Components.Combobox
 		public static string Code =>
 			// language=razor
 			"""
-			<Combobox @bind-Value="@(value)"
-			          @bind-Search="@(search)"
-			          @bind-Search:after="@(UpdateOptions)"
-			          Options="@(options)"
-			          GetOptionValue="@(static (option) => option.Value)"
-			          GetOptionLabel="@(static (option) => option.Label)" />
+			<CleanCombobox @bind-Value="@(value)"
+			          		@bind-Search="@(search)"
+			          		@bind-Search:after="@(UpdateOptions)"
+			          		Options="@(options)"
+			          		GetOptionValue="@(static (option) => option.Value)"
+			          		GetOptionLabel="@(static (option) => option.Label)" />
 
 			@code {
 

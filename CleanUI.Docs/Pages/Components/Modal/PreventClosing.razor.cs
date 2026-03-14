@@ -8,9 +8,9 @@ namespace CleanUI.Docs.Pages.Components.Modal
 		public static string Code =>
 			// language=razor
 			"""
-			<Button ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('unclosable-modal')">
+			<CleanButton ButtonType="@(ButtonType.Primary)" onclick="window.Modal.open('unclosable-modal')">
 				Open unclosable modal
-			</Button>
+			</CleanButton>
 
 			<Modal Id="unclosable-modal" Closable="false">
 				This modal is not closable.

@@ -8,12 +8,12 @@ namespace CleanUI.Docs.Pages.Components.Combobox
 		public static string Code =>
 			// language=razor
 			"""
-			<Combobox @bind-Value="@(value)"
-			          Options="@(options)"
-			          GetOptionValue="@(static (option) => option.Value)"
-			          GetOptionLabel="@(static (option) => option.Label)"
-			          GetOptionIcon="@(static (option) => option.Icon)"
-			          PrefixContent="@(Icons.Burger)" />
+			<CleanCombobox @bind-Value="@(value)"
+			          		Options="@(options)"
+			          		GetOptionValue="@(static (option) => option.Value)"
+			          		GetOptionLabel="@(static (option) => option.Label)"
+			          		GetOptionIcon="@(static (option) => option.Icon)"
+			          		PrefixContent="@(Icons.Burger)" />
 
 			@code {
 

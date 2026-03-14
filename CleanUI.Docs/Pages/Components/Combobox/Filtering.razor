@@ -1,13 +1,13 @@
 @rendermode RenderModes.Interactive
 
-<Combobox @bind-Value="@(value)"
+<CleanCombobox @bind-Value="@(value)"
           @bind-Search="@(search)"
           @bind-Search:after="@(UpdateOptionsAsync)"
           Options="@(options)"
           GetOptionValue="@(static (option) => option.Value)"
           GetOptionLabel="@(static (option) => option.Label)" />
 
-<Combobox @bind-Value="@(values)"
+<CleanCombobox @bind-Value="@(values)"
           @bind-Search="@(search)"
           @bind-Search:after="@(UpdateOptionsAsync)"
           Options="@(options)"

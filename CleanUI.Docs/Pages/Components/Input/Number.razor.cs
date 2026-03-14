@@ -8,8 +8,8 @@ namespace CleanUI.Docs.Pages.Components.Input
 		public static string Code =>
 			// language=razor
 			"""
-			<InputNumber @bind-Value="@(value)" />
-			<InputNumber @bind-Value="@(value)" PrefixContent="@(Icons.CoinEuro)" />
+			<CleanInputNumber @bind-Value="@(value)" />
+			<CleanInputNumber @bind-Value="@(value)" PrefixContent="@(Icons.CoinEuro)" />
 
 			@code {
 

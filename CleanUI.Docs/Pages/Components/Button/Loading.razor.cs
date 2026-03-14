@@ -10,13 +10,13 @@ namespace CleanUI.Docs.Pages.Components.Button
 		public static string Code =>
 			// language=razor
 			"""
-			<Button @onclick="@(OnClickAsync)">
+			<CleanButton @onclick="@(OnClickAsync)">
 				Click me!
-			</Button>
+			</CleanButton>
 			
-			<Button Loading>
+			<CleanButton Loading>
 				Loading…
-			</Button>
+			</CleanButton>
 
 			@code {
 				private static Task OnClickAsync() =>

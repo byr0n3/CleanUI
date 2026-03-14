@@ -8,21 +8,21 @@ namespace CleanUI.Docs.Pages.Components.Alert
 		public static string Code =>
 			// language=razor
 			"""
-			<Alert ShowIcon>
+			<CleanAlert ShowIcon>
 				This alert has an icon.
-			</Alert>
+			</CleanAlert>
 			
-			<Alert Type="@(AlertType.Success)" ShowIcon>
+			<CleanAlert Type="@(AlertType.Success)" ShowIcon>
 				This alert has an icon.
-			</Alert>
+			</CleanAlert>
 			
-			<Alert Type="@(AlertType.Warning)" ShowIcon>
+			<CleanAlert Type="@(AlertType.Warning)" ShowIcon>
 				This alert has an icon.
-			</Alert>
+			</CleanAlert>
 			
-			<Alert Type="@(AlertType.Danger)" ShowIcon>
+			<CleanAlert Type="@(AlertType.Danger)" ShowIcon>
 				This alert has an icon.
-			</Alert>
+			</CleanAlert>
 			""";
 	}
 }

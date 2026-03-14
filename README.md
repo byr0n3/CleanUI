@@ -34,9 +34,9 @@ or
 3. Use the components:
 
 ```razor
-<CleanUI.Button>
+<CleanUI.CleanButton>
 	Click me!
-</CleanUI.Button>
+</CleanUI.CleanButton>
 ```
 
 or
@@ -44,7 +44,7 @@ or
 ```razor
 @using CleanUI
 
-<Button>
+<CleanButton>
 	Click me!
-</Button>
+</CleanButton>
 ```

@@ -1,6 +1,6 @@
 .components-reconnect-first-attempt-visible,
 .components-reconnect-repeated-attempt-visible,
-.components-reconnect-failed-visible,
+::deep .components-reconnect-failed-visible,
 ::deep .components-pause-visible,
 .components-resume-failed-visible,
 .components-rejoining-animation {
@@ -15,7 +15,7 @@
 #components-reconnect-modal.components-reconnect-retrying .components-reconnect-repeated-attempt-visible,
 #components-reconnect-modal.components-reconnect-retrying .components-rejoining-animation,
 #components-reconnect-modal.components-reconnect-failed,
-#components-reconnect-modal.components-reconnect-failed .components-reconnect-failed-visible {
+::deep #components-reconnect-modal.components-reconnect-failed .components-reconnect-failed-visible {
 	display: block;
 }
 

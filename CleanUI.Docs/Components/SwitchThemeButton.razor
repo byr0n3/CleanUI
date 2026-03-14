@@ -1,6 +1,6 @@
 @using CleanUI.Docs.Extensions
 @using CleanUI.Docs.Models
 
-<Button IconOnly id="switch-theme-btn" onclick="switchTheme()">
+<CleanButton IconOnly id="switch-theme-btn" onclick="switchTheme()">
 	@(HttpContext.RequestTheme == Theme.Dark ? Icons.Moon : Icons.Sun)
-</Button>
+</CleanButton>

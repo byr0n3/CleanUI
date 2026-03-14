@@ -1,0 +1,44 @@
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="@(Model)" FormName="@(Basic.formName)">
+	<DataAnnotationsValidator />
+
+	<CleanFormField Property="@(() => Model.Username)">
+		<CleanInputText @bind-Value="@(Model.Username)" />
+	</CleanFormField>
+
+	<CleanFormField Property="@(() => Model.Password)">
+		<ChildContent>
+			<CleanInputText @bind-Value="@(Model.Password)" type="password" />
+		</ChildContent>
+
+		<HelpContent>
+			Please try to make your password have at least 8 characters!
+		</HelpContent>
+	</CleanFormField>
+
+	<CleanButton ButtonType="@(ButtonType.Primary)" type="submit">
+		Sign in
+	</CleanButton>
+</EditForm>
+
+@code {
+
+	private const string formName = $"{nameof(Basic)}Form";
+
+	[SupplyParameterFromForm(FormName = Basic.formName)]
+	private BasicModel Model { get; set; } = new();
+
+	private sealed class BasicModel
+	{
+		[Required]
+		[Display(Name = "Your username")]
+		public string? Username { get; set; }
+
+		[Required]
+		[Display(Name = "Your super secure password")]
+		public string? Password { get; set; }
+	}
+
+}

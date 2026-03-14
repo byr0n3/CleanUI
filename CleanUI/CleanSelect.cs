@@ -14,9 +14,9 @@ namespace CleanUI
 	/// <typeparam name="TOption">The type of the options to display.</typeparam>
 	/// <typeparam name="TOptionValue">
 	/// The type of the value of an option.
-	/// <p>This type parameter should be the same as <typeparamref name="TValue"/> if it's NOT an array type, or equal to the type of an entry in the array if it is.</p>
+	/// <p>This type parameter should be the same as <typeparamref name="TValue"/> if it's NOT an array type, or equal to the type of the entries in the array if it is.</p>
 	/// </typeparam>
-	public sealed class Select<TValue, TOption, TOptionValue> : InputSelect<TValue>
+	public sealed class CleanSelect<TValue, TOption, TOptionValue> : InputSelect<TValue>
 	{
 		/// <summary>
 		/// The options that are selectable.
@@ -77,20 +77,21 @@ namespace CleanUI
 		public RenderFragment? NullOptionIcon { get; set; }
 
 		/// <summary>
-		/// Whether this component has it's options-related parameters configured.
+		/// Whether this component has it's options-related parameters set.
 		/// </summary>
 		private bool HasOptions
 		{
-			[MemberNotNullWhen(true, nameof(Select<,,>.Options), nameof(Select<,,>.GetOptionValue), nameof(Select<,,>.GetOptionLabel))]
+			[MemberNotNullWhen(true, nameof(CleanSelect<,,>.Options), nameof(CleanSelect<,,>.GetOptionValue),
+							   nameof(CleanSelect<,,>.GetOptionLabel))]
 			get => (this.Options is not null) && (this.GetOptionValue is not null) && (this.GetOptionLabel is not null);
 		}
 
 		/// <summary>
-		/// Whether this component has a <see cref="GetOptionIcon"/> parameter configured.
+		/// Whether this component has a <see cref="GetOptionIcon"/> parameter set.
 		/// </summary>
 		private bool OptionsHaveIcons
 		{
-			[MemberNotNullWhen(true, nameof(Select<,,>.GetOptionIcon))]
+			[MemberNotNullWhen(true, nameof(CleanSelect<,,>.GetOptionIcon))]
 			get => this.GetOptionIcon is not null;
 		}
 
@@ -111,7 +112,7 @@ namespace CleanUI
 		}
 
 		/// <summary>
-		/// Appends the configured options to the select content.
+		/// Appends the set options to the select content.
 		/// </summary>
 		/// <param name="builder">The builder to add the options to.</param>
 		private void GetSelectContent(RenderTreeBuilder builder)

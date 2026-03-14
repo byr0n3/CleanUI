@@ -8,7 +8,7 @@ namespace CleanUI.Docs.Pages.Components.Input
 		public static string Code =>
 			// language=razor
 			"""
-			<CleanUI.InputFile OnChange="@(UpdateFiles)" multiple />
+			<CleanInputFile OnChange="@(UpdateFiles)" multiple />
 
 			@if (files is { Count : > 0 })
 			{

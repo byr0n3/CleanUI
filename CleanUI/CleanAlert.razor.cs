@@ -1,4 +1,3 @@
-using CleanUI.Internal;
 using Elegance.Extensions;
 using Microsoft.AspNetCore.Components;
 
@@ -7,7 +6,7 @@ namespace CleanUI
 	/// <summary>
 	/// A banner-like component that can communicate an important message or status update.
 	/// </summary>
-	public sealed partial class Alert : CleanComponentBase
+	public sealed partial class CleanAlert : CleanComponentBase
 	{
 		/// <inheritdoc cref="AlertType"/>
 		[Parameter]
@@ -56,7 +55,7 @@ namespace CleanUI
 		/// The icon to display in the alert.
 		/// </summary>
 		private RenderFragment Icon =>
-			this.IconContent ?? Alert.GetAlertTypeIcon(this.Type);
+			this.IconContent ?? CleanAlert.GetAlertTypeIcon(this.Type);
 
 		/// <summary>
 		/// The CSS class that represents the given <see cref="Type"/>.

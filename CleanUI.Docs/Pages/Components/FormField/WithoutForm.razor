@@ -1,0 +1,20 @@
+@using System.ComponentModel.DataAnnotations
+
+<CleanFormField Property="@(() => model.Username)">
+	<CleanInputText @bind-Value="@(model.Username)" />
+</CleanFormField>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>It is possible to show a form field without a form, however error messages will have to be shown manually
+			(see example below).</p>;
+
+	private readonly BasicModel model = new();
+
+	private sealed class BasicModel
+	{
+		[Required] public string? Username { get; set; }
+	}
+
+}

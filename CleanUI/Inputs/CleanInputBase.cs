@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using CleanUI.Internal;
 using CleanUI.Internal.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -29,14 +28,30 @@ namespace CleanUI
 		[Parameter]
 		public Expression<Func<TValue>>? ValueExpression { get; set; }
 
-		[Parameter] public string? ContainerClass { get; set; }
+		/// <summary>
+		/// An additional class of the input's container.
+		/// </summary>
+		[Parameter]
+		public string? ContainerClass { get; set; }
 
-		[Parameter] public RenderFragment? PrefixContent { get; set; }
+		/// <summary>
+		/// The content to show before the input, like an icon.
+		/// </summary>
+		[Parameter]
+		public RenderFragment? PrefixContent { get; set; }
 
-		[Parameter] public RenderFragment? SuffixContent { get; set; }
+		/// <summary>
+		/// The content to show after the input, like an icon.
+		/// </summary>
+		[Parameter]
+		public RenderFragment? SuffixContent { get; set; }
 
+		/// <summary>
+		/// Additional parameter to give to the rendered input.
+		/// </summary>
 		protected virtual Dictionary<string, object>? ComponentParameters { get; set; }
 
+		/// <inheritdoc/>
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenElement(0, "div");
@@ -55,11 +70,11 @@ namespace CleanUI
 
 				builder.OpenComponent<TInput>(5);
 				{
-					builder.AddMultipleAttributes(6, this.AdditionalParameters);
+					builder.AddMultipleAttributes(6, this.AdditionalAttributes);
 					builder.AddAttribute(7, nameof(InputBase<>.Value), this.Value);
 					builder.AddAttribute(8, nameof(InputBase<>.ValueChanged), this.ValueChanged);
 					builder.AddAttribute(9, nameof(InputBase<>.ValueExpression), this.ValueExpression);
-					builder.AddAttribute(10, "class", $"input {this.AdditionalParameters.GetString("class")}");
+					builder.AddAttribute(10, "class", $"input {this.AdditionalAttributes.GetString("class")}");
 					builder.AddMultipleAttributes(11, this.ComponentParameters);
 				}
 				builder.CloseComponent();

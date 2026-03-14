@@ -1,9 +1,9 @@
-@using InputDateType = Microsoft.AspNetCore.Components.Forms.InputDateType
+@using Microsoft.AspNetCore.Components.Forms
 
 <RowWithDisableButton>
-	<InputDate @bind-Value="@(date)" PrefixContent="@(Icons.Calendar)" />
-	<InputDate @bind-Value="@(dateTime)" Type="@(InputDateType.DateTimeLocal)" PrefixContent="@(Icons.CalendarClock)" />
-	<InputDate @bind-Value="@(time)" Type="@(InputDateType.Time)" PrefixContent="@(Icons.Clock)" />
+	<CleanInputDate @bind-Value="@(date)" PrefixContent="@(Icons.Calendar)" />
+	<CleanInputDate @bind-Value="@(dateTime)" Type="@(InputDateType.DateTimeLocal)" PrefixContent="@(Icons.CalendarClock)" />
+	<CleanInputDate @bind-Value="@(time)" Type="@(InputDateType.Time)" PrefixContent="@(Icons.Clock)" />
 </RowWithDisableButton>
 
 @code {
