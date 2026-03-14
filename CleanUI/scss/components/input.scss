@@ -1,5 +1,7 @@
 @use './button';
 
+$deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
+
 @mixin input-addon() {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -33,16 +35,16 @@
 		inset-inline-end: var(--spacing-component-inline);
 	}
 
-	&:has(> .input-prefix) .input:not([type='checkbox']):not([type='file']) {
+	&:has(> .input-prefix) .input#{$deselector} {
 		padding-inline-start: calc(1em + var(--spacing-component-inline) * 2);
 	}
 
-	&:has(> .input-suffix) .input:not([type='checkbox']):not([type='file']) {
+	&:has(> .input-suffix) .input#{$deselector} {
 		padding-inline-end: calc(1em + var(--spacing-component-inline) * 2);
 	}
 }
 
-.input:not([type='checkbox']):not([type='file']) {
+.input#{$deselector} {
 	--fg: var(--body-fg);
 	--bg: var(--body-bg-secondary);
 
@@ -203,5 +205,98 @@
 		--border-fg: var(--disabled-fg);
 
 		cursor: not-allowed;
+	}
+}
+
+.radio-container {
+	--fg: currentColor;
+
+	display: inline-flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: var(--spacing-xs);
+
+	color: var(--fg);
+
+	transition: var(--animation);
+	transition-property: color;
+
+	&:has(input[disabled]) {
+		--fg: var(--disabled-fg);
+
+		cursor: not-allowed;
+	}
+}
+
+.input[type='radio'] {
+	--size: 1em;
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	display: grid;
+	place-content: center;
+
+	font: inherit;
+
+	color: currentColor;
+	background-color: transparent;
+
+	margin: 0;
+	padding: 0;
+
+	width: var(--size);
+	height: var(--size);
+
+	border: var(--border-width) solid var(--fg);
+	border-radius: 50%;
+
+	transition: var(--animation);
+	transition-property: border;
+
+	&::before {
+		content: '';
+
+		// Windows High Contrast Mode support.
+		background-color: CanvasText;
+
+		width: calc(var(--size) / 2.5);
+		height: calc(var(--size) / 2.5);
+
+		border-radius: 50%;
+
+		box-shadow: inset var(--size) var(--size) var(--primary-fg);
+
+		transform: scale(0);
+
+		transition: var(--animation);
+		transition-property: transform;
+	}
+
+	&:checked {
+		&::before {
+			transform: scale(1);
+		}
+	}
+	
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+.radio-group {
+	& > *:not(:last-child) {
+		margin-inline-end: var(--spacing-xs);
+	}
+
+	&.radio-group-vertical {
+		& .radio-container {
+			display: flex;
+		}
+
+		& > *:not(:last-child) {
+			margin-block-end: var(--spacing-xs);
+		}
 	}
 }

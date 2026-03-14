@@ -1,0 +1,32 @@
+<RowWithDisableButton>
+	<CleanInputRadioGroup @bind-Value="@(@checked)" style="margin-inline-end: var(--spacing-xs)">
+		<CleanInputRadio Value="@(true)">
+			Yes
+		</CleanInputRadio>
+		<CleanInputRadio Value="@(false)">
+			No
+		</CleanInputRadio>
+	</CleanInputRadioGroup>
+
+	<CleanInputRadioGroup @bind-Value="@(value)" Vertical>
+		<CleanInputRadio Value="@("Hello")">
+			Hello
+		</CleanInputRadio>
+		<CleanInputRadio Value="@("there")">
+			there
+		</CleanInputRadio>
+		<CleanInputRadio Value="@("general")">
+			general
+		</CleanInputRadio>
+		<CleanInputRadio Value="@("Kenobi")">
+			Kenobi
+		</CleanInputRadio>
+	</CleanInputRadioGroup>
+</RowWithDisableButton>
+
+@code {
+
+	private bool @checked;
+	private string? value;
+
+}
