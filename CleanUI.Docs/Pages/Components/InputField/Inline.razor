@@ -4,11 +4,11 @@
 <EditForm Model="@(Model)" FormName="@(Inline.formName)" action="/form-field#inline">
 	<DataAnnotationsValidator />
 
-	<CleanFormField Property="@(() => Model.Username)" Inline>
+	<CleanInputField Property="@(() => Model.Username)" Inline>
 		<CleanInputText @bind-Value="@(Model.Username)" />
-	</CleanFormField>
+	</CleanInputField>
 
-	<CleanFormField Property="@(() => Model.Password)" Inline>
+	<CleanInputField Property="@(() => Model.Password)" Inline>
 		<ChildContent>
 			<CleanInputText @bind-Value="@(Model.Password)" type="password" />
 		</ChildContent>
@@ -16,7 +16,7 @@
 		<HelpContent>
 			Please try to make your password have at least 8 characters!
 		</HelpContent>
-	</CleanFormField>
+	</CleanInputField>
 
 	<CleanButton ButtonType="@(ButtonType.Primary)" type="submit">
 		Sign in

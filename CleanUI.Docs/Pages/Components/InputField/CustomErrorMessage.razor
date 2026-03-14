@@ -1,14 +1,14 @@
 @using System.ComponentModel.DataAnnotations
 
-<CleanFormField Property="@(() => model.Username)">
-	<LabelContent>
-		<i>Your</i> <b>username</b>:
-	</LabelContent>
-
+<CleanInputField Property="@(() => model.Username)">
 	<ChildContent>
 		<CleanInputText @bind-Value="@(model.Username)" />
 	</ChildContent>
-</CleanFormField>
+	
+	<ErrorContent>
+		Please enter your username.
+	</ErrorContent>
+</CleanInputField>
 
 @code {
 

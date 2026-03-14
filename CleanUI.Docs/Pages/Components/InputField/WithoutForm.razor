@@ -1,8 +1,8 @@
 @using System.ComponentModel.DataAnnotations
 
-<CleanFormField Property="@(() => model.Username)">
+<CleanInputField Property="@(() => model.Username)">
 	<CleanInputText @bind-Value="@(model.Username)" />
-</CleanFormField>
+</CleanInputField>
 
 @code {
 

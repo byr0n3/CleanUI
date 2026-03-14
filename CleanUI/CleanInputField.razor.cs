@@ -9,7 +9,7 @@ namespace CleanUI
 	/// <summary>
 	/// A block that displays an input for a field with a label and optionally an error message and/or assistance text.
 	/// </summary>
-	public sealed partial class CleanFormField : CleanComponentBase
+	public sealed partial class CleanInputField : CleanComponentBase
 	{
 		/// <summary>
 		/// When this component is a child of a form, it will attach an <c>EditContext</c> parameter.
@@ -18,14 +18,14 @@ namespace CleanUI
 		public EditContext? EditContext { get; set; }
 
 		/// <summary>
-		/// The content of the form field, likely an input component.
+		/// The content of the input field, likely an input component.
 		/// </summary>
 		[Parameter]
 		[EditorRequired]
 		public required RenderFragment ChildContent { get; set; }
 
 		/// <summary>
-		/// The property this form field represents.
+		/// The property this input field represents.
 		/// </summary>
 		/// <remarks>
 		/// Use this parameter to automatically use the property's display name for the label and show the current validation message if there is any.

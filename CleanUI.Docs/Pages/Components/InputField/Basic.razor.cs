@@ -1,9 +1,9 @@
 using CleanUI.Docs.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace CleanUI.Docs.Pages.Components.FormField
+namespace CleanUI.Docs.Pages.Components.InputField
 {
-	public sealed partial class Inline : ComponentBase, IComponentExample
+	public sealed partial class Basic : ComponentBase, IComponentExample
 	{
 		public static string Code =>
 			// language=razor
@@ -11,11 +11,11 @@ namespace CleanUI.Docs.Pages.Components.FormField
 			<EditForm Model="@(Model)">
 				<DataAnnotationsValidator />
 
-				<CleanFormField Property="@(() => Model.Username)" Inline>
+				<CleanInputField Property="@(() => Model.Username)">
 					<CleanInputText @bind-Value="@(Model.Username)" />
-				</CleanFormField>
+				</CleanInputField>
 
-				<CleanFormField Property="@(() => Model.Password)" Inline>
+				<CleanInputField Property="@(() => Model.Password)">
 					<ChildContent>
 						<CleanInputText @bind-Value="@(Model.Password)" type="password" />
 					</ChildContent>
@@ -23,7 +23,7 @@ namespace CleanUI.Docs.Pages.Components.FormField
 					<HelpContent>
 						Please try to make your password have at least 8 characters!
 					</HelpContent>
-				</CleanFormField>
+				</CleanInputField>
 
 				<CleanButton ButtonType="@(ButtonType.Primary)" type="submit">
 					Sign in

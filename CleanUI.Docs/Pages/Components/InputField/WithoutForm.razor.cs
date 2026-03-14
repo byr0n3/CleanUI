@@ -1,16 +1,16 @@
 using CleanUI.Docs.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace CleanUI.Docs.Pages.Components.FormField
+namespace CleanUI.Docs.Pages.Components.InputField
 {
 	public sealed partial class WithoutForm : ComponentBase, IComponentExample
 	{
 		public static string Code =>
 			// language=razor
 			"""
-			<CleanFormField Property="@(() => model.Username)">
+			<CleanInputField Property="@(() => model.Username)">
 				<CleanInputText @bind-Value="@(model.Username)" />
-			</CleanFormField>
+			</CleanInputField>
 
 			@code {
 

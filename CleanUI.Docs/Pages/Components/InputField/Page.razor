@@ -1,11 +1,11 @@
-@page "/form-field"
+@page "/input-field"
 @using CleanUI.Docs.Components
 @using CleanUI.Docs.Interfaces
 @implements IExamplePage
 
-<CleanPageTitle>Form Field</CleanPageTitle>
+<CleanPageTitle>Input Field</CleanPageTitle>
 
-<h1>Form Field</h1>
+<h1>Input Field</h1>
 
 <Example TComponent="@(Basic)" />
 
@@ -20,12 +20,12 @@
 @code {
 
 	public static string Label =>
-		"Form Field";
+		"Input Field";
 
 	public static RenderFragment Icon =>
-		Icons.IconsIcon;
+		Icons.InputCheck;
 
 	public static string Href =>
-		"/form-field";
+		"/input-field";
 
 }
