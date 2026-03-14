@@ -127,7 +127,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	}
 }
 
-.input-checkbox {
+.checkbox-container {
 	--fg: var(--body-fg);
 
 	display: flex;
@@ -211,6 +211,8 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 .radio-container {
 	--fg: currentColor;
 
+	cursor: pointer;
+
 	display: inline-flex;
 	flex-flow: row nowrap;
 	align-items: center;
@@ -235,10 +237,10 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	-webkit-appearance: none;
 	appearance: none;
 
+	font: inherit;
+
 	display: grid;
 	place-content: center;
-
-	font: inherit;
 
 	color: currentColor;
 	background-color: transparent;
@@ -258,15 +260,12 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	&::before {
 		content: '';
 
-		// Windows High Contrast Mode support.
-		background-color: CanvasText;
+		background-color: var(--primary-fg);
 
 		width: calc(var(--size) / 2.5);
 		height: calc(var(--size) / 2.5);
 
 		border-radius: 50%;
-
-		box-shadow: inset var(--size) var(--size) var(--primary-fg);
 
 		transform: scale(0);
 
@@ -279,7 +278,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 			transform: scale(1);
 		}
 	}
-	
+
 	&:disabled {
 		cursor: not-allowed;
 	}
@@ -297,6 +296,72 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 
 		& > *:not(:last-child) {
 			margin-block-end: var(--spacing-xs);
+		}
+	}
+}
+
+.switch-container {
+	cursor: pointer;
+}
+
+.switch {
+	--spacing: 0.125em;
+	--size: 1em;
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	font: inherit;
+
+	position: relative;
+
+	display: inline-block;
+
+	color: inherit;
+	background-color: transparent;
+
+	margin: 0;
+	padding: var(--spacing);
+
+	width: calc((var(--size) * 2) + (var(--spacing) * 2));
+	height: calc(var(--size) + (var(--spacing) * 2) + (var(--border-width) * 2));
+
+	border: var(--border-width) solid var(--border-fg);
+	border-radius: var(--border-radius-md);
+
+	z-index: 1;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		inset-block: 50%;
+		inset-inline-start: var(--spacing);
+		inset-inline-end: calc(100% - (var(--size) + var(--spacing)));
+		
+		display: block;
+
+		background-color: currentColor;
+
+		margin: 0 var(--spacing);
+
+		width: var(--size);
+		height: var(--size);
+
+		border: var(--border-width-sm) solid var(--border-fg);
+		border-radius: 50%;
+
+		transform: translate(0, -50%);
+
+		transition: var(--animation);
+		transition-property: inset;
+	}
+
+	&:checked {
+		&::before {
+			inset-inline-start: calc(100% - (var(--size) + var(--spacing)));
+			inset-inline-end: var(--spacing);
 		}
 	}
 }

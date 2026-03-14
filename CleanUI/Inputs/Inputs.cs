@@ -9,14 +9,14 @@ using Microsoft.AspNetCore.Components.Rendering;
 namespace CleanUI
 {
 	/// <inheritdoc cref="InputText"/>
-	public sealed class CleanInputText : CleanInputBase<string?, InputText>;
+	public class CleanInputText : CleanInputBase<string?, InputText>;
 
 	/// <inheritdoc cref="InputNumber{TValue}"/>
-	public sealed class CleanInputNumber<TValue> : CleanInputBase<TValue, InputNumber<TValue>>
+	public class CleanInputNumber<TValue> : CleanInputBase<TValue, InputNumber<TValue>>
 		where TValue : INumber<TValue>;
 
 	/// <inheritdoc cref="InputDate{TValue}"/>
-	public sealed class CleanInputDate<TValue> : CleanInputBase<TValue, InputDate<TValue>>
+	public class CleanInputDate<TValue> : CleanInputBase<TValue, InputDate<TValue>>
 	{
 		/// <inheritdoc cref="InputDate{TValue}.Type"/>
 		[Parameter]
@@ -30,12 +30,12 @@ namespace CleanUI
 	}
 
 	/// <inheritdoc cref="InputTextArea"/>
-	public sealed class CleanInputTextArea : CleanInputBase<string?, InputTextArea>;
+	public class CleanInputTextArea : CleanInputBase<string?, InputTextArea>;
 
 	/// <inheritdoc cref="InputFile"/>
-	public sealed class CleanInputFile : InputFile
+	public class CleanInputFile : InputFile
 	{
-		/// <inheritdoc/>
+		/// <inheritdoc cref="ComponentBase.OnParametersSet" />
 		protected override void OnParametersSet()
 		{
 			var parameters = this.AdditionalAttributes ?? new Dictionary<string, object>(StringComparer.Ordinal);
@@ -46,16 +46,49 @@ namespace CleanUI
 		}
 	}
 
-	/// <inheritdoc cref="InputRadio{TValue}" />
-	public sealed class CleanInputRadio<TValue> : CleanComponentBase
+	public class CleanInputCheckbox : InputCheckbox
 	{
-		/// <inheritdoc cref="InputRadio{TValue}.Value" />
+		/// <inheritdoc cref="CleanInputBase{TValue, TInput}.ContainerClass" />
 		[Parameter]
-		public TValue? Value { get; set; }
+		public string? ContainerClass { get; set; }
 
-		/// <inheritdoc cref="InputRadio{TValue}.Name" />
+		/// <summary>
+		/// The label content to show for the checkbox.
+		/// </summary>
 		[Parameter]
-		public string? Name { get; set; }
+		public RenderFragment? ChildContent { get; set; }
+
+		protected override void OnParametersSet()
+		{
+			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
+							 new Dictionary<string, object>(StringComparer.Ordinal);
+
+			parameters["class"] = $"input {parameters.GetString("class")}";
+
+			this.AdditionalAttributes = parameters.AsReadOnly();
+		}
+
+		/// <inheritdoc cref="ComponentBase.BuildRenderTree" />
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			builder.OpenElement(0, "label");
+			{
+				builder.AddAttribute(1, "class", $"checkbox-container {this.ContainerClass}");
+
+				base.BuildRenderTree(builder);
+
+				builder.AddContent(2, this.ChildContent);
+			}
+			builder.CloseElement();
+		}
+	}
+
+	/// <inheritdoc cref="InputRadio{TValue}" />
+	public class CleanInputRadio<TValue> : InputRadio<TValue>
+	{
+		/// <inheritdoc cref="CleanInputBase{TValue, TInput}.ContainerClass" />
+		[Parameter]
+		public string? ContainerClass { get; set; }
 
 		/// <summary>
 		/// The content of the label of the radio input.
@@ -63,48 +96,100 @@ namespace CleanUI
 		[Parameter]
 		public RenderFragment? ChildContent { get; set; }
 
-		/// <inheritdoc />
+		/// <inheritdoc cref="ComponentBase.OnParametersSet" />
+		protected override void OnParametersSet()
+		{
+			base.OnParametersSet();
+
+			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
+							 new Dictionary<string, object>(StringComparer.Ordinal);
+
+			parameters["class"] = $"input {parameters.GetString("class")}";
+
+			this.AdditionalAttributes = parameters.AsReadOnly();
+		}
+
+		/// <inheritdoc cref="ComponentBase.BuildRenderTree" />
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenElement(0, "label");
 			{
-				builder.AddMultipleAttributes(1, this.AdditionalAttributes);
-				builder.AddAttribute(2, "class", $"radio-container {this.AdditionalAttributes.GetString("class")}");
+				builder.AddAttribute(1, "class", $"radio-container {this.ContainerClass}");
 
-				builder.OpenComponent<InputRadio<TValue>>(2);
-				{
-					builder.AddComponentParameter(3, nameof(InputRadio<>.Value), this.Value);
-					builder.AddComponentParameter(4, nameof(InputRadio<>.Name), this.Name);
-					builder.AddAttribute(5, "class", "input");
-				}
-				builder.CloseComponent();
+				base.BuildRenderTree(builder);
 
-				if (this.ChildContent is not null)
-				{
-					builder.AddContent(6, this.ChildContent);
-				}
+				builder.AddContent(2, this.ChildContent);
 			}
 			builder.CloseElement();
 		}
 	}
 
 	/// <inheritdoc cref="InputRadioGroup{TValue}" />
-	public sealed class CleanInputRadioGroup<TValue> : InputRadioGroup<TValue>
+	public class CleanInputRadioGroup<TValue> : InputRadioGroup<TValue>
 	{
 		/// <summary>
 		/// Whether to display the child options in a vertical/block layout, instead of horizontal/inline.
 		/// </summary>
-		[Parameter] public bool Vertical { get; set; }
+		[Parameter]
+		public bool Vertical { get; set; }
 
-		/// <inheritdoc />
+		/// <inheritdoc cref="ComponentBase.BuildRenderTree" />
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.OpenElement(0, "div");
 			{
 				builder.AddMultipleAttributes(1, this.AdditionalAttributes);
-				builder.AddAttribute(2, "class", $"radio-group {(this.Vertical ? "radio-group-vertical" : "")} {this.AdditionalAttributes.GetString("class")}");
+				builder.AddAttribute(
+					2,
+					"class",
+					$"radio-group {(this.Vertical ? "radio-group-vertical" : "")} {this.AdditionalAttributes.GetString("class")}"
+				);
 
 				base.BuildRenderTree(builder);
+			}
+			builder.CloseElement();
+		}
+	}
+
+	public class CleanInputSwitch : InputCheckbox
+	{
+		/// <inheritdoc cref="CleanInputBase{TValue, TInput}.ContainerClass" />
+		[Parameter]
+		public string? ContainerClass { get; set; }
+
+		/// <summary>
+		/// The label content to show for the checkbox.
+		/// </summary>
+		[Parameter]
+		public RenderFragment? ChildContent { get; set; }
+
+		protected override void OnParametersSet()
+		{
+			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
+							 new Dictionary<string, object>(StringComparer.Ordinal);
+
+			parameters["role"] = "switch";
+			parameters["class"] = $"switch {parameters.GetString("class")}";
+
+			this.AdditionalAttributes = parameters.AsReadOnly();
+		}
+
+		/// <inheritdoc cref="ComponentBase.BuildRenderTree" />
+		protected override void BuildRenderTree(RenderTreeBuilder builder)
+		{
+			if (this.ChildContent is null)
+			{
+				base.BuildRenderTree(builder);
+				return;
+			}
+
+			builder.OpenElement(0, "label");
+			{
+				builder.AddAttribute(1, "class", $"switch-container {this.ContainerClass}");
+
+				base.BuildRenderTree(builder);
+
+				builder.AddContent(2, this.ChildContent);
 			}
 			builder.CloseElement();
 		}

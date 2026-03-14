@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace CleanUI
 {
+	// @todo Create `CleanDialog` component, exended `CleanModal` from that
 	/// <summary>
 	/// A popup-window that's displayed on top of all other site content.
 	/// </summary>
