@@ -8,6 +8,7 @@ namespace CleanUI.Docs.Pages.Components.Input
 		public static string Code =>
 			// language=razor
 			"""
+			<CleanInputSwitch @bind-Value="@(value)" />
 			<CleanInputSwitch @bind-Value="@(value)">
 				Enabled
 			</CleanInputSwitch>

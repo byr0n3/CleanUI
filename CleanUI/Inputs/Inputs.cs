@@ -151,6 +151,7 @@ namespace CleanUI
 		}
 	}
 
+	/// <inheritdoc cref="InputCheckbox" />
 	public class CleanInputSwitch : InputCheckbox
 	{
 		/// <inheritdoc cref="CleanInputBase{TValue, TInput}.ContainerClass" />

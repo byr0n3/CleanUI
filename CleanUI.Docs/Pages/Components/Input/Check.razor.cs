@@ -8,6 +8,7 @@ namespace CleanUI.Docs.Pages.Components.Input
 		public static string Code =>
 			// language=razor
 			"""
+			<CleanInputCheckbox @bind-Value="@(value)" />
 			<CleanInputCheckbox @bind-Value="@(value)">
 				Stay signed in?
 			</CleanInputCheckbox>

@@ -24,7 +24,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	& .input-prefix {
 		@include input-addon();
 
-		inset-block-start: calc(var(--spacing-component-block) * 1.25);
+		inset-block-start: calc(var(--spacing-component-block) * 1.5);
 		inset-inline-start: var(--spacing-component-inline);
 	}
 
@@ -302,66 +302,106 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 
 .switch-container {
 	cursor: pointer;
+	
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: var(--spacing-xs);
+
+	&:has(.switch[disabled]) {
+		cursor: not-allowed;
+	}
 }
 
 .switch {
-	--spacing: 0.125em;
-	--size: 1em;
+	--switch-padding: 0.125em;
+	--switch-handle-size: (1.125em + var(--switch-padding));
+	--switch-handle-size-active: (var(--switch-handle-size) * 1.375);
 
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
 
+	cursor: pointer;
 	font: inherit;
 
 	position: relative;
 
 	display: inline-block;
 
-	color: inherit;
+	padding: var(--switch-padding);
+
+	width: calc((var(--switch-handle-size) * 2) + (var(--switch-padding) * 4));
+	height: calc(var(--switch-handle-size) + (var(--switch-padding) * 2) + (var(--border-width) * 2));
+
 	background-color: transparent;
 
-	margin: 0;
-	padding: var(--spacing);
-
-	width: calc((var(--size) * 2) + (var(--spacing) * 2));
-	height: calc(var(--size) + (var(--spacing) * 2) + (var(--border-width) * 2));
-
 	border: var(--border-width) solid var(--border-fg);
-	border-radius: var(--border-radius-md);
-
+	border-radius: var(--border-radius-pill);
+	
 	z-index: 1;
 
+	transition: var(--animation);
+	transition-property: outline, background-color, border-color;
+
 	&::before {
-		content: '';
+		content: "";
 
 		position: absolute;
-		inset-block: 50%;
-		inset-inline-start: var(--spacing);
-		inset-inline-end: calc(100% - (var(--size) + var(--spacing)));
-		
+		inset-block: var(--switch-padding);
+		inset-inline: var(--switch-padding) calc(100% - (var(--switch-handle-size) + var(--switch-padding)));
+
 		display: block;
 
-		background-color: currentColor;
+		min-width: calc(var(--switch-handle-size));
+		width: auto;
+		max-width: calc(var(--switch-handle-size-active));
 
-		margin: 0 var(--spacing);
+		background-color: var(--body-fg);
 
-		width: var(--size);
-		height: var(--size);
-
-		border: var(--border-width-sm) solid var(--border-fg);
-		border-radius: 50%;
-
-		transform: translate(0, -50%);
+		border-radius: var(--border-radius-pill);
 
 		transition: var(--animation);
-		transition-property: inset;
+		transition-property: inset, width, background-color;
+	}
+
+	&:active:not(:is([disabled], [aria-disabled="true"], :disabled)) {
+		&::before {
+			inset-inline-start: var(--switch-padding);
+			inset-inline-end: calc(100% - var(--switch-handle-size-active));
+		}
 	}
 
 	&:checked {
+		background-color: var(--primary-fg);
+		border-color: var(--primary-fg);
+
 		&::before {
-			inset-inline-start: calc(100% - (var(--size) + var(--spacing)));
-			inset-inline-end: var(--spacing);
+			inset-inline-start: calc(100% - (var(--switch-handle-size) + var(--switch-padding)));
+			inset-inline-end: var(--switch-padding);
+		}
+
+		&:active:not(:is([disabled], [aria-disabled="true"], :disabled)) {
+			&::before {
+				inset-inline-start: calc(100% - var(--switch-handle-size-active));
+				inset-inline-end: var(--switch-padding);
+			}
+		}
+	}
+
+	&:is([disabled], [aria-disabled="true"], :disabled) {
+		cursor: not-allowed;
+
+		background-color: var(--border-fg-disabled);
+		border-color: var(--border-fg-disabled);
+
+		&:checked {
+			background-color: var(--primary-fg-disabled);
+			border-color: var(--primary-fg-disabled);
+		}
+
+		&::before {
+			background-color: var(--disabled-fg);
 		}
 	}
 }
