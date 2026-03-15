@@ -1,6 +1,8 @@
+html:has(.modal[open]) {
+	overflow: hidden;
+}
+
 .modal {
-	position: relative;
-	
 	min-width: min(32em, calc(100dvi - 1em));
 	width: fit-content;
 	max-width: max(48em, calc(100dvi - 1em));
