@@ -1,0 +1,14 @@
+<div class="border">
+	Hover me
+	<CleanTooltip>
+		This tooltip is attached to a <code>&lt;div&gt;</code>
+	</CleanTooltip>
+</div>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>You can attach a tooltip to <b>any</b> HTML element. Keep in mind that it will attach to the first parent
+			that can receive pointer-events.</p>;
+
+}

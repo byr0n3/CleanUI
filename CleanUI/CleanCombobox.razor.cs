@@ -20,7 +20,7 @@ namespace CleanUI
 	/// The type of the value of an option.
 	/// <p>This type parameter should be the same as <typeparamref name="TValue"/> if it's NOT an array type, or equal to the type of the entries in the array if it is.</p>
 	/// </typeparam>
-	public sealed partial class CleanCombobox<TValue, TOption, TOptionValue> : InputBase<TValue>, IAsyncDisposable
+	public partial class CleanCombobox<TValue, TOption, TOptionValue> : InputBase<TValue>, IAsyncDisposable
 	{
 		/// <inheritdoc cref="IJSRuntime" />
 		[Inject]

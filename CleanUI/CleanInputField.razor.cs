@@ -9,7 +9,7 @@ namespace CleanUI
 	/// <summary>
 	/// A block that displays an input for a field with a label and optionally an error message and/or assistance text.
 	/// </summary>
-	public sealed partial class CleanInputField : CleanComponentBase
+	public partial class CleanInputField : CleanComponentBase
 	{
 		/// <summary>
 		/// When this component is a child of a form, it will attach an <c>EditContext</c> parameter.
@@ -62,7 +62,8 @@ namespace CleanUI
 		/// <summary>
 		/// Whether to show the input's label inline with the input.
 		/// </summary>
-		[Parameter] public bool Inline { get; set; }
+		[Parameter]
+		public bool Inline { get; set; }
 
 		/// <summary>
 		/// The current label content, based on multiple parameters.

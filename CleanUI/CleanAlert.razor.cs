@@ -6,7 +6,7 @@ namespace CleanUI
 	/// <summary>
 	/// A banner-like component that can communicate an important message or status update.
 	/// </summary>
-	public sealed partial class CleanAlert : CleanComponentBase
+	public partial class CleanAlert : CleanComponentBase
 	{
 		/// <inheritdoc cref="AlertType"/>
 		[Parameter]

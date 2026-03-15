@@ -6,7 +6,7 @@ namespace CleanUI
 	/// <summary>
 	/// A popup-window that's displayed on top of all other site content.
 	/// </summary>
-	public sealed partial class CleanModal : CleanComponentBase
+	public partial class CleanModal : CleanComponentBase
 	{
 		/// <summary>
 		/// The ID of the modal.

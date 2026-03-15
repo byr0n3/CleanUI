@@ -1,16 +1,16 @@
 using CleanUI.Docs.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace CleanUI.Docs.Pages.Components.Modal
+namespace CleanUI.Docs.Pages.Components.Tooltip
 {
 	public sealed partial class JsRuntime : ComponentBase, IComponentExample
 	{
 		public static string Code =>
 			// language=razor
 			"""
-			<CleanModal Id="modal">
-				This modal gets opened using the IJSRuntime.
-			</CleanModal>
+			<CleanTooltip id="tooltip">
+				This tooltip gets shown using the IJSRuntime.
+			</CleanTooltip>
 
 			@code {
 
@@ -18,7 +18,7 @@ namespace CleanUI.Docs.Pages.Components.Modal
 
 				protected override async Task OnInitializedAsync()
 				{
-					await Js.OpenModalAsync("modal");
+					await Js.ShowTooltipAsync("tooltip");
 				}
 
 			}

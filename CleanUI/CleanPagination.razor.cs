@@ -6,7 +6,7 @@ namespace CleanUI
 	/// <summary>
 	/// Component that indicates a series of related content that exists across multiple pages and provides functionality to switch to said pages.
 	/// </summary>
-	public sealed partial class CleanPagination : CleanComponentBase
+	public partial class CleanPagination : CleanComponentBase
 	{
 		/// <inheritdoc cref="NavigationManager" />
 		[Inject]

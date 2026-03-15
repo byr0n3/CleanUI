@@ -1,38 +1,39 @@
-@page "/modal"
+@page "/tooltip"
 @using CleanUI.Docs.Components
 @using CleanUI.Docs.Interfaces
 @implements IExamplePage
 
-<CleanPageTitle>Modal</CleanPageTitle>
+<CleanPageTitle>Tooltip</CleanPageTitle>
 
-<h1>Modal</h1>
+<h1>Tooltip</h1>
 
 <CleanAlert Type="@(AlertType.Warning)" ShowIcon class="mbe-lg">
 	<span class="mis-xs">
-		Don't forget to include the <code>modal.js</code> file in your app whenever you want to use modals:
+		Don't forget to include the <code>tooltip.js</code> file in your app whenever you want to use tooltips:
 	</span>
 	<pre class="mbs-sm mbe-0">
-		<code>@("<script src=\"@(Assets[\"_content/CleanUI/modal.js\"])\"></script>")</code>
+		<code>@("<script src=\"@(Assets[\"_content/CleanUI/tooltip.js\"])\"></script>")</code>
 	</pre>
 </CleanAlert>
 
+
 <Example TComponent="@(Basic)" />
 
-<Example TComponent="@(PreventClosing)" />
+<Example TComponent="@(NonButton)" />
 
 <Example TComponent="@(JsRuntime)" />
 
-<script src="@(Assets["_content/CleanUI/modal.js"])"></script>
+<script src="@(Assets["_content/CleanUI/tooltip.js"])"></script>
 
 @code {
 
 	public static string Label =>
-		"Modal";
+		"Tooltip";
 
 	public static RenderFragment Icon =>
-		Icons.AppWindow;
+		Icons.Tooltip;
 
 	public static string Href =>
-		"/modal";
+		"/tooltip";
 
 }

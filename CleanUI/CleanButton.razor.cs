@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Components.Web;
 namespace CleanUI
 {
 	/// <summary>
-	/// A clickable element that executes a given functionality when clicked.
+	/// A clickable component that executes a given functionality when clicked.
 	/// </summary>
-	public sealed partial class CleanButton : CleanComponentBase
+	public partial class CleanButton : CleanComponentBase
 	{
 		/// <inheritdoc cref="ButtonType"/>
 		[Parameter]
