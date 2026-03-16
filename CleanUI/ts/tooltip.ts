@@ -1,4 +1,7 @@
 window.Tooltip = {
+	registerAll() {
+		document.querySelectorAll('[popover=\'hint\']').forEach(window.Tooltip.register);
+	},
 	register(tooltip: HTMLElement) {
 		const parent = getTooltipTrigger();
 		const identifier = getIdentifier();
@@ -37,6 +40,5 @@ window.Tooltip = {
 	},
 };
 
-window.addEventListener('DOMContentLoaded', function () {
-	document.querySelectorAll('.tooltip[popover=\'hint\']').forEach(window.Tooltip.register);
-});
+window.addEventListener('DOMContentLoaded', () => window.Tooltip.registerAll());
+Blazor.addEventListener('enhancedload', () => window.Tooltip.registerAll());

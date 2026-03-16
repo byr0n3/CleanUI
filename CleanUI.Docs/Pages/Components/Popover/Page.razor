@@ -1,0 +1,23 @@
+@page "/popover"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Popover</CleanPageTitle>
+
+<h1>Popover</h1>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Popover";
+
+	public static RenderFragment Icon =>
+		Icons.LayoutNavbarCollapse;
+
+	public static string Href =>
+		"/popover";
+
+}

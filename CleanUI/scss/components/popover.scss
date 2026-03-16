@@ -1,6 +1,6 @@
-.tooltip {
+.popover {
 	--spacing: var(--spacing-xs);
-	
+
 	position: absolute;
 	inset: unset;
 	bottom: calc(anchor(top) + var(--spacing));
@@ -31,7 +31,7 @@
 		transform: translateY(1em);
 	}
 
-	&.tooltip-bottom {
+	&.popover-bottom {
 		bottom: unset;
 		top: calc(anchor(bottom) + var(--spacing));
 
@@ -44,7 +44,7 @@
 		}
 	}
 
-	&.tooltip-right {
+	&.popover-right {
 		bottom: calc(anchor(end) + var(--spacing));
 		left: calc(anchor(right) + var(--spacing));
 
@@ -57,7 +57,7 @@
 		}
 	}
 
-	&.tooltip-left {
+	&.popover-left {
 		bottom: calc(anchor(end) + var(--spacing));
 		right: calc(anchor(left) + var(--spacing));
 
