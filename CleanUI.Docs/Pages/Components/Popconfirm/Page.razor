@@ -1,0 +1,23 @@
+@page "/popconfirm"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Popconfirm</CleanPageTitle>
+
+<h1>Popconfirm</h1>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Popconfirm";
+
+	public static RenderFragment Icon =>
+		Icons.Message2Check;
+
+	public static string Href =>
+		"/popconfirm";
+
+}

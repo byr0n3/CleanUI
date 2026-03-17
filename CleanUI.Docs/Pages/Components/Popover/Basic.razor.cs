@@ -24,19 +24,19 @@ namespace CleanUI.Docs.Pages.Components.Popover
 				Left
 			</CleanButton>
 
-			<CleanPopover Id="popover">
+			<CleanPopover id="popover">
 				This popover is aligned to the top.
 			</CleanPopover>
 
-			<CleanPopover Id="popover-right" Position="@(PopoverPosition.Right)">
+			<CleanPopover id="popover-right" Position="@(PopoverPosition.Right)">
 				This popover is aligned to the right.
 			</CleanPopover>
 
-			<CleanPopover Id="popover-bottom" Position="@(PopoverPosition.Bottom)">
+			<CleanPopover id="popover-bottom" Position="@(PopoverPosition.Bottom)">
 				This popover is aligned to the bottom.
 			</CleanPopover>
 
-			<CleanPopover Id="popover-left" Position="@(PopoverPosition.Left)">
+			<CleanPopover id="popover-left" Position="@(PopoverPosition.Left)">
 				This popover is aligned to the left.
 			</CleanPopover>
 			""";

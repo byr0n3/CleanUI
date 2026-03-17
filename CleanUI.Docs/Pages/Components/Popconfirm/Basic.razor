@@ -1,39 +1,39 @@
 <div class="p-relative" style="width: 16em;height: 8em">
 	<CleanButton class="p-absolute inset-bs-0"
 	             style="inset-inline-start: 5em"
-	             popovertarget="popover"
+	             popovertarget="popconfirm"
 	             popovertargetaction="toggle">
 		Default
 	</CleanButton>
 	<CleanButton class="p-absolute inset-ie-0"
 	             style="inset-block-start: 2.5em"
-	             popovertarget="popover-right"
+	             popovertarget="popconfirm-right"
 	             popovertargetaction="toggle">
 		Right
 	</CleanButton>
 	<CleanButton class="p-absolute inset-be-0"
 	             style="inset-inline-start: 5em"
-	             popovertarget="popover-bottom"
+	             popovertarget="popconfirm-bottom"
 	             popovertargetaction="toggle">
 		Bottom
 	</CleanButton>
 	<CleanButton class="p-absolute inset-is-0"
 	             style="inset-block-start: 2.5em"
-	             popovertarget="popover-left"
+	             popovertarget="popconfirm-left"
 	             popovertargetaction="toggle">
 		Left
 	</CleanButton>
 </div>
 
-<CleanPopover id="popover">
-	This popover is aligned to the top.
-</CleanPopover>
-<CleanPopover id="popover-right" Position="@(PopoverPosition.Right)">
-	This popover is aligned to the right.
-</CleanPopover>
-<CleanPopover id="popover-bottom" Position="@(PopoverPosition.Bottom)">
-	This popover is aligned to the bottom.
-</CleanPopover>
-<CleanPopover id="popover-left" Position="@(PopoverPosition.Left)">
-	This popover is aligned to the left.
-</CleanPopover>
+<CleanPopconfirm id="popconfirm">
+	Are you sure you want to run this action?
+</CleanPopconfirm>
+<CleanPopconfirm Id="popconfirm-right" Position="@(PopoverPosition.Right)">
+	Are you sure you want to run this action?
+</CleanPopconfirm>
+<CleanPopconfirm Id="popconfirm-bottom" Position="@(PopoverPosition.Bottom)">
+	Are you sure you want to run this action?
+</CleanPopconfirm>
+<CleanPopconfirm Id="popconfirm-left" Position="@(PopoverPosition.Left)">
+	Are you sure you want to run this action?
+</CleanPopconfirm>

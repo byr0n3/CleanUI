@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Components.Rendering;
 
 namespace CleanUI
 {
+	/// <summary>
+	/// A floating element displayed when clicking the trigger's element.
+	/// </summary>
 	public class CleanPopover : CleanComponentBase
 	{
 		/// <summary>

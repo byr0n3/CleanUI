@@ -10,7 +10,7 @@ namespace CleanUI
 	/// </summary>
 	public partial class CleanButton : CleanComponentBase
 	{
-		/// <inheritdoc cref="ButtonType"/>
+		/// <inheritdoc cref="CleanUI.ButtonType"/>
 		[Parameter]
 		public ButtonType ButtonType { get; set; }
 
