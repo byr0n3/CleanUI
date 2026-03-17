@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using CleanUI.Internal.Extensions;
 using Microsoft.AspNetCore.Components;
@@ -40,7 +41,7 @@ namespace CleanUI
 		{
 			var parameters = this.AdditionalAttributes ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
-			parameters["class"] = $"input {parameters.GetString("class")}";
+			parameters.Inject("class", "input");
 
 			this.AdditionalAttributes = parameters;
 		}
@@ -60,10 +61,9 @@ namespace CleanUI
 
 		protected override void OnParametersSet()
 		{
-			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
-							 new Dictionary<string, object>(StringComparer.Ordinal);
+			var parameters = this.AdditionalAttributes?.ToDictionary() ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
-			parameters["class"] = $"input {parameters.GetString("class")}";
+			parameters.Inject("class", "input");
 
 			this.AdditionalAttributes = parameters.AsReadOnly();
 		}
@@ -101,10 +101,9 @@ namespace CleanUI
 		{
 			base.OnParametersSet();
 
-			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
-							 new Dictionary<string, object>(StringComparer.Ordinal);
+			var parameters = this.AdditionalAttributes?.ToDictionary() ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
-			parameters["class"] = $"input {parameters.GetString("class")}";
+			parameters.Inject("class", "input");
 
 			this.AdditionalAttributes = parameters.AsReadOnly();
 		}
@@ -166,11 +165,10 @@ namespace CleanUI
 
 		protected override void OnParametersSet()
 		{
-			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
-							 new Dictionary<string, object>(StringComparer.Ordinal);
+			var parameters = this.AdditionalAttributes?.ToDictionary() ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
 			parameters["role"] = "switch";
-			parameters["class"] = $"switch {parameters.GetString("class")}";
+			parameters.Inject("class", "class");
 
 			this.AdditionalAttributes = parameters.AsReadOnly();
 		}

@@ -2,7 +2,7 @@
       action=""
       class="d-flex flex-row flex-nowrap align-items-center gap-md mbe-md">
 	<input type="search" name="@(nameof(All.Search))" value="@(Search ?? "")" placeholder="Search…" class="flex-1" />
-	<CleanButton ButtonType="@(ButtonType.Primary)" IconOnly type="submit">
+	<CleanButton ButtonType="@(CleanButtonType.Primary)" IconOnly type="submit">
 		@(Icons.Search)
 	</CleanButton>
 </form>
@@ -14,7 +14,7 @@
 			<span class="fs-h1">@(icon.Value)</span>
 			<span class="d-flex flex-row flex-nowrap justify-content-center align-items-center gap-xs fs-xs">
 				<code>@(icon.Key)</code>
-				<CleanButton Size="@(ButtonSize.ExtraSmall)" IconOnly onclick="@($"copy('@(Icons.{icon.Key})')")">
+				<CleanButton Size="@(CleanButtonSize.ExtraSmall)" IconOnly onclick="@($"copy('@(Icons.{icon.Key})')")">
 					@(Icons.Copy)
 				</CleanButton>
 			</span>

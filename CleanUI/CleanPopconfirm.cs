@@ -14,19 +14,19 @@ namespace CleanUI
 		/// The position to display the popconfirm at.
 		/// </summary>
 		[Parameter]
-		public PopoverPosition Position { get; set; }
+		public CleanPopoverPosition Position { get; set; }
 
 		/// <summary>
 		/// The type of the cancel button.
 		/// </summary>
 		[Parameter]
-		public ButtonType CancelButtonType { get; set; } = ButtonType.Default;
+		public CleanButtonType CancelButtonType { get; set; } = CleanButtonType.Default;
 
 		/// <summary>
 		/// The size of the cancel button.
 		/// </summary>
 		[Parameter]
-		public ButtonSize CancelButtonSize { get; set; } = ButtonSize.ExtraSmall;
+		public CleanButtonSize CancelButtonSize { get; set; } = CleanButtonSize.ExtraSmall;
 
 		/// <summary>
 		/// The label of the cancel button.
@@ -44,13 +44,13 @@ namespace CleanUI
 		/// The type of the OK button.
 		/// </summary>
 		[Parameter]
-		public ButtonType OkButtonType { get; set; } = ButtonType.Danger;
+		public CleanButtonType OkButtonType { get; set; } = CleanButtonType.Danger;
 
 		/// <summary>
 		/// The type of the OK button.
 		/// </summary>
 		[Parameter]
-		public ButtonSize OkButtonSize { get; set; } = ButtonSize.ExtraSmall;
+		public CleanButtonSize OkButtonSize { get; set; } = CleanButtonSize.ExtraSmall;
 
 		/// <summary>
 		/// The type of the OK button.
@@ -126,8 +126,8 @@ namespace CleanUI
 		}
 
 		private void BuildButton(RenderTreeBuilder builder,
-								 ButtonType type,
-								 ButtonSize size,
+								 CleanButtonType type,
+								 CleanButtonSize size,
 								 EventCallback<MouseEventArgs> onClick,
 								 string label)
 		{

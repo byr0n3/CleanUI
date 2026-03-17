@@ -2,7 +2,7 @@ window.Tooltip = {
 	registerAll() {
 		document.querySelectorAll('[popover=\'hint\']').forEach(window.Tooltip.register);
 	},
-	register(tooltip: HTMLElement) {
+	register(tooltip) {
 		const parent = getTooltipTrigger();
 		const identifier = getIdentifier();
 
@@ -32,10 +32,10 @@ window.Tooltip = {
 			return '--' + (Math.random() + 1).toString(36).substring(2);
 		}
 	},
-	show(id: string) {
+	show(id) {
 		document.getElementById(id)?.showPopover();
 	},
-	hide(id: string) {
+	hide(id) {
 		document.getElementById(id)?.hidePopover();
 	},
 };

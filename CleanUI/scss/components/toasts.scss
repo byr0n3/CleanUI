@@ -1,0 +1,86 @@
+.toasts-container {
+	position: fixed;
+	inset-block-start: var(--spacing-lg);
+	inset-inline-end: 0;
+
+	// We use flex to position children instead of giving every element `margin-block-end`,
+	// as the latter would affect how the insert animation looks (shove in from top-right instead of just the right).
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+
+	overflow-y: hidden;
+	
+	z-index: 10;
+}
+
+.toast {
+	margin: 0;
+	margin-inline-end: var(--spacing-lg);
+	padding: 0;
+
+	color: var(--body-fg);
+	background-color: var(--body-bg-secondary);
+
+	border-radius: var(--border-radius-md);
+
+	transform: translateX(0);
+
+	transition: var(--animation);
+	transition-property: margin, transform;
+	
+	&.exit {
+		margin-inline-end: 0;
+
+		transform: translateX(100%);
+	}
+
+	@starting-style {
+		margin-inline-end: 0;
+
+		transform: translateX(100%);
+	}
+
+	& .toast-header {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		gap: var(--spacing-xs);
+
+		padding: var(--spacing-component-block) var(--spacing-component-inline);
+
+		border-block-end: var(--border-width) solid var(--border-fg);
+
+		& [data-icon] {
+			font-size: var(--font-size-xl);
+		}
+
+		& [data-icon='info'] {
+			color: var(--info-bg);
+		}
+
+		& [data-icon='success'] {
+			color: var(--success-bg);
+		}
+
+		& [data-icon='warning'] {
+			color: var(--warning-bg);
+		}
+
+		& [data-icon='danger'] {
+			color: var(--danger-bg);
+		}
+
+		& .toast-title {
+			font-weight: var(--font-weight-bold);
+
+			margin-inline-end: auto;
+		}
+	}
+
+	& .toast-content {
+		word-wrap: break-word;
+
+		padding: var(--spacing-component-block) var(--spacing-component-inline);
+	}
+}

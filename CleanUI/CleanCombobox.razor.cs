@@ -297,7 +297,14 @@ namespace CleanUI
 		}
 
 		/// <inheritdoc/>
-		public ValueTask DisposeAsync() =>
-			this.module?.DisposeAsync() ?? ValueTask.CompletedTask;
+		public async ValueTask DisposeAsync()
+		{
+			if (this.module is not null)
+			{
+				await this.module.DisposeAsync();
+			}
+
+			GC.SuppressFinalize(this);
+		}
 	}
 }

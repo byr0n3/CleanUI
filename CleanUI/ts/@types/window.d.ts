@@ -12,6 +12,11 @@ declare global {
 			show(id: string): void;
 			hide(id: string): void;
 		},
+		Toast: {
+			active: Map<string, ActiveToast>;
+			show(config: ToastConfig): void;
+			remove(id: string): void;
+		},
 		Blazor: Blazor,
 	}
 

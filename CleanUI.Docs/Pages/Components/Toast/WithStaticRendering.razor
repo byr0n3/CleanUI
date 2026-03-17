@@ -1,0 +1,23 @@
+<CleanButton class="mie-sm" onclick="@(CleanToast.Show(WithStaticRendering.GetDescriptor(CleanToastType.Info)))">
+	Show info toast
+</CleanButton>
+<CleanButton class="mie-sm" onclick="@(CleanToast.Show(WithStaticRendering.GetDescriptor(CleanToastType.Success)))">
+	Show success toast
+</CleanButton>
+<CleanButton class="mie-sm" onclick="@(CleanToast.Show(WithStaticRendering.GetDescriptor(CleanToastType.Warning)))">
+	Show warning toast
+</CleanButton>
+<CleanButton class="mie-sm" onclick="@(CleanToast.Show(WithStaticRendering.GetDescriptor(CleanToastType.Danger)))">
+	Show danger toast
+</CleanButton>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>Use the <code>CleanToast.Show()</code> and <code>CleanToast.Hide()</code> methods to generate a
+			JavaScript-invokable string to show- and hide toasts.</p>;
+
+	private static CleanToastDescriptor GetDescriptor(CleanToastType type) =>
+		new(type, "Hello world!", "This is a toast notification.");
+
+}

@@ -8,9 +8,9 @@ namespace CleanUI
 	/// </summary>
 	public partial class CleanAlert : CleanComponentBase
 	{
-		/// <inheritdoc cref="AlertType"/>
+		/// <inheritdoc cref="CleanAlertType"/>
 		[Parameter]
-		public AlertType Type { get; set; }
+		public CleanAlertType Type { get; set; }
 
 		/// <summary>
 		/// Whether the alert should display an icon.
@@ -63,12 +63,12 @@ namespace CleanUI
 		private string TypeClass =>
 			(this.Type) switch
 			{
-				AlertType.Success   => "alert-success",
-				AlertType.Warning   => "alert-warning",
-				AlertType.Danger    => "alert-danger",
-				AlertType.Primary   => "alert-primary",
-				AlertType.Secondary => "alert-secondary",
-				_                   => "alert-info",
+				CleanAlertType.Success   => "alert-success",
+				CleanAlertType.Warning   => "alert-warning",
+				CleanAlertType.Danger    => "alert-danger",
+				CleanAlertType.Primary   => "alert-primary",
+				CleanAlertType.Secondary => "alert-secondary",
+				_                        => "alert-info",
 			};
 
 		/// <summary>
@@ -96,22 +96,22 @@ namespace CleanUI
 		/// <summary>
 		/// Returns a fitting icon based on the given <paramref name="type"/>.
 		/// </summary>
-		/// <param name="type">The <see cref="AlertType"/> to get a fitting icon for.</param>
+		/// <param name="type">The <see cref="CleanAlertType"/> to get a fitting icon for.</param>
 		/// <returns>An icon that matches the value of <paramref name="type"/>.</returns>
-		private static RenderFragment GetAlertTypeIcon(AlertType type) =>
+		private static RenderFragment GetAlertTypeIcon(CleanAlertType type) =>
 			(type) switch
 			{
-				AlertType.Success => Icons.CircleCheck,
-				AlertType.Warning => Icons.AlertTriangle,
-				AlertType.Danger  => Icons.AlertCircle,
-				_                 => Icons.InfoCircle,
+				CleanAlertType.Success => Icons.CircleCheck,
+				CleanAlertType.Warning => Icons.AlertTriangle,
+				CleanAlertType.Danger  => Icons.AlertCircle,
+				_                      => Icons.InfoCircle,
 			};
 	}
 
 	/// <summary>
 	/// The type of alert to display.
 	/// </summary>
-	public enum AlertType
+	public enum CleanAlertType
 	{
 		/// <summary>
 		/// An informational message.

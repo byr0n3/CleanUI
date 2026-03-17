@@ -13,7 +13,7 @@ namespace CleanUI
 		/// The position to display the popover at.
 		/// </summary>
 		[Parameter]
-		public PopoverPosition Position { get; set; }
+		public CleanPopoverPosition Position { get; set; }
 
 		/// <summary>
 		/// The content of the popover.
@@ -28,10 +28,10 @@ namespace CleanUI
 		protected string GetPositionClass =>
 			(this.Position) switch
 			{
-				PopoverPosition.Right  => "popover-right",
-				PopoverPosition.Bottom => "popover-bottom",
-				PopoverPosition.Left   => "popover-left",
-				_                      => "",
+				CleanPopoverPosition.Right  => "popover-right",
+				CleanPopoverPosition.Bottom => "popover-bottom",
+				CleanPopoverPosition.Left   => "popover-left",
+				_                           => "",
 			};
 
 		/// <inheritdoc />
@@ -51,7 +51,7 @@ namespace CleanUI
 	/// <summary>
 	/// The position of a tooltip.
 	/// </summary>
-	public enum PopoverPosition
+	public enum CleanPopoverPosition
 	{
 		/// <summary>
 		/// Displays a tooltip at the top of the parent.

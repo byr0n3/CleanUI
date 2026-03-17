@@ -1,0 +1,30 @@
+@using Microsoft.JSInterop
+@rendermode RenderModes.Interactive
+
+<CleanButton class="mie-sm" @onclick="@(() => ShowToast(CleanToastType.Info))">
+	Show info toast
+</CleanButton>
+<CleanButton class="mie-sm" @onclick="@(() => ShowToast(CleanToastType.Success))">
+	Show success toast
+</CleanButton>
+<CleanButton class="mie-sm" @onclick="@(() => ShowToast(CleanToastType.Warning))">
+	Show warning toast
+</CleanButton>
+<CleanButton class="mie-sm" @onclick="@(() => ShowToast(CleanToastType.Danger))">
+	Show danger toast
+</CleanButton>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<p>This example only works when rendering in the <code>Interactive</code> rendering mode.</p>;
+
+	private readonly IJSRuntime js;
+
+	public Basic(IJSRuntime js) =>
+		this.js = js;
+
+	private void ShowToast(CleanToastType type) =>
+		_ = js.ShowToastAsync(new CleanToastDescriptor(type, "Hello world!", "This is a toast notification."));
+
+}

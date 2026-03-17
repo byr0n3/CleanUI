@@ -3,12 +3,14 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Reflection;
+using JetBrains.Annotations;
 
 namespace CleanUI.Utilities
 {
 	/// <summary>
 	/// Utilities for retrieving display names of properties/expressions.
 	/// </summary>
+	[PublicAPI]
 	public static class DisplayName
 	{
 		/// <summary>

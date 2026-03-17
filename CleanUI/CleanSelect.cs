@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using CleanUI.Internal.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -103,10 +104,9 @@ namespace CleanUI
 				this.ChildContent = (RenderFragment)this.GetSelectContent;
 			}
 
-			var parameters = (IDictionary<string, object>?)this.AdditionalAttributes ??
-							 new Dictionary<string, object>(StringComparer.Ordinal);
+			var parameters = this.AdditionalAttributes?.ToDictionary() ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
-			parameters["class"] = $"select {parameters.GetString("class")}";
+			parameters.Inject("class", "select");
 
 			this.AdditionalAttributes = parameters.AsReadOnly();
 		}

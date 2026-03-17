@@ -1,0 +1,52 @@
+@page "/toast"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Toast</CleanPageTitle>
+
+<h1>Toast</h1>
+
+<CleanAlert Type="@(CleanAlertType.Warning)" ShowIcon class="mbe-lg">
+	<span class="mis-xs">
+		Don't forget to include the <code>toast.js</code> file in your app whenever you want to use toasts:
+	</span>
+	<pre class="mbs-sm">
+		<code>@("<script src=\"@(Assets[\"_content/CleanUI/toast.js\"])\"></script>")</code>
+	</pre>
+	<span class="mis-xs">
+		You also have to add the <code>&lt;CleanToasts&gt;</code> components to your app. It's recommended to do this in your <code>App.razor</code>:
+	</span>
+	<pre class="mbs-sm mbe-0">
+		<code>
+			@(
+			// language=razor
+			"""
+			<body>
+				<Routes />
+				<CleanToasts />
+			</body>
+			"""
+			)
+		</code>
+	</pre>
+</CleanAlert>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(WithStaticRendering)" />
+
+<CleanToasts />
+
+@code {
+
+	public static string Label =>
+		"Toast";
+
+	public static RenderFragment Icon =>
+		Icons.InfoCircle;
+
+	public static string Href =>
+		"/toast";
+
+}

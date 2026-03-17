@@ -16,7 +16,7 @@ namespace CleanUI
 			/// </summary>
 			/// <param name="id">The ID of the modal to open.</param>
 			/// <param name="token">Cancellation token to cancel the async-operation.</param>
-			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Modal.open</c> has been called.</returns>
+			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Modal.open</c> function was called on the client-side.</returns>
 			public ValueTask OpenModalAsync(string id, CancellationToken token = default) =>
 				js.InvokeVoidAsync("window.Modal.open", token, id);
 
@@ -25,7 +25,7 @@ namespace CleanUI
 			/// </summary>
 			/// <param name="id">The ID of the modal to close.</param>
 			/// <param name="token">Cancellation token to cancel the async-operation.</param>
-			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Modal.close</c> has been called.</returns>
+			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Modal.close</c> function was called on the client-side.</returns>
 			public ValueTask CloseModalAsync(string id, CancellationToken token = default) =>
 				js.InvokeVoidAsync("window.Modal.close", token, id);
 
@@ -34,7 +34,7 @@ namespace CleanUI
 			/// </summary>
 			/// <param name="element">The tooltip to register.</param>
 			/// <param name="token">Cancellation token to cancel the async-operation.</param>
-			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.register</c> has been called.</returns>
+			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.register</c> function was called on the client-side.</returns>
 			public ValueTask RegisterTooltipAsync(ElementReference element, CancellationToken token = default) =>
 				js.InvokeVoidAsync("window.Tooltip.register", token, element);
 
@@ -43,7 +43,7 @@ namespace CleanUI
 			/// </summary>
 			/// <param name="id">The ID of the tooltip to show.</param>
 			/// <param name="token">Cancellation token to cancel the async-operation.</param>
-			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.show</c> has been called.</returns>
+			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.show</c> function was called on the client-side.</returns>
 			public ValueTask ShowTooltipAsync(string id, CancellationToken token = default) =>
 				js.InvokeVoidAsync("window.Tooltip.show", token, id);
 
@@ -52,7 +52,7 @@ namespace CleanUI
 			/// </summary>
 			/// <param name="id">The ID of the tooltip to hide.</param>
 			/// <param name="token">Cancellation token to cancel the async-operation.</param>
-			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.hide</c> has been called.</returns>
+			/// <returns>A <see cref="ValueTask"/> that completes when the <c>window.Tooltip.hide</c> function was called on the client-side.</returns>
 			public ValueTask HideTooltipAsync(string id, CancellationToken token = default) =>
 				js.InvokeVoidAsync("window.Tooltip.hide", token, id);
 		}

@@ -10,13 +10,13 @@ namespace CleanUI
 	/// </summary>
 	public partial class CleanButton : CleanComponentBase
 	{
-		/// <inheritdoc cref="CleanUI.ButtonType"/>
+		/// <inheritdoc cref="CleanButtonType"/>
 		[Parameter]
-		public ButtonType ButtonType { get; set; }
+		public CleanButtonType ButtonType { get; set; }
 
-		/// <inheritdoc cref="ButtonSize"/>
+		/// <inheritdoc cref="CleanButtonSize"/>
 		[Parameter]
-		public ButtonSize Size { get; set; }
+		public CleanButtonSize Size { get; set; }
 
 		/// <summary>
 		/// Whether the button's content consists of only an icon.
@@ -67,11 +67,11 @@ namespace CleanUI
 		private string TypeClass =>
 			(this.ButtonType) switch
 			{
-				ButtonType.Primary   => "btn-primary",
-				ButtonType.Secondary => "btn-secondary",
-				ButtonType.Danger    => "btn-danger",
-				ButtonType.Link      => "btn-link",
-				_                    => "",
+				CleanButtonType.Primary   => "btn-primary",
+				CleanButtonType.Secondary => "btn-secondary",
+				CleanButtonType.Danger    => "btn-danger",
+				CleanButtonType.Link      => "btn-link",
+				_                         => "",
 			};
 
 		/// <summary>
@@ -80,11 +80,11 @@ namespace CleanUI
 		private string SizeClass =>
 			(this.Size) switch
 			{
-				ButtonSize.ExtraSmall => "btn-xs",
-				ButtonSize.Small      => "btn-sm",
-				ButtonSize.Large      => "btn-lg",
-				ButtonSize.ExtraLarge => "btn-xl",
-				_                     => "",
+				CleanButtonSize.ExtraSmall => "btn-xs",
+				CleanButtonSize.Small      => "btn-sm",
+				CleanButtonSize.Large      => "btn-lg",
+				CleanButtonSize.ExtraLarge => "btn-xl",
+				_                          => "",
 			};
 
 		/// <inheritdoc/>
@@ -131,7 +131,7 @@ namespace CleanUI
 	/// The type of button to display.
 	/// </summary>
 	[PublicAPI]
-	public enum ButtonType
+	public enum CleanButtonType
 	{
 		/// <summary>
 		/// The default button type.
@@ -163,7 +163,7 @@ namespace CleanUI
 	/// The size of the button to display.
 	/// </summary>
 	[PublicAPI]
-	public enum ButtonSize
+	public enum CleanButtonSize
 	{
 		/// <summary>
 		/// The default button size.

@@ -1,12 +1,14 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace CleanUI.Utilities
 {
 	/// <summary>
 	/// Utilities for working with debounced functions.
 	/// </summary>
+	[PublicAPI]
 	public static class Debounce
 	{
 		public static readonly TimeSpan DefaultDelay = TimeSpan.FromMilliseconds(300);

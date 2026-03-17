@@ -1,0 +1,20 @@
+<template id="toast-template">
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="toast-header">
+			<span data-icon="info" hidden>@(CleanToastType.Info.GetIcon())</span>
+			<span data-icon="success" hidden>@(CleanToastType.Success.GetIcon())</span>
+			<span data-icon="warning" hidden>@(CleanToastType.Warning.GetIcon())</span>
+			<span data-icon="danger" hidden>@(CleanToastType.Danger.GetIcon())</span>
+			<span class="toast-title"></span>
+			<CleanButton Size="@(CleanButtonSize.ExtraSmall)" IconOnly>
+				@(Icons.X)
+			</CleanButton>
+		</div>
+		<div class="toast-content"></div>
+	</div>
+</template>
+
+<div @attributes="@(AdditionalAttributes)"
+     id="toast-container"
+     class="toasts-container @(AdditionalAttributes.GetString("class") ?? "")">
+</div>
