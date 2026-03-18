@@ -9,8 +9,8 @@ namespace CleanUI.Docs.Pages.Components.Input
 			// language=razor
 			"""
 			<CleanInputDate @bind-Value="@(date)" PrefixContent="@(Icons.Calendar)" />
-			<CleanInputDate @bind-Value="@(dateTime)" Type="@(InputDateType.DateTimeLocal)" PrefixContent="@(Icons.CalendarClock)" />
-			<CleanInputDate @bind-Value="@(time)" Type="@(InputDateType.Time)" PrefixContent="@(Icons.Clock)" />
+			<CleanInputDate @bind-Value="@(dateTime)" Type="@(InputDateType.DateTimeLocal)" PrefixContent="@(Icons.CalendarClock)" SuffixContent="@(Icons.CalendarCheck)" />
+			<CleanInputDate @bind-Value="@(time)" Type="@(InputDateType.Time)" PrefixContent="@(Icons.Clock)" SuffixContent="@(Icons.Alarm)" />
 
 			@code {
 

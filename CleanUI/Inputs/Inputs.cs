@@ -168,7 +168,7 @@ namespace CleanUI
 			var parameters = this.AdditionalAttributes?.ToDictionary() ?? new Dictionary<string, object>(StringComparer.Ordinal);
 
 			parameters["role"] = "switch";
-			parameters.Inject("class", "class");
+			parameters.Inject("class", "switch");
 
 			this.AdditionalAttributes = parameters.AsReadOnly();
 		}

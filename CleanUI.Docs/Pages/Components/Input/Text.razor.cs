@@ -9,7 +9,7 @@ namespace CleanUI.Docs.Pages.Components.Input
 			// language=razor
 			"""
 			<CleanInputText @bind-Value="@(text)" placeholder="Hello world!" />
-			<CleanInputText @bind-Value="@(username)" PrefixContent="@(Icons.User)" />
+			<CleanInputText @bind-Value="@(username)" PrefixContent="@(Icons.User)" SuffixContent="@(Icons.Id)" />
 			
 			@code {
 			

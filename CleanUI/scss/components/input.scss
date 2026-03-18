@@ -1,6 +1,6 @@
 @use './button';
 
-$deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
+$deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not([type='range'])";
 
 @mixin input-addon() {
 	-webkit-user-select: none;
@@ -17,7 +17,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	position: absolute;
 }
 
-.input-container {
+.input-container:not(:has(input[type='range'])) {
 	position: relative;
 	width: fit-content;
 
@@ -31,7 +31,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 	& .input-suffix {
 		@include input-addon();
 
-		inset-block-start: calc(var(--spacing-component-block) * 1.25);
+		inset-block-start: calc(var(--spacing-component-block) * 1.5);
 		inset-inline-end: var(--spacing-component-inline);
 	}
 
@@ -302,7 +302,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 
 .switch-container {
 	cursor: pointer;
-	
+
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
@@ -338,7 +338,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 
 	border: var(--border-width) solid var(--border-fg);
 	border-radius: var(--border-radius-pill);
-	
+
 	z-index: 1;
 
 	transition: var(--animation);
@@ -403,5 +403,63 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio'])";
 		&::before {
 			background-color: var(--disabled-fg);
 		}
+	}
+}
+
+.input-container:has(input[type='range']) {
+	& .input-prefix,
+	& .input-suffix {
+		vertical-align: -0.125em;
+		margin-inline-end: var(--spacing-xs);
+	}
+}
+
+.input[type='range'] {
+	@mixin range-track() {
+		background-color: var(--body-bg-secondary);
+
+		height: 0.5rem;
+
+		border-radius: var(--border-radius-md);
+	}
+
+	@mixin range-thumb() {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+
+		margin-block-start: -4px; // Centers thumb on the track
+
+		width: 1em;
+		height: 1em;
+
+		background-color: var(--primary-fg);
+
+		border: none;
+		border-radius: var(--border-radius-md);
+	}
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	cursor: pointer;
+
+	background: transparent;
+
+	&::-webkit-slider-runnable-track {
+		@include range-track();
+	}
+
+	&::-moz-range-track {
+		@include range-track();
+	}
+
+	&::-webkit-slider-thumb {
+		@include range-thumb();
+	}
+
+	&::-moz-range-thumb {
+		@include range-thumb();
 	}
 }

@@ -1,0 +1,16 @@
+<RowWithDisableButton>
+	<CleanInputNumber @bind-Value="@(value)" type="range" min="0" max="100" />
+	<CleanInputNumber @bind-Value="@(value2)"
+	                  PrefixContent="@(Icons.Minus)"
+	                  SuffixContent="@(Icons.Plus)"
+	                  type="range"
+	                  min="0"
+	                  max="100" />
+</RowWithDisableButton>
+
+@code {
+
+	private int value = 50;
+	private int value2;
+
+}

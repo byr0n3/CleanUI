@@ -27,13 +27,29 @@ html:has(.modal[open]) {
 	&::backdrop {
 		$blur: 0.15em;
 
-		background-color: hsla(0, 0%, 5%, 0.5);
 		-webkit-backdrop-filter: blur($blur);
 		backdrop-filter: blur($blur);
+
+		background-color: hsla(0, 0%, 5%, 0.5);
+
+		transition: var(--animation-duration-overlay) var(--animation-curve) allow-discrete;
+		transition-property: background-color;
 	}
 
 	&:not([open]) {
 		transform: translateY(-1em);
+		
+		&::backdrop {
+			background-color: hsla(0, 0%, 5%, 0);
+		}
+	}
+
+	@starting-style {
+		transform: translateY(-1em);
+
+		&::backdrop {
+			background-color: hsla(0, 0%, 5%, 0);
+		}
 	}
 
 	& .modal-header {
@@ -74,9 +90,5 @@ html:has(.modal[open]) {
 		position: absolute;
 		inset-block-start: var(--spacing-md);
 		inset-inline-end: var(--spacing-md);
-	}
-
-	@starting-style {
-		transform: translateY(-1em);
 	}
 }

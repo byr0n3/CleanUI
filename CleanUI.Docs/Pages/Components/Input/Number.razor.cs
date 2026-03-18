@@ -9,7 +9,7 @@ namespace CleanUI.Docs.Pages.Components.Input
 			// language=razor
 			"""
 			<CleanInputNumber @bind-Value="@(value)" />
-			<CleanInputNumber @bind-Value="@(value)" PrefixContent="@(Icons.CoinEuro)" />
+			<CleanInputNumber @bind-Value="@(value)" PrefixContent="@(Icons.CoinEuro)" SuffixContent="@(Icons.CoinBitcoin)" />
 
 			@code {
 
