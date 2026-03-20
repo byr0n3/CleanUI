@@ -1,6 +1,12 @@
 @using Elegance.Extensions
 
-<CleanTable Items="@(people.AsQueryable())" Bordered>
+<CleanTable Items="@(people.AsQueryable())" Size="@(CleanTableSize.Small)">
+	<CleanPropertyColumn Property="@(static (p) => p.Id)" />
+	<CleanPropertyColumn Property="@(static (p) => p.FullName)" />
+	<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" />
+</CleanTable>
+
+<CleanTable Items="@(people.AsQueryable())" Size="@(CleanTableSize.Large)">
 	<CleanPropertyColumn Property="@(static (p) => p.Id)" />
 	<CleanPropertyColumn Property="@(static (p) => p.FullName)" />
 	<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" />

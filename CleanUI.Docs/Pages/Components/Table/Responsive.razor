@@ -1,0 +1,26 @@
+@using Elegance.Extensions
+
+<CleanTable Items="@(people.AsQueryable())" Responsiveness="@(CleanTableResponsiveness.Always)">
+	@for (var i = 0; i < 20; i++)
+	{
+		<CleanPropertyColumn Property="@(static (p) => p.Id)" />
+	}
+</CleanTable>
+
+@code {
+
+	public static RenderFragment Description =>
+		@<text>
+			 <p>A 'responsive' table allows users to scroll through the table's content when the screen is too small to
+				 display all its content. Try it by making your screen smaller.</p>
+
+			 <p>You can set the <code>Responsiveness</code> parameter to a breakpoint to only make the table responsive
+				 up until that breakpoint.</p>
+	</text>;
+
+	private readonly Person[] people =
+		Enumerable.Range(1, 5)
+		          .Select(static (i) => new Person(i, "Person", i.Str(), new DateOnly(Random.Shared.Next(1970, 2011), Random.Shared.Next(1, 13), Random.Shared.Next(1, 20))))
+		          .ToArray();
+
+}

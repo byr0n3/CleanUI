@@ -1,3 +1,5 @@
+@use '../constants';
+
 @mixin icons($color) {
 	& .col-sort-asc .sort-indicator,
 	& .col-sort-desc .sort-indicator {
@@ -10,7 +12,16 @@
 	}
 }
 
-table[theme='clean'] {
+@mixin responsive($prefix: "") {
+	.table-responsive#{$prefix} {
+		overflow-inline: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+.table {
+	--spacing: var(--spacing-sm);
+
 	-webkit-border-horizontal-spacing: 0;
 	-webkit-border-vertical-spacing: 0;
 
@@ -28,7 +39,7 @@ table[theme='clean'] {
 
 	& th,
 	& td {
-		padding: var(--spacing-sm);
+		padding: var(--spacing);
 
 		color: var(--body-fg);
 		background-color: var(--body-bg);
@@ -36,7 +47,7 @@ table[theme='clean'] {
 		&:empty {
 			// ~approx. the height of a non-empty table row.
 			// Giving an empty row some height makes the table (almost) remain its height. 
-			height: calc(1em + (var(--spacing-sm) * 2) + var(--border-width));
+			height: calc(1em + (var(--spacing) * 2) + var(--border-width));
 		}
 
 		&:not(:empty) {
@@ -57,7 +68,7 @@ table[theme='clean'] {
 		color: var(--body-fg);
 		background-color: var(--body-bg-secondary);
 
-		padding: var(--spacing-sm);
+		padding: var(--spacing);
 
 		border-radius: var(--border-radius-md);
 		border: var(--border-width) solid var(--border-fg);
@@ -92,9 +103,32 @@ table[theme='clean'] {
 			border: var(--border-width) solid var(--border-fg);
 		}
 	}
+
+	&.table-borderless {
+		& * {
+			border: none !important;
+		}
+	}
+
+	&.table-sm {
+		--spacing: var(--spacing-xs);
+	}
+
+	&.table-lg {
+		--spacing: var(--spacing-md);
+	}
 }
 
-html[data-theme=light] table[theme='clean'] {
+@include responsive();
+
+@each $size, $value in constants.$screen-sizes {
+	// `max-width` to only make tables responsive up until a certain screen-size.
+	@media (max-width: $value) {
+		@include responsive("-#{$size}");
+	}
+}
+
+html[data-theme=light] .table {
 	// @todo Use color#
 	@include icons(black);
 }

@@ -1,0 +1,22 @@
+<CleanSpinner Spinning id="spinner">
+	<CleanAlert>
+		<TitleContent>
+			A very useless alert
+		</TitleContent>
+
+		<ChildContent>
+			It's probably very hard to read this text when the spinning indicator is shown.
+		</ChildContent>
+	</CleanAlert>
+</CleanSpinner>
+
+<CleanButton class="mbs-md" onclick="updateSpinning()">
+	Toggle spinning
+</CleanButton>
+
+<script>
+	function updateSpinning() {
+		// This would be the same as setting `Spinning` to `false`, but I don't feel like making this component Interactive.
+		document.getElementById('spinner')?.classList.toggle('spinner-spinning');
+	}
+</script>

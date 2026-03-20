@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Components;
 
 namespace CleanUI.Docs.Pages.Components.Table
 {
-	public sealed partial class Striped : ComponentBase, IComponentExample
+	public sealed partial class Borderless : ComponentBase, IComponentExample
 	{
 		public static string Code =>
 			// language=razor
 			"""
-			<CleanTable Items="@(people.AsQueryable())" Striped>
+			<CleanTable Items="@(people.AsQueryable())" Borderless>
 				<CleanPropertyColumn Property="@(static (p) => p.Id)" />
 				<CleanPropertyColumn Property="@(static (p) => p.FullName)" />
 				<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" />

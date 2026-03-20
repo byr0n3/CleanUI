@@ -1,0 +1,55 @@
+.spinner {
+	font-size: 2em;
+
+	& > :first-child {
+		transform: translateZ(0) rotate(0deg);
+	}
+
+	&.spinner-spinning {
+		& > :first-child {
+			animation: spin 2s infinite linear;
+		}
+	}
+}
+
+.spinner-content-container {
+	position: relative;
+
+	& .spinner-container {
+		display: none;
+	}
+
+	&.spinner-spinning {
+		& .spinner-container {
+			position: absolute;
+			inset: 0;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			z-index: 1;
+		}
+
+		& .spinner-content {
+			& > * {
+				filter: blur(0.1em);
+			}
+
+			&::after {
+				content: '';
+
+				position: absolute;
+				inset: 0;
+
+				background-color: rgba(0, 0, 0, 0.15);
+			}
+		}
+	}
+}
+
+@keyframes spin {
+	100% {
+		transform: translateZ(0) rotate(360deg)
+	}
+}

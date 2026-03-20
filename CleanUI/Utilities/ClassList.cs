@@ -14,19 +14,9 @@ namespace CleanUI.Utilities
 		public ClassList(string? classes) =>
 			this.classes = ClassList.SplitClasses(classes);
 
-		public ClassList Add(string @class)
+		public ClassList Add(string? @class, bool add = true)
 		{
-			if (!this.classes.Contains(@class))
-			{
-				this.classes.Add(@class);
-			}
-
-			return this;
-		}
-
-		public ClassList Add(string @class, bool add)
-		{
-			if (add && !this.classes.Contains(@class))
+			if (add && (@class is not null)&& !this.classes.Contains(@class))
 			{
 				this.classes.Add(@class);
 			}

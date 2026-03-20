@@ -9,9 +9,9 @@ namespace CleanUI.Docs.Pages.Components.Table
 			// language=razor
 			"""
 			<CleanTable Items="@(people.AsQueryable())" Bordered>
-				<CleanPropertyColumn Property="@(static (p) => p.Id)" Sortable="@(true)" />
-				<CleanPropertyColumn Property="@(static (p) => p.FullName)" Sortable="@(true)" />
-				<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" Sortable="@(true)" />
+				<CleanPropertyColumn Property="@(static (p) => p.Id)" />
+				<CleanPropertyColumn Property="@(static (p) => p.FullName)" />
+				<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" />
 			</CleanTable>
 			""";
 	}

@@ -1,10 +1,9 @@
-@using System.ComponentModel.DataAnnotations
 @using Elegance.Extensions
 
 <CleanTable Items="@(people.AsQueryable())" Striped>
-	<CleanPropertyColumn Property="@(static (p) => p.Id)" Sortable="@(true)" />
-	<CleanPropertyColumn Property="@(static (p) => p.FullName)" Sortable="@(true)" />
-	<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" Sortable="@(true)" />
+	<CleanPropertyColumn Property="@(static (p) => p.Id)" />
+	<CleanPropertyColumn Property="@(static (p) => p.FullName)" />
+	<CleanPropertyColumn Property="@(static (p) => p.DateOfBirth)" Format="d" />
 </CleanTable>
 
 @code {
@@ -13,28 +12,5 @@
 		Enumerable.Range(1, 5)
 		          .Select(static (i) => new Person(i, "Person", i.Str(), new DateOnly(Random.Shared.Next(1970, 2011), Random.Shared.Next(1, 13), Random.Shared.Next(1, 20))))
 		          .ToArray();
-
-	private readonly record struct Person
-	{
-		[Display(Name = "Id")] public readonly int Id;
-		public readonly string GivenName;
-		public readonly string FamilyName;
-		[Display(Name = "Birthday")] public readonly DateOnly DateOfBirth;
-
-		[Display(Name = "Name")]
-		public string FullName =>
-			$"{GivenName} {FamilyName}";
-
-		public Person(int id,
-		              string givenName,
-		              string familyName,
-		              DateOnly dateOfBirth)
-		{
-			Id = id;
-			GivenName = givenName;
-			FamilyName = familyName;
-			DateOfBirth = dateOfBirth;
-		}
-	}
 
 }

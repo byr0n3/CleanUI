@@ -19,6 +19,14 @@
 	top: 0.5rem;
 }
 
+.app {
+	--sidebar-width: 14em;
+}
+
 .sidebar {
-	inline-size: 14em;
+	inline-size: var(--sidebar-width);
+}
+
+.content {
+	max-inline-size: calc(100dvw - var(--sidebar-width));
 }

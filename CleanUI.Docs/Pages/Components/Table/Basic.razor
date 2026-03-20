@@ -1,4 +1,3 @@
-@using System.ComponentModel.DataAnnotations
 @using Elegance.Extensions
 @using Microsoft.AspNetCore.Components.QuickGrid
 @rendermode RenderModes.Interactive
@@ -58,34 +57,5 @@
 	private readonly PaginationState pagination = new() { ItemsPerPage = 10 };
 
 	private string? search;
-
-	private readonly record struct Person
-	{
-		[Display(Name = "Id")] public readonly int Id;
-		public readonly string GivenName;
-		public readonly string FamilyName;
-		[Display(Name = "Birthday")] public readonly DateOnly DateOfBirth;
-		[Display(Name = "E-mail")] public readonly string Email;
-		[Display(Name = "Created at")] public readonly DateTimeOffset Created;
-
-		[Display(Name = "Name")]
-		public string FullName =>
-			$"{GivenName} {FamilyName}";
-
-		public Person(int id,
-		              string givenName,
-		              string familyName,
-		              DateOnly dateOfBirth,
-		              string email,
-		              DateTimeOffset created = default)
-		{
-			Id = id;
-			GivenName = givenName;
-			FamilyName = familyName;
-			DateOfBirth = dateOfBirth;
-			Email = email;
-			Created = created != default ? created : DateTimeOffset.UtcNow;
-		}
-	}
 
 }

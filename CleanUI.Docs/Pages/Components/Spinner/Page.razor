@@ -1,0 +1,27 @@
+@page "/spinner"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Spinner</CleanPageTitle>
+
+<h1>Spinner</h1>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(CustomSpinner)" />
+
+<Example TComponent="@(WithContent)" />
+
+@code {
+
+	public static string Label =>
+		"Spinner";
+
+	public static RenderFragment Icon =>
+		Icons.Reload;
+
+	public static string Href =>
+		"/spinner";
+
+}
