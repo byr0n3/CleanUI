@@ -1,12 +1,15 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.QuickGrid;
 
 namespace CleanUI
 {
 	/// <summary>
 	/// Component that indicates a series of related content that exists across multiple pages and provides functionality to switch to said pages.
 	/// </summary>
-	public partial class CleanPagination : CleanComponentBase
+	public partial class CleanPagination : CleanComponentBase, IDisposable
 	{
 		/// <inheritdoc cref="NavigationManager" />
 		[Inject]
@@ -50,6 +53,10 @@ namespace CleanUI
 		[Parameter]
 		public string PageQueryName { get; set; } = nameof(CleanPagination.Page);
 
+		/// <inheritdoc cref="PaginationState" />
+		[Parameter]
+		public PaginationState? Pagination { get; set; }
+
 		/// <summary>
 		/// The icon/content to display for the `previous page` button.
 		/// </summary>
@@ -66,11 +73,38 @@ namespace CleanUI
 		/// The total amount of available pages.
 		/// </summary>
 		private int PageCount =>
-			(int)float.Ceiling(this.TotalCount / (float)this.PerPage);
+			this.Pagination is not null
+				? this.Pagination.LastPageIndex.GetValueOrDefault() + 1
+				: (int)float.Ceiling(this.TotalCount / (float)this.PerPage);
 
 		/// <inheritdoc />
-		protected override void OnParametersSet() =>
+		protected override void OnParametersSet()
+		{
 			this.Page = this.ClampPage(this.Page);
+
+			if (this.Pagination is null)
+			{
+				return;
+			}
+
+			this.Page = this.Pagination.CurrentPageIndex + 1;
+			this.PerPage = this.Pagination.ItemsPerPage;
+
+			this.Pagination.TotalItemCountChanged -= this.UpdateTotalCount;
+			this.Pagination.TotalItemCountChanged += this.UpdateTotalCount;
+		}
+
+		/// <summary>
+		/// Updates the current <see cref="TotalCount"/> when the <see cref="PaginationState.TotalItemCountChanged"/> is fired.
+		/// </summary>
+		/// <param name="__">Unused.</param>
+		/// <param name="count">The new total count.</param>
+		private void UpdateTotalCount(object? __, int? count)
+		{
+			this.TotalCount = count ?? 0;
+
+			_ = this.InvokeAsync(this.StateHasChanged);
+		}
 
 		/// <summary>
 		/// Gets the page buttons to currently show.
@@ -118,6 +152,28 @@ namespace CleanUI
 		}
 
 		/// <summary>
+		/// Navigates to the given <paramref name="page"/>.
+		/// </summary>
+		/// <param name="page">The page to navigate to.</param>
+		/// <returns>A <see cref="Task"/> that completes when the current page has been updated.</returns>
+		private Task GoToPageAsync(int page)
+		{
+			if ((page <= 0) || (page > this.PageCount))
+			{
+				return Task.CompletedTask;
+			}
+
+			if (this.Pagination is null)
+			{
+				return this.PageChanged.InvokeAsync(page);
+			}
+
+			this.Page = page;
+
+			return this.Pagination.SetCurrentPageIndexAsync(page - 1);
+		}
+
+		/// <summary>
 		/// Gets a URI that is based off the current URI (and its parameters), with the page query parameter added to it.
 		/// </summary>
 		/// <param name="page">The page to create the URI for.</param>
@@ -136,5 +192,16 @@ namespace CleanUI
 		/// <returns>The clamped page number.</returns>
 		private int ClampPage(int page) =>
 			int.Clamp(page, 1, this.PageCount);
+
+		/// <inheritdoc />
+		public void Dispose()
+		{
+			if (this.Pagination is not null)
+			{
+				this.Pagination.TotalItemCountChanged -= this.UpdateTotalCount;
+			}
+
+			GC.SuppressFinalize(this);
+		}
 	}
 }

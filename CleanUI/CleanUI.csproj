@@ -9,7 +9,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.3"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.5"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="10.0.5"/>
 
 		<PackageReference Include="Elegance.Enums" Version="$(EleganceVersion)"/>
 		<PackageReference Include="Elegance.Extensions" Version="$(EleganceVersion)"/>

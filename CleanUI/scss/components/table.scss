@@ -1,0 +1,78 @@
+@mixin icons($color) {
+	& .col-sort-asc .sort-indicator,
+	& .col-sort-desc .sort-indicator {
+		// SVGs in `background-image` can't use `currentColor` or CSS vars.
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="#{$color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>');
+	}
+
+	& .col-options-button {
+		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#{$color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>') center center / 1rem no-repeat;
+	}
+}
+
+table[theme='clean'] {
+	-webkit-border-horizontal-spacing: 0;
+	-webkit-border-vertical-spacing: 0;
+
+	width: 100%;
+
+	margin-block-end: var(--spacing-lg);
+
+	& thead {
+		vertical-align: bottom;
+	}
+
+	& tbody {
+		vertical-align: top;
+	}
+
+	& th,
+	& td {
+		padding: var(--spacing-sm);
+
+		color: var(--body-fg);
+		background-color: var(--body-bg);
+
+		&:empty {
+			// ~approx. the height of a non-empty table row.
+			// Giving an empty row some height makes the table (almost) remain its height. 
+			height: calc(1em + (var(--spacing-sm) * 2) + var(--border-width));
+		}
+
+		&:not(:empty) {
+			border-bottom: var(--border-width) solid var(--border-fg);
+		}
+	}
+
+	// @todo Use color#
+	@include icons(white);
+
+	& .col-header-content {
+		gap: var(--spacing-xs);
+	}
+
+	& .col-options {
+		font-size: var(--font-size-xs);
+
+		color: var(--body-fg);
+		background-color: var(--body-bg-secondary);
+
+		padding: var(--spacing-sm);
+
+		border-radius: var(--border-radius-md);
+		border: var(--border-width) solid var(--border-fg);
+	}
+
+	& .sort-indicator {
+		margin-inline-start: var(--spacing-xs);
+	}
+}
+
+html[data-theme=light] table[theme='clean'] {
+	// @todo Use color#
+	@include icons(black);
+
+	& .col-options-button {
+
+	}
+}

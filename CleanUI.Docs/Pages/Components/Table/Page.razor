@@ -1,0 +1,23 @@
+@page "/table"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Table</CleanPageTitle>
+
+<h1>Table</h1>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Table";
+
+	public static RenderFragment Icon =>
+		Icons.Table;
+
+	public static string Href =>
+		"/table";
+
+}

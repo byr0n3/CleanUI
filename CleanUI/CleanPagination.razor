@@ -44,6 +44,7 @@
 				return;
 			}
 
+			var icon = content is not null;
 			content ??= RenderFragment.FromString(page.Str());
 
 			var active = Page == page;
@@ -61,11 +62,11 @@
 					}
 				}
 
-				builder.AddAttribute(3, "class", $"page-link btn {(active ? "btn-primary" : "")}");
+				builder.AddAttribute(3, "class", $"page-link btn {(icon ? "btn-icon" : "")} {(active ? "btn-primary" : "")}");
 
 				if (isInteractive)
 				{
-					var onClick = EventCallback.Factory.Create<MouseEventArgs>(this, () => PageChanged.InvokeAsync(page));
+					var onClick = EventCallback.Factory.Create<MouseEventArgs>(this, () => GoToPageAsync(page));
 
 					builder.AddAttribute(4, "onclick", onClick);
 				}
