@@ -66,13 +66,35 @@ table[theme='clean'] {
 	& .sort-indicator {
 		margin-inline-start: var(--spacing-xs);
 	}
+
+	&.table-striped {
+		& tr:nth-of-type(odd) td {
+			background-color: var(--body-bg-secondary);
+		}
+	}
+
+	&.table-hover {
+		& tr:hover td {
+			background-color: var(--body-bg-secondary);
+		}
+
+		&.table-striped tr:hover td {
+			background-color: var(--body-bg-tertiary);
+		}
+	}
+
+	&.table-border {
+		border-collapse: collapse;
+
+		& tr,
+		& td:not(:empty),
+		& th:not(:empty) {
+			border: var(--border-width) solid var(--border-fg);
+		}
+	}
 }
 
 html[data-theme=light] table[theme='clean'] {
 	// @todo Use color#
 	@include icons(black);
-
-	& .col-options-button {
-
-	}
 }

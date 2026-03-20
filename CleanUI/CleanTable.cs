@@ -10,6 +10,15 @@ namespace CleanUI
 	[CascadingTypeParameter(nameof(TGridItem))]
 	public class CleanTable<TGridItem> : QuickGrid<TGridItem>
 	{
+		[Parameter] public bool Striped { get; set; }
+
+		[Parameter] public bool Hoverable { get; set; }
+
+		[Parameter] public bool Bordered { get; set; }
+
+		private bool ShouldAddClasses =>
+			this.Striped || this.Hoverable || this.Bordered;
+
 		/// <inheritdoc/>
 		protected override void OnParametersSet()
 		{
@@ -17,6 +26,17 @@ namespace CleanUI
 			{
 				this.Theme = "clean";
 			}
+
+			if (!this.ShouldAddClasses)
+			{
+				return;
+			}
+
+			this.Class = new ClassList(this.Class)
+						 .Add("table-striped", this.Striped)
+						 .Add("table-hover", this.Hoverable)
+						 .Add("table-border", this.Bordered)
+						 .ToString();
 		}
 	}
 
