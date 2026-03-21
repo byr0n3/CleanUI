@@ -1,0 +1,30 @@
+.skeleton {
+	cursor: wait;
+
+	display: inline-block;
+
+	min-height: 1em;
+	min-width: 10em;
+
+	vertical-align: middle;
+
+	background-color: currentcolor;
+
+	opacity: 0.6;
+
+	animation: skeleton 3s ease-in-out infinite;
+
+	&.skeleton-sm {
+		min-width: 6em;
+	}
+
+	&.skeleton-lg {
+		min-width: 14em;
+	}
+}
+
+@keyframes skeleton {
+	50% {
+		opacity: 0.25;
+	}
+}

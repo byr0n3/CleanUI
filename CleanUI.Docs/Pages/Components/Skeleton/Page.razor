@@ -1,0 +1,25 @@
+@page "/skeleton"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Skeleton</CleanPageTitle>
+
+<h1>Skeleton</h1>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(Colors)" />
+
+@code {
+
+	public static string Label =>
+		"Skeleton";
+
+	public static RenderFragment Icon =>
+		Icons.Placeholder;
+
+	public static string Href =>
+		"/skeleton";
+
+}

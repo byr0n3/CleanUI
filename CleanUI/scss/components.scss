@@ -1,5 +1,6 @@
 @use './components/alert';
 @use './components/button';
+@use './components/card';
 @use './components/combobox';
 @use './components/container';
 @use './components/icon';
@@ -10,6 +11,7 @@
 @use './components/popconfirm';
 @use './components/popover';
 @use './components/select';
+@use './components/skeleton';
 @use './components/spinner';
 @use './components/table';
 @use './components/toasts';

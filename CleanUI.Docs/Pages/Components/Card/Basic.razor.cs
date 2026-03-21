@@ -1,0 +1,32 @@
+using CleanUI.Docs.Interfaces;
+using Microsoft.AspNetCore.Components;
+
+namespace CleanUI.Docs.Pages.Components.Card
+{
+	public sealed partial class Basic : ComponentBase, IComponentExample
+	{
+		public static string Code =>
+			// language=razor
+			"""
+			<CleanCard style="max-width: 24em;">
+				<ImageContent>
+					<img src="https://placehold.co/600x400" alt="An example image" />
+				</ImageContent>
+			
+				<TitleContent>
+					<h3>An awesome scam-service</h3>
+				</TitleContent>
+			
+				<ChildContent>
+					You'd probably add some boring text here, describing one of the services your doomed-to-fail startup would deliver.
+				</ChildContent>
+				
+				<FooterContent>
+					<button class="btn btn-primary">
+						Please give me money
+					</button>
+				</FooterContent>
+			</CleanCard>
+			""";
+	}
+}

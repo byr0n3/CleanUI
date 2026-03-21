@@ -1,0 +1,31 @@
+<div @attributes="@(AdditionalAttributes)" class="@(Class)">
+	@if (ImageContent is not null)
+	{
+		<div class="card-image">
+			@(ImageContent)
+		</div>
+	}
+
+	<div class="card-inner">
+		@if (TitleContent is not null)
+		{
+			<div class="card-title">
+				@(TitleContent)
+			</div>
+		}
+
+		@if (ChildContent is not null)
+		{
+			<div class="card-content">
+				@(ChildContent)
+			</div>
+		}
+
+		@if (FooterContent is not null)
+		{
+			<div class="card-footer">
+				@(FooterContent)
+			</div>
+		}
+	</div>
+</div>

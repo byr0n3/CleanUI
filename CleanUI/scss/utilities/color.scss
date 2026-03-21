@@ -1,0 +1,15 @@
+$colors: (
+		"primary": "fg",
+		"secondary": "fg",
+		"info": "bg",
+		"success": "bg",
+		"warning": "bg",
+		"danger": "bg",
+		"disabled": "bg",
+);
+
+@each $color, $type in $colors {
+	.color-#{$color} {
+		color: var(--#{$color}-#{$type});
+	}
+}
