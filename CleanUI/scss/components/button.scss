@@ -50,11 +50,11 @@
 	}
 
 	&.btn-primary {
-		@include btn-type(var(--primary-contrast), var(--primary-fg), var(--primary-fg-hover));
+		@include btn-type(var(--primary-fg), var(--primary-bg), var(--primary-bg-hover));
 	}
 
 	&.btn-secondary {
-		@include btn-type(var(--secondary-contrast), var(--secondary-fg), var(--secondary-fg-hover));
+		@include btn-type(var(--secondary-fg), var(--secondary-bg), var(--secondary-bg-hover));
 	}
 
 	&.btn-danger {
@@ -62,13 +62,13 @@
 	}
 
 	&.btn-link {
-		--fg: var(--primary-fg);
+		--fg: var(--primary-bg);
 		--bg: transparent;
 
 		text-decoration: underline;
 
 		&:hover {
-			--fg: var(--primary-fg-hover)
+			--fg: var(--primary-bg-hover)
 		}
 	}
 

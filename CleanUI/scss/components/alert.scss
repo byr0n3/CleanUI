@@ -31,13 +31,13 @@
 	}
 
 	&.alert-primary {
-		--fg: var(--primary-contrast);
-		--bg: var(--primary-fg);
+		--fg: var(--primary-fg);
+		--bg: var(--primary-bg);
 	}
 
 	&.alert-secondary {
-		--fg: var(--secondary-contrast);
-		--bg: var(--secondary-fg);
+		--fg: var(--secondary-fg);
+		--bg: var(--secondary-bg);
 	}
 
 	& .alert-title {

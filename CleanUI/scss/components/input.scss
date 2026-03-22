@@ -1,4 +1,5 @@
 @use './button';
+@use '../constants';
 
 $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not([type='range'])";
 
@@ -70,7 +71,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 	}
 
 	&:focus {
-		--border-fg: var(--primary-fg);
+		--border-fg: var(--primary-bg);
 	}
 
 	&:disabled {
@@ -148,7 +149,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 }
 
 .input[type='checkbox'] {
-	--fg: var(--primary-fg);
+	--fg: var(--primary-bg);
 
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -260,7 +261,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 	&::before {
 		content: '';
 
-		background-color: var(--primary-fg);
+		background-color: var(--primary-bg);
 
 		width: calc(var(--size) / 2.5);
 		height: calc(var(--size) / 2.5);
@@ -373,8 +374,8 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 	}
 
 	&:checked {
-		background-color: var(--primary-fg);
-		border-color: var(--primary-fg);
+		background-color: var(--primary-bg);
+		border-color: var(--primary-bg);
 
 		&::before {
 			inset-inline-start: calc(100% - (var(--switch-handle-size) + var(--switch-padding)));
@@ -396,8 +397,8 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 		border-color: var(--border-fg-disabled);
 
 		&:checked {
-			background-color: var(--primary-fg-disabled);
-			border-color: var(--primary-fg-disabled);
+			background-color: var(--primary-bg-disabled);
+			border-color: var(--primary-bg-disabled);
 		}
 
 		&::before {
@@ -409,7 +410,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 .input-container:has(input[type='range']) {
 	& .input-prefix,
 	& .input-suffix {
-		vertical-align: -0.125em;
+		vertical-align: constants.$icon-vertical-align;
 		margin-inline-end: var(--spacing-xs);
 	}
 }
@@ -433,7 +434,7 @@ $deselector: ":not([type='checkbox']):not([type='file']):not([type='radio']):not
 		width: 1em;
 		height: 1em;
 
-		background-color: var(--primary-fg);
+		background-color: var(--primary-bg);
 
 		border: none;
 		border-radius: var(--border-radius-md);

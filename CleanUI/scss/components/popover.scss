@@ -3,7 +3,7 @@
 
 	position: absolute;
 	inset: unset;
-	bottom: calc(anchor(top) + var(--spacing));
+	inset-block-end: calc(anchor(top) + var(--spacing));
 
 	justify-self: anchor-center;
 
@@ -32,8 +32,8 @@
 	}
 
 	&.popover-bottom {
-		bottom: unset;
-		top: calc(anchor(bottom) + var(--spacing));
+		inset-block-end: unset;
+		inset-block-start: calc(anchor(bottom) + var(--spacing));
 
 		&:not(:popover-open) {
 			transform: translateY(-1em);
@@ -45,8 +45,8 @@
 	}
 
 	&.popover-right {
-		bottom: calc(anchor(end) + var(--spacing));
-		left: calc(anchor(right) + var(--spacing));
+		inset-block-end: calc(anchor(end) + var(--spacing));
+		inset-inline-start: calc(anchor(right) + var(--spacing));
 
 		&:not(:popover-open) {
 			transform: translateX(-1em);
@@ -58,8 +58,8 @@
 	}
 
 	&.popover-left {
-		bottom: calc(anchor(end) + var(--spacing));
-		right: calc(anchor(left) + var(--spacing));
+		inset-block-end: calc(anchor(end) + var(--spacing));
+		inset-inline-end: calc(anchor(left) + var(--spacing));
 
 		&:not(:popover-open) {
 			transform: translateX(1em);

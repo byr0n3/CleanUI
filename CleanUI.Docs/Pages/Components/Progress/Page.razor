@@ -1,0 +1,23 @@
+@page "/progress"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Progress</CleanPageTitle>
+
+<h1>Progress</h1>
+
+<Example TComponent="@(Basic)" />
+
+@code {
+
+	public static string Label =>
+		"Progress";
+
+	public static RenderFragment Icon =>
+		Icons.Progress;
+
+	public static string Href =>
+		"/progress";
+
+}

@@ -1,4 +1,6 @@
 @use './components/alert';
+@use './components/badge';
+@use './components/breadcrumbs';
 @use './components/button';
 @use './components/card';
 @use './components/combobox';
@@ -10,6 +12,7 @@
 @use './components/pagination';
 @use './components/popconfirm';
 @use './components/popover';
+@use './components/progress';
 @use './components/select';
 @use './components/skeleton';
 @use './components/spinner';

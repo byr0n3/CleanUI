@@ -31,7 +31,7 @@ body {
 body {
 	color: var(--body-fg);
 	background-color: var(--body-bg);
-	accent-color: var(--primary-fg);
+	accent-color: var(--primary-bg);
 }
 
 h1, h2 {
@@ -205,17 +205,17 @@ hr {
 }
 
 a[href] {
-	color: var(--primary-fg);
+	color: var(--primary-bg);
 	text-decoration: underline;
 	text-decoration-style: solid;
 	text-decoration-color: currentColor;
 
 	&:hover {
-		color: var(--primary-fg-hover);
+		color: var(--primary-bg-hover);
 	}
 
 	&:active {
-		color: var(--primary-fg-active);
+		color: var(--primary-bg-active);
 	}
 }
 
@@ -273,8 +273,8 @@ fieldset {
 fieldset legend {
 	margin: 0;
 	padding-block: 0;
-	padding-inline: 0.125em;
-	margin-inline-start: -0.125em;
+	padding-inline: var(--spacing-xs);
+	margin-inline-start: calc(-1 * var(--spacing-xs));
 	background-color: var(--body-bg);
 	font-weight: var(--font-weight-bold);
 }

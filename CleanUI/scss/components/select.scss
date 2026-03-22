@@ -148,8 +148,8 @@
 		&:checked {
 			font-weight: var(--font-weight-bold);
 
-			color: var(--primary-contrast);
-			background-color: var(--primary-fg);
+			color: var(--primary-fg);
+			background-color: var(--primary-bg);
 		}
 
 		&:hover,

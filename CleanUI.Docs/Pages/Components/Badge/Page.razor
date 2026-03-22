@@ -1,0 +1,25 @@
+@page "/badge"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Badge</CleanPageTitle>
+
+<h1>Badge</h1>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(Attached)" />
+
+@code {
+
+	public static string Label =>
+		"Badge";
+
+	public static RenderFragment Icon =>
+		Icons.Badge;
+
+	public static string Href =>
+		"/badge";
+
+}

@@ -1,7 +1,9 @@
+@use '../constants';
+
 .icon {
 	width: 1em;
 	height: 1em;
-	vertical-align: -0.125em;
+	vertical-align: constants.$icon-vertical-align;
 	fill: none;
 	stroke: currentColor;
 	stroke-linecap: round;

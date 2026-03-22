@@ -8,11 +8,19 @@ namespace CleanUI.Docs.Pages.Components.Skeleton
 		public static string Code =>
 			// language=razor
 			"""
-			<span class="skeleton skeleton-sm"></span>
-			<br/>
-			<span class="skeleton"></span>
-			<br/>
-			<span class="skeleton skeleton-lg"></span>
+			<span class="skeleton fg-primary"></span>
+			<br />
+			<span class="skeleton fg-secondary"></span>
+			<br />
+			<span class="skeleton fg-info"></span>
+			<br />
+			<span class="skeleton fg-success"></span>
+			<br />
+			<span class="skeleton fg-warning"></span>
+			<br />
+			<span class="skeleton fg-danger"></span>
+			<br />
+			<span class="skeleton fg-disabled"></span>
 			""";
 	}
 }

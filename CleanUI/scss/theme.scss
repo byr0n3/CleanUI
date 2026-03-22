@@ -1,15 +1,15 @@
 :root,
 html[data-theme=dark] {
-	--primary-fg: hsl(240, 100%, 60%);
-	--primary-fg-hover: hsl(240, 100%, 65%);
-	--primary-fg-active: hsl(240, 100%, 70%);
-	--primary-fg-disabled: hsl(240, 50%, 40%);
-	--primary-contrast: hsl(0, 0%, 95%);
+	--primary-bg: hsl(240, 100%, 60%);
+	--primary-bg-hover: hsl(240, 100%, 65%);
+	--primary-bg-active: hsl(240, 100%, 70%);
+	--primary-bg-disabled: hsl(240, 50%, 40%);
+	--primary-fg: hsl(0, 0%, 95%);
 
-	--secondary-fg: hsl(230, 80%, 60%);
-	--secondary-fg-hover: hsl(230, 80%, 65%);
-	--secondary-fg-active: hsl(230, 80%, 70%);
-	--secondary-contrast: hsl(0, 0%, 95%);
+	--secondary-bg: hsl(230, 80%, 60%);
+	--secondary-bg-hover: hsl(230, 80%, 65%);
+	--secondary-bg-active: hsl(230, 80%, 70%);
+	--secondary-fg: hsl(0, 0%, 95%);
 
 	--info-fg: var(--body-fg);
 	--info-bg: hsl(200, 80%, 30%);

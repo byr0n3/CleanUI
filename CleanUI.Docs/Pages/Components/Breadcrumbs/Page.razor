@@ -1,0 +1,25 @@
+@page "/breadcrumbs"
+@using CleanUI.Docs.Components
+@using CleanUI.Docs.Interfaces
+@implements IExamplePage
+
+<CleanPageTitle>Breadcrumbs</CleanPageTitle>
+
+<h1>Breadcrumbs</h1>
+
+<Example TComponent="@(Basic)" />
+
+<Example TComponent="@(CustomDivider)" />
+
+@code {
+
+	public static string Label =>
+		"Breadcrumbs";
+
+	public static RenderFragment Icon =>
+		Icons.Bread;
+
+	public static string Href =>
+		"/breadcrumbs";
+
+}

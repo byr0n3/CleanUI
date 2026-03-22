@@ -1,4 +1,6 @@
-$colors: (
+$colors: primary, secondary, info, success, warning, danger, disabled;
+
+$fg-colors: (
 		"primary": "fg",
 		"secondary": "fg",
 		"info": "bg",
@@ -8,8 +10,31 @@ $colors: (
 		"disabled": "bg",
 );
 
-@each $color, $type in $colors {
+$bg-colors: (
+		"primary": "bg",
+		"secondary": "bg",
+		"info": "bg",
+		"success": "bg",
+		"warning": "bg",
+		"danger": "bg",
+		"disabled": "bg",
+);
+
+@each $color in $colors {
 	.color-#{$color} {
+		color: var(--#{$color}-fg);
+		background-color: var(--#{$color}-bg);
+	}
+}
+
+@each $color, $type in $fg-colors {
+	.fg-#{$color} {
 		color: var(--#{$color}-#{$type});
+	}
+}
+
+@each $color, $type in $bg-colors {
+	.bg-#{$color} {
+		background-color: var(--#{$color}-#{$type});
 	}
 }
