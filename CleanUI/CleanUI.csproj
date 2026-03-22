@@ -10,12 +10,14 @@
 		<Description>A modern, clean and elegant UI library for Blazor/Razor.</Description>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageIconUrl>https://i.imgur.com/PsythwI.png</PackageIconUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="../icon.png" Pack="true" PackagePath=""/>
 		<None Include="../README.md" Pack="true" PackagePath=""/>
+		<None Include="../LICENSE.md" Pack="true" PackagePath=""/>
 
 		<!-- @todo Remove these files from package -->
 		<None Remove="sasscompiler.json,tsconfig.json"/>

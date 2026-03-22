@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/byr0n3/CleanUI/main/icon.png">
-</p>
+![CleanUI icon](https://raw.githubusercontent.com/byr0n3/CleanUI/main/icon.png)
 
 # CleanUI
 
