@@ -1,3 +1,5 @@
+![CleanUI icon](./icon.png)
+
 # CleanUI
 
 A modern, clean and elegant UI library for Blazor/Razor.

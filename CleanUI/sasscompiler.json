@@ -1,11 +1,23 @@
 {
-  "Source": "",
-  "Target": "wwwroot",
-  "Arguments": "--style=compressed --no-source-map",
-  "Compilations": [
-    { "Source": "scss/base.scss", "Target": "wwwroot/base.css" },
-	{ "Source": "scss/components.scss", "Target": "wwwroot/components.css" },
-	{ "Source": "scss/theme.scss", "Target": "wwwroot/theme.css" },
-	{ "Source": "scss/utilities.scss", "Target": "wwwroot/utilities.css" }
-  ]
+	"Source": "",
+	"Target": "wwwroot",
+	"Arguments": "--style=compressed --no-source-map",
+	"Compilations": [
+		{
+			"Source": "scss/base.scss",
+			"Target": "wwwroot/base.css"
+		},
+		{
+			"Source": "scss/components.scss",
+			"Target": "wwwroot/components.css"
+		},
+		{
+			"Source": "scss/theme.scss",
+			"Target": "wwwroot/theme.css"
+		},
+		{
+			"Source": "scss/utilities.scss",
+			"Target": "wwwroot/utilities.css"
+		}
+	]
 }

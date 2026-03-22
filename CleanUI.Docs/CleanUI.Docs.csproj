@@ -2,6 +2,9 @@
 
 	<PropertyGroup>
 		<BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+
+		<IsPackable>false</IsPackable>
+		<IsPublishable>true</IsPublishable>
 	</PropertyGroup>
 
 	<ItemGroup>

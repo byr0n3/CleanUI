@@ -4,6 +4,11 @@
 		<File Path="Directory.Build.props"/>
 		<File Path="NuGet.Config"/>
 		<File Path="README.md"/>
+		<File Path="icon.svg"/>
+		<File Path="icon.png"/>
+	</Folder>
+	<Folder Name="/GitHub Workflows/">
+		<File Path=".github/workflows/pack.yml"/>
 	</Folder>
 	<Folder Name="/Source Generators/">
 		<Project Path="CleanUI.SourceGenerator.Icons/CleanUI.SourceGenerator.Icons.csproj"/>
