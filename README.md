@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/byr0n3/CleanUI/main/icon.png">
+</p>
+
 # CleanUI
 
 A modern, clean and elegant UI library for Blazor/Razor.

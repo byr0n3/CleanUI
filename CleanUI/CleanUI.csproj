@@ -1,11 +1,34 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<IsPublishable>false</IsPublishable>
+
+		<PackageProjectUrl>https://github.com/byr0n3/CleanUI</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/byr0n3/CleanUI.git</RepositoryUrl>
+
+		<Description>A modern, clean and elegant UI library for Blazor/Razor.</Description>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIconUrl>https://i.imgur.com/PsythwI.png</PackageIconUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../icon.png" Pack="true" PackagePath=""/>
+		<None Include="../README.md" Pack="true" PackagePath=""/>
+
+		<!-- @todo Remove these files from package -->
+		<None Remove="sasscompiler.json,tsconfig.json"/>
+	</ItemGroup>
+
 	<ItemGroup>
 		<SupportedPlatform Include="browser"/>
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="../CleanUI.SourceGenerator.Icons/CleanUI.SourceGenerator.Icons.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+		<ProjectReference Include="../CleanUI.SourceGenerator.Icons/CleanUI.SourceGenerator.Icons.csproj"
+						  OutputItemType="Analyzer"
+						  ReferenceOutputAssembly="false"/>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -15,7 +38,7 @@
 		<PackageReference Include="Elegance.Enums" Version="$(EleganceVersion)"/>
 		<PackageReference Include="Elegance.Extensions" Version="$(EleganceVersion)"/>
 
-		<PackageReference Include="AspNetCore.SassCompiler" Version="1.97.1"/>
+		<PackageReference Include="AspNetCore.SassCompiler" Version="1.97.1" Condition=" '$(Configuration)' != 'Release' "/>
 		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.9.3">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -1,7 +1,6 @@
 <Project>
 
 	<PropertyGroup>
-		<Company>Byrone</Company>
 		<Authors>Byrone</Authors>
 
 		<TargetFramework>net10.0</TargetFramework>
@@ -15,7 +14,6 @@
 		<EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
 		<NoWarn>$(NoWarn);MA0016;MA0046;MA0048;MA0051;MA0003;CS0436;MA0038;MA0041;BL0008</NoWarn>
 
-		<IsPublishable>false</IsPublishable>
 		<EleganceVersion>0.6.1</EleganceVersion>
 	</PropertyGroup>
 
@@ -23,8 +21,8 @@
 		<PackageReference Include="AsyncFixer" Version="2.1.0" PrivateAssets="All"/>
 		<PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.8.2-beta.1" PrivateAssets="all"/>
 		<PackageReference Include="ErrorProne.NET.Structs" Version="0.6.1-beta.1" PrivateAssets="all"/>
-		<PackageReference Include="Meziantou.Analyzer" Version="3.0.19" PrivateAssets="all"/>
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.103" PrivateAssets="all"/>
+		<PackageReference Include="Meziantou.Analyzer" Version="3.0.26" PrivateAssets="all"/>
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.201" PrivateAssets="all"/>
 		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" PrivateAssets="all"/>
 		<PackageReference Include="Roslynator.Analyzers" Version="4.15.0" PrivateAssets="all"/>
 	</ItemGroup>
