@@ -18,6 +18,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Install tsc
+        run: npm install -g typescript@5.9.2
       - name: Set VERSION variable
         run: echo "VERSION=${GITHUB_REF/refs\/tags\/}" >> $GITHUB_ENV
       - name: Authenticate to GitHub registry (deps)

@@ -42,14 +42,14 @@
 
 		<!-- @todo Remove this package from output dependencies -->
 		<PackageReference Include="AspNetCore.SassCompiler" Version="1.97.1"/>
-		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.9.3">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
 		<AdditionalFiles Include="wwwroot/icons.svg"/>
 	</ItemGroup>
+
+	<Target Name="BuildTypeScriptAssets" BeforeTargets="BeforeBuild">
+		<Exec Command="tsc -p ./tsconfig.json"/>
+	</Target>
 
 </Project>
