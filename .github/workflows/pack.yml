@@ -24,6 +24,8 @@ jobs:
           node-version: 24
       - name: Install tsc
         run: npm install -g typescript@5.9.2
+      - name: Run tsc
+        run: tsc -p CleanUI/tsconfig.json
       - name: Set VERSION variable
         run: echo "VERSION=${GITHUB_REF/refs\/tags\/}" >> $GITHUB_ENV
       - name: Authenticate to GitHub registry (deps)
