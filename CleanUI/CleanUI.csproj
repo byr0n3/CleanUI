@@ -4,8 +4,8 @@
 		<IsPackable>true</IsPackable>
 		<IsPublishable>false</IsPublishable>
 
-		<PackageProjectUrl>https://github.com/byr0n3/CleanUI</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/byr0n3/CleanUI.git</RepositoryUrl>
+		<PackageProjectUrl>https://git.byrone.nl/byrone/CleanUI</PackageProjectUrl>
+		<RepositoryUrl>https://git.byrone.nl/byrone/CleanUI.git</RepositoryUrl>
 
 		<Description>A modern, clean and elegant UI library for Blazor/Razor.</Description>
 		<PackageIcon>icon.png</PackageIcon>

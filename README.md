@@ -1,4 +1,4 @@
-![CleanUI icon](https://raw.githubusercontent.com/byr0n3/CleanUI/main/icon.png)
+![CleanUI icon](https://git.byrone.nl/byrone/CleanUI/media/branch/main/icon.png)
 
 # CleanUI
 
